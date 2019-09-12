@@ -1,0 +1,45 @@
+.part-1
+{
+    width: 400px;
+    height: 250px;
+    border: 2px solid black;
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 400px;;
+    border-radius: 10px;
+}
+
+.part-2
+{
+    width: 400px;
+    height: 250px;
+    border: 2px solid black;
+    margin-top: 20px;
+    margin-left: 0px;
+    border-radius: 10px;
+}
+.parts
+{
+    display: inline-block;
+}
+.policy
+{
+    margin: 10px;
+    margin-left: 40px;
+}
+.policy h1{
+    text-align: center;
+    
+    padding: 10px;
+    border: 2px solid whitesmoke;
+    border-radius: 10px;
+    background-color: #7F7FE1;
+    box-shadow: 2px 2px 2px 2px;
+}
+.policy-1,.policy-2,.policy-3
+{
+ width: 40vw;
+ height: 25vh;
+ border: 5px solid black;   
+ border-radius: 5px;
+} 
