@@ -5,16 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Core/header/header.component';
 import { HomeComponent } from './Components/home/home.component';
-
+import { HttpClientModule} from '@angular/common/http';
+import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
