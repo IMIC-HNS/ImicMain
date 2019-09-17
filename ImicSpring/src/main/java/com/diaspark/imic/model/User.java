@@ -12,6 +12,7 @@ public class User {
 	
 	@Id
 	private ObjectId Id;
+	//private Long Id;
 	private String firstName;
 	private String lastName;
 	private String email;
