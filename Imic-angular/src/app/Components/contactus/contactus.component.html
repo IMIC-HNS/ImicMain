@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<div class="container-fluid">
+  <h2>
+    Contact us for policy
+  </h2>
+  <form #contactForm="ngForm">
+    <div class="form-group">
+      <label>First Name</label>
+      <input required minlength="3"  [(ngModel)]="contact.firstName" name="firstName" #firstName="ngModel" type="string" class="form-control"> 
+      <div *ngIf="firstName.invalid && 
+      firstName.touched">
+      <small class="text-danger" *ngIf="firstName.errors?.required" >first name is required</small>
+      <small class="text-danger" *ngIf="firstName.errors?.minlength" >first name must be atleast 3 characters</small> 
+    </div> 
+    </div>
+
+    <div class="form-group">
+      <label>Last Name</label>
+      <input required minlength="3"  [(ngModel)]="contact.lastName" name="lastName" #lastName="ngModel" type="string" class="form-control"> 
+      <div *ngIf="lastName.invalid && 
+      lastName.touched">
+      <small class="text-danger" *ngIf="lastName.errors?.required" >last name is required</small>
+      <small class="text-danger" *ngIf="lastName.errors?.minlength" >last name must be atleast 3 characters</small> 
+    </div> 
+    </div>
+
+    <div class="form-group">
+      <label>Email-id</label>
+      <input  required [(ngModel)]="contact.email" name="email" #email="ngModel" type="email" class="form-control"> 
+      <div *ngIf="email.invalid && 
+      email.touched">
+      <small class="text-danger" *ngIf="email.errors?.required" >emailid is required</small>
+      </div> 
+    </div>
+
+    <div class="form-group">
+      <label>Mobile-no.</label>
+      <input required maxlength="10" [(ngModel)]="contact.mobileNumber" name="mobileNumber" #mobileNumber='ngModel'  type="number" class="form-control"> 
+      <div *ngIf="mobileNumber.invalid && 
+      mobileNumber.touched">
+      <small class="text-danger" *ngIf="mobileNumber.errors?.required" >mobileno is required</small>
+      <small class="text-danger" *ngIf="mobileNumber.errors?.maxlength" >mobileno maximum length should be 10</small>
+    </div> 
+    </div>
+    
+    <div class="form-group">
+      <label>Policy</label>
+      <input  list="policyNumber" required [(ngModel)]="contact.policyNumber" name="policyNumber" #policyNumber='ngModel' type="string" class="form-control"> 
+      <datalist id="policyNumber">
+        <option value="1"></option>
+        <option value="2"></option>
+        <option value="3"></option>   
+        </datalist>
+      <div *ngIf="policyNumber.invalid && 
+      policyNumber.touched">
+      <small class="text-danger" *ngIf="policyNumber.errors?.required" >policy is required</small>
+    </div>    
+    </div>
+
+    <div class="form-group">
+      <label>City</label>
+      <input required [(ngModel)]="contact.city" name='city' list="city" #city='ngModel' type="string" class="form-control"> 
+        <datalist id="city">
+        <option value="Indore">
+        <option value="Gwalior">
+        <option value="Ratlam">
+        <option value="Bhopal">
+        <option value="Jabalpur">   
+        </datalist>
+        <div *ngIf="city.invalid && 
+         city.touched">
+      <small class="text-danger" *ngIf="city.errors?.required" >City is required</small>
+    </div> 
+  </div>
+
+    <button class="btn-btn-primary"(click)="createPolicyHolder()" type="submit">Register</button>
+  </form>
+</div>
+<p>
+  contactus-user works!
+</p>
