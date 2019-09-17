@@ -31,7 +31,9 @@ public class LoginServiceImpl implements LoginService {
 		
 		
 		User getUser=userRepository.findByEmail(loginUser.getEmail());
-		if((getUser!=null) && (getUser.getPassword().equals(((Integer)loginUser.getPassword().hashCode()).toString())))
+		if((getUser!=null) && (getUser.getPassword().equals(loginUser.getPassword())))
+
+		//if((getUser!=null) && (getUser.getPassword().equals(((Integer)loginUser.getPassword().hashCode()).toString())))
 		{	
 //			if(getUser.getPassword().equals(((Integer)loginUser.getPassword().hashCode()).toString()))
 //				{

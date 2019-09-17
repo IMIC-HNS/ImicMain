@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {  FormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Core/header/header.component';
@@ -10,6 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterPolicyholderComponent } from './Components/register-policyholder/register-policyholder.component';
 import { LoginComponent } from './Components/login/login.component';
+import { CommonModule } from '@angular/common';
+import { ContactusComponent } from './Components/contactus/contactus.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +20,15 @@ import { LoginComponent } from './Components/login/login.component';
     HomeComponent,
     RegisterAgentComponent,
     RegisterPolicyholderComponent,
-    LoginComponent  
+    LoginComponent,
+    ContactusComponent  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    CommonModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],
