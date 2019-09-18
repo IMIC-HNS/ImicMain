@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
-
+import { Component,OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Policy} from './policy';
+import { CommonService } from './common.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'Imic';
+export class AppComponent implements OnInit {
+  
+  constructor(private cs:CommonService) {
+    
+  } 
+  
+  
+  ngOnInit() {
+  }
 }
