@@ -24,7 +24,7 @@ export class LoginServiceService {
   .subscribe(
    res =>{
      console.log(res);
-   }
+   },
   )
    }
 

@@ -25,10 +25,12 @@ const routes: Routes = [
     }
   },
   {
+    path:'register-agent',
+    component:RegisterAgentComponent
+  },
+  {
     path:'admin-dashboard',
     component:AdminDashboardComponent
-
-
   },
   {
     path:'login',

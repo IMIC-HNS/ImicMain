@@ -1,4 +1,4 @@
-package com.diaspark.imic.services;
+package com.diaspark.imic.service;
 import com.diaspark.imic.model.*;
 import java.util.ArrayList;
 import java.util.List;

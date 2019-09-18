@@ -3,7 +3,7 @@
   <h2>
     Contact us for policy
   </h2>
-  <form #contactForm="ngForm">
+  <form>
     <div class="form-group">
       <label>First Name</label>
       <input required minlength="3"  [(ngModel)]="contact.firstName" name="firstName" #firstName="ngModel" type="string" class="form-control"> 
@@ -47,9 +47,9 @@
       <label>Policy</label>
       <input  list="policyNumber" required [(ngModel)]="contact.policyNumber" name="policyNumber" #policyNumber='ngModel' type="string" class="form-control"> 
       <datalist id="policyNumber">
-        <option value="1"></option>
-        <option value="2"></option>
-        <option value="3"></option>   
+        <option value="{{this.myPolicy[0].policyId}}">{{this.myPolicy[0].policyName}}</option>
+        <option value="{{this.myPolicy[1].policyId}}" label="{{this.myPolicy[0].policyName}}"></option>
+        <option value="{{this.myPolicy[2].policyId}}"></option>   
         </datalist>
       <div *ngIf="policyNumber.invalid && 
       policyNumber.touched">

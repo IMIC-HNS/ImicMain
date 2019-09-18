@@ -3,6 +3,8 @@
  */
 package com.diaspark.imic.service;
 
+import java.util.Base64;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,8 @@ import com.diaspark.imic.repository.UserRepository;
 //@Component
 public class RegisterService {
 	
+	
+	
 	@Autowired
 	UserRepository userRepository;
 
@@ -28,7 +32,7 @@ public class RegisterService {
 		User user = userRepository.findByEmail(agent.getEmail());
 		if(null == user)
 		{
-			agent.setPassword(((Integer)agent.getPassword().hashCode()).toString());
+			agent.updatePassword();
 			return userRepository.save(agent);
 		}
 		else
