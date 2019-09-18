@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './Components/home/home.component';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
+import { PolicyResolver } from './Core/policyresolver';
 const routes: Routes = [
   {
     path:'',
@@ -11,7 +12,10 @@ const routes: Routes = [
 
   {
     path:'home',
-    component:HomeComponent
+    component:HomeComponent,
+    resolve: {
+      status: PolicyResolver
+    }
   },
   {
     path:'admin-dashboard',

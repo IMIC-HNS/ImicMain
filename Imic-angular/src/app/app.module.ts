@@ -7,6 +7,7 @@ import { HeaderComponent } from './Core/header/header.component';
 import { HomeComponent } from './Components/home/home.component';
 import { HttpClientModule} from '@angular/common/http';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
+import { PolicyResolver } from './Core/policyresolver';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,9 @@ import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dash
     AppRoutingModule,
     HttpClientModule 
   ],
-  providers: [],
+  providers: [
+    PolicyResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
