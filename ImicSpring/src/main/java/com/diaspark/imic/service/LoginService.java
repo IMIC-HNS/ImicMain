@@ -7,7 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Component;
 
-import com.diaspark.imic.model.LoginUser;
+//import com.diaspark.imic.model.LoginUser;
 import com.diaspark.imic.model.User;
 
 /**
@@ -21,5 +21,5 @@ public interface LoginService {
 
 	
 
-	public User login(@Valid LoginUser loginUser);
+	public User login(@Valid User loginUser);
 }

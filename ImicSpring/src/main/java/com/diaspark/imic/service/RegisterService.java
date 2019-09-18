@@ -18,7 +18,7 @@ import com.diaspark.imic.repository.UserRepository;
  *
  */
 @Service
-@Component
+//@Component
 public class RegisterService {
 	
 	@Autowired

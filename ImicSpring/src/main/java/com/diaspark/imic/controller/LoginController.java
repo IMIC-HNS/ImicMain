@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.diaspark.imic.model.LoginUser;
+//import com.diaspark.imic.model.LoginUser;
 import com.diaspark.imic.model.User;
 import com.diaspark.imic.service.LoginService;
 import com.diaspark.imic.service.LoginServiceImpl;
@@ -33,7 +33,7 @@ public class LoginController {
 	//LoginServiceImpl loginServiceImpl;
 	
 	@PostMapping("/")
-	public User login(@RequestBody @Valid LoginUser loginUser) {
+	public User login(@RequestBody @Valid User loginUser) {
 		return loginService.login(loginUser);
 	}
 

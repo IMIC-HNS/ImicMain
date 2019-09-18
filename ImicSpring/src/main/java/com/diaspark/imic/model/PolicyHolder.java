@@ -14,6 +14,7 @@ import com.diaspark.imic.model.User;
  * @author SHIVANGI RAI
  *
  */
+@Document(collection = "users")
 public class PolicyHolder extends User{
 
 	private String mobileNumber;
@@ -23,13 +24,6 @@ public class PolicyHolder extends User{
 	private String address;
 	private Status status;
 	
-	
-	public Status getStatus() {
-		return status;
-	}
-	public void setStatus(Status status) {
-		this.status = status;
-	}
 	/**
 	 * @return the mobileNumber
 	 */
@@ -90,8 +84,20 @@ public class PolicyHolder extends User{
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	/**
+	 * @return the status
+	 */
+	public Status getStatus() {
+		return status;
+	}
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 
-
+	
 	
 	
 	
