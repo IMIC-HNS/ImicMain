@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Core/header/header.component';
 import { HomeComponent } from './Components/home/home.component';
+import { HttpClientModule} from '@angular/common/http';
+import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
+import { PolicyResolver } from './Core/policyresolver';
 import { RegisterAgentComponent } from './Components/register-agent/register-agent.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,20 +21,27 @@ import { ContactusComponent } from './Components/contactus/contactus.component';
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    RegisterAgentComponent,
+        AdminDashboardComponent,
+     RegisterAgentComponent,
     RegisterPolicyholderComponent,
     LoginComponent,
-    ContactusComponent  
+    ContactusComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+
+    HttpClientModule 
+  ],
+  providers: [
+    PolicyResolver
+
     ReactiveFormsModule,
     CommonModule,
     FormsModule,
     HttpClientModule
+
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
