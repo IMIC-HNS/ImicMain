@@ -1,8 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './Components/home/home.component';
+
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 import { PolicyResolver } from './Core/policyresolver';
+
+import { LoginComponent } from './Components/login/login.component';
+import { RegisterAgentComponent } from './Components/register-agent/register-agent.component';
+import { ContactusComponent } from './Components/contactus/contactus.component';
+
 const routes: Routes = [
   {
     path:'',
@@ -12,6 +18,7 @@ const routes: Routes = [
 
   {
     path:'home',
+
     component:HomeComponent,
     resolve: {
       status: PolicyResolver
@@ -20,6 +27,21 @@ const routes: Routes = [
   {
     path:'admin-dashboard',
     component:AdminDashboardComponent
+
+
+  },
+  {
+    path:'login',
+    component:LoginComponent
+  },
+  {
+    path:'registeragent',
+    component:RegisterAgentComponent
+  },
+  {
+    path:'contactus',
+    component:ContactusComponent
+
   }
 ];
 

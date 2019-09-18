@@ -22,6 +22,7 @@ public class PolicyHolder extends User{
 	private String policyNumber;
 	private String aadhar;
 	private String address;
+	private Status status;
 	
 	/**
 	 * @return the mobileNumber
@@ -83,8 +84,20 @@ public class PolicyHolder extends User{
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	/**
+	 * @return the status
+	 */
+	public Status getStatus() {
+		return status;
+	}
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 
-
+	
 	
 	
 	
