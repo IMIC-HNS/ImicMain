@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './Core/header/header.component';
 import { HomeComponent } from './Components/home/home.component';
 import { HttpClientModule} from '@angular/common/http';
-import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
+import { AdminDashboardComponent } from './Components/Dashboard/admin-dashboard/admin-dashboard.component';
 import { PolicyResolver } from './Core/policyresolver';
 import { RegisterAgentComponent } from './Components/register-agent/register-agent.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -15,6 +15,7 @@ import { RegisterPolicyholderComponent } from './Components/register-policyholde
 import { LoginComponent } from './Components/login/login.component';
 import { CommonModule } from '@angular/common';
 import { ContactusComponent } from './Components/contactus/contactus.component';
+import { AgentDashboardComponent } from './Components/Dashboard/agent-dashboard/agent-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ContactusComponent } from './Components/contactus/contactus.component';
      RegisterAgentComponent,
     RegisterPolicyholderComponent,
     LoginComponent,
-    ContactusComponent
+    ContactusComponent,
+    AgentDashboardComponent
   ],
   imports: [
     BrowserModule,

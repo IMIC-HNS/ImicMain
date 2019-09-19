@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './Components/home/home.component';
 
-import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
+import { AdminDashboardComponent } from './Components/Dashboard/admin-dashboard/admin-dashboard.component';
 import { PolicyResolver } from './Core/policyresolver';
 
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterAgentComponent } from './Components/register-agent/register-agent.component';
 import { ContactusComponent } from './Components/contactus/contactus.component';
+import { AgentDashboardComponent } from './Components/Dashboard/agent-dashboard/agent-dashboard.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path:'admin-dashboard',
     component:AdminDashboardComponent
+  },
+  {
+    path:'agent-dashboard',
+    component:AgentDashboardComponent
   },
   {
     path:'login',

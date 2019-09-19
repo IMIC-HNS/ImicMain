@@ -3,10 +3,15 @@
  */
 package com.diaspark.imic.repository;
 
+import java.util.List;
+
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Component;
 
+import com.diaspark.imic.model.PolicyHolder;
+import com.diaspark.imic.model.Type;
 import com.diaspark.imic.model.User;
 
 /**
@@ -14,7 +19,16 @@ import com.diaspark.imic.model.User;
  *
  */
 @Component
-public interface UserRepository extends MongoRepository<User, Long>{
+public interface UserRepository extends MongoRepository<User,ObjectId>{
+	
 	@Query
 	User findByEmail(String email);
+	
+	@Query
+	PolicyHolder findByType(Type type);
+	
+	@Query("{'$and':[{'city': ?0},{'type':?1}]}")
+	public List <PolicyHolder> findByCityAndPolicyHolder(String city, String policyHolder);
+//	("{'$and':[{'city': ?0},{'type':?1}]}")
+	
 }
