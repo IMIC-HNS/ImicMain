@@ -36,12 +36,12 @@ import { AgentDashboardComponent } from './Components/Dashboard/agent-dashboard/
     HttpClientModule ,
     FormsModule
   ],
-  providers: [
-    PolicyResolver,
 
     
+  providers: [
+    PolicyResolver,
+  
     CommonModule,
-    FormsModule,
     HttpClientModule
 
   ],

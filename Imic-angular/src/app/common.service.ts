@@ -14,6 +14,7 @@ export class CommonService {
    policyHoldersForAgent:any=[];
    loggedInUser : any = {};
   getPolicies()
+
   {
     return new Promise( (resolve, reject) => {
     this.api.get(this.policy_url). 
@@ -33,4 +34,20 @@ export class CommonService {
     
   }
 
+    getAgents()
+    {
+        this.http.get(this.agentUrl).
+        subscribe(
+          response=>this.agents=response,
+          error=>console.log(error)
+        );
+    }
+
+    getPolicyHolders()
+    {
+      this.http.get(this.policyHolderUrl).
+      subscribe(response=>this.policyHolders=response,
+        error=>console.log(error)
+        );
+    }
 }

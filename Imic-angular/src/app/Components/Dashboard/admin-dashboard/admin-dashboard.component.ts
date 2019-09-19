@@ -11,6 +11,12 @@ export class AdminDashboardComponent implements OnInit {
   constructor(private commonService:CommonService) { }
 
   ngOnInit() {
+    this.commonService.getAgents();
+    console.log(this.commonService.agents);
+
+    this.commonService.getPolicyHolders();
+    console.log(this.commonService.policyHolders);
+
   }
 
 }

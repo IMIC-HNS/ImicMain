@@ -12,11 +12,17 @@ import { CommonService } from 'src/app/common.service';
 export class ContactusComponent implements OnInit {
     
   private contact:ContactUs = new ContactUs("","","", "", "", "");
-  myPolicy=[];
+
   constructor(
-    private contactusService: ContactusService,private commonService:CommonService) {
-      this.myPolicy=commonService.myPolicy;
-   }
+
+
+
+
+
+    private contactusService: ContactusService,private commonService:CommonService
+  ) { }
+
+>>>>>>> origin/Admin
 
    
   ngOnInit() {
