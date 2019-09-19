@@ -10,7 +10,7 @@ import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dash
 import { PolicyResolver } from './Core/policyresolver';
 import { RegisterAgentComponent } from './Components/register-agent/register-agent.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+// import { HttpClientModule } from '@angular/common/http';
 import { RegisterPolicyholderComponent } from './Components/register-policyholder/register-policyholder.component';
 import { LoginComponent } from './Components/login/login.component';
 import { CommonModule } from '@angular/common';
@@ -30,15 +30,14 @@ import { ContactusComponent } from './Components/contactus/contactus.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-
-    HttpClientModule 
+    FormsModule,
+    HttpClientModule ,
+    ReactiveFormsModule,
   ],
   providers: [
-    PolicyResolver
-
-    ReactiveFormsModule,
+    PolicyResolver,
+  
     CommonModule,
-    FormsModule,
     HttpClientModule
 
   ],

@@ -8,8 +8,13 @@ export class CommonService {
 
   constructor(private http:HttpClient) { }
   private policy_url="http://localhost:8080/policies";
-   myPolicy:any=[];
-  getPolicies()
+  private agentUrl="http://localhost:8080/getAgents";
+  private policyHolderUrl="http://localhost:8080/getPolicyHolder";
+  myPolicy:any=[];
+   agents:any=[];
+   policyHolders:any=[];
+ 
+   getPolicies()
   {
     return new Promise( (resolve, reject) => {
     this.http.get(this.policy_url). 
@@ -29,4 +34,20 @@ export class CommonService {
     
   }
 
+    getAgents()
+    {
+        this.http.get(this.agentUrl).
+        subscribe(
+          response=>this.agents=response,
+          error=>console.log(error)
+        );
+    }
+
+    getPolicyHolders()
+    {
+      this.http.get(this.policyHolderUrl).
+      subscribe(response=>this.policyHolders=response,
+        error=>console.log(error)
+        );
+    }
 }

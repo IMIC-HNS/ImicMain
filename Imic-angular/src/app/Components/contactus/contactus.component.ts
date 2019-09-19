@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators } from "@angular/forms";
 import { ContactUs } from 'src/app/Components/contactus/contactus';
 import { ContactusService } from './contactus.service';
+import { CommonService } from 'src/app/common.service';
 
 @Component({
   selector: 'app-contactus',
@@ -13,7 +14,7 @@ export class ContactusComponent implements OnInit {
   private contact:ContactUs = new ContactUs("","","", "", "", "");
 
   constructor(
-    private contactusService: ContactusService
+    private contactusService: ContactusService,private commonService:CommonService
   ) { }
 
 

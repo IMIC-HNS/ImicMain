@@ -1,7 +1,7 @@
 
 <div class="sidebar">
-  <a class="active" href="#home">Dashboard</a>
-  <a href="#news">Add Agent</a>
+  <a class="active" [routerLink]="['/admin-dashboard']">Dashboard</a>
+  <a [routerLink]="['/register-agent']">Add Agent</a>
   <a href="">Requests For Policy</a>
   <a href="">Logout</a>
 </div>
@@ -11,22 +11,14 @@
   <div class="row">
     <div class="col-md-5 ">
     <h3>Agents</h3>
-    <ul class="list-group blue">
-        <li class="list-group-item disabled" aria-disabled="true">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
+    <ul class="list-group blue" *ngFor="let agent of this.commonService.agents">
+        <li class="list-group-item disabled">{{agent.firstName}}</li>
       </ul>
   </div>
   <div class="col-md-5">
       <h3>Policy Holders</h3>
-      <ul class="list-group list-group-item-info">
-          <li class="list-group-item disabled" aria-disabled="true">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
+      <ul class="list-group list-group-item-info" *ngFor="let policyHolder of this.commonService.policyHolders">
+          <li class="list-group-item">{{policyHolder.firstName}}</li>
         </ul>
     </div>
 </div>
