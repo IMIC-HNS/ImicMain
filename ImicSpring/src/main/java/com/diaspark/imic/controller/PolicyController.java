@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.diaspark.imic.model.Policy;
-import com.diaspark.imic.services.PolicyService;
+import com.diaspark.imic.service.PolicyService;
 
 @RestController 
 @CrossOrigin(origins = "*")

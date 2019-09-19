@@ -1,13 +1,14 @@
-package com.diaspark.imic.services;
+package com.diaspark.imic.service;
 import com.diaspark.imic.model.*;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 
 
-@Component
+@Service
 public class PolicyService {
 
 	public static List<Policy> policies = new ArrayList<>();
