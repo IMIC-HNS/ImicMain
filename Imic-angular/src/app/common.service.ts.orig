@@ -7,6 +7,7 @@ import { ApiService } from './Core/api.service';
   providedIn: 'root'
 })
 export class CommonService {
+<<<<<<< HEAD
  
   constructor(private api: ApiService) { }
   private policy_url="/policies";
@@ -14,7 +15,18 @@ export class CommonService {
    policyHoldersForAgent:any=[];
    loggedInUser : any = {};
   getPolicies()
+=======
 
+  constructor(private http:HttpClient) { }
+  private policy_url="http://localhost:8080/policies";
+  private agentUrl="http://localhost:8080/getAgents";
+  private policyHolderUrl="http://localhost:8080/getPolicyHolder";
+  myPolicy:any=[];
+   agents:any=[];
+   policyHolders:any=[];
+ 
+   getPolicies()
+>>>>>>> origin/Admin
   {
     return new Promise( (resolve, reject) => {
     this.api.get(this.policy_url). 
@@ -34,20 +46,20 @@ export class CommonService {
     
   }
 
-    // getAgents()
-    // {
-    //     this.http.get(this.agentUrl).
-    //     subscribe(
-    //       response=>this.agents=response,
-    //       error=>console.log(error)
-    //     );
-    // }
+    getAgents()
+    {
+        this.http.get(this.agentUrl).
+        subscribe(
+          response=>this.agents=response,
+          error=>console.log(error)
+        );
+    }
 
-    // getPolicyHolders()
-    // {
-    //   this.http.get(this.policyHolderUrl).
-    //   subscribe(response=>this.policyHolders=response,
-    //     error=>console.log(error)
-    //     );
-    // }
+    getPolicyHolders()
+    {
+      this.http.get(this.policyHolderUrl).
+      subscribe(response=>this.policyHolders=response,
+        error=>console.log(error)
+        );
+    }
 }

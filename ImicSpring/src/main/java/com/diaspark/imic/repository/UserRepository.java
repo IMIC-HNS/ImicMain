@@ -4,19 +4,14 @@
 package com.diaspark.imic.repository;
 
 import java.util.List;
+import java.util.Optional;
 
-<<<<<<< HEAD
 import org.bson.types.ObjectId;
-=======
->>>>>>> origin/Admin
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Component;
-
-<<<<<<< HEAD
 import com.diaspark.imic.model.PolicyHolder;
-=======
->>>>>>> origin/Admin
+
 import com.diaspark.imic.model.Type;
 import com.diaspark.imic.model.User;
 
@@ -29,17 +24,25 @@ public interface UserRepository extends MongoRepository<User,ObjectId>{
 	
 	@Query
 	User findByEmail(String email);
-<<<<<<< HEAD
+
 	
 	@Query
 	PolicyHolder findByType(Type type);
 	
 	@Query("{'$and':[{'city': ?0},{'type':?1}]}")
-	public List <PolicyHolder> findByCityAndPolicyHolder(String city, String policyHolder);
-//	("{'$and':[{'city': ?0},{'type':?1}]}")
-	
-=======
+	public List <PolicyHolder> findByCityAndPolicyHolder(String city, Type policyHolder);
 
-	List<User> findAllByType(Type type);
->>>>>>> origin/Admin
+	
+	@Query
+	List<PolicyHolder> findAllByType(Type policyholder);
+
+	@Query
+	User findUserById(ObjectId userId);
+
+	//@Query
+	//List<PolicyHolder> findAllPolicyHolders(Type policyholder);
+
+	//@Query("{'city':?0}")
+	//public List<PolicyHolder> findByCity(Type policyholder);
+
 }

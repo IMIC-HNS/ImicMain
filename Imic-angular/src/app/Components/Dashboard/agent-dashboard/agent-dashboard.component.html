@@ -1,15 +1,10 @@
-<p>
-  agent-dashboard works!
-</p>
-
-
 <div class="sidebar">
   <a class="active" [routerLink]="['/home']">Dashboard</a>
-  <a [routerLink]="['/register-agent']">LIST OF POLICYHOLDERS</a>
-  <a href="">CREATE FORM REQUEST</a>
+  <a [routerLink]="['/']">LIST OF POLICYHOLDERS</a>
+  <a [routerLink]="['/']">CREATE FORM REQUEST</a>
   <a href="">Logout</a>
-</div>
 
+</div>
 <!-- Page content -->
 <div class="content">
   <div class="row">
@@ -22,14 +17,6 @@
           <li>{{policyholder.firstName}}</li>
         </ul>
       </div>
-      <!-- <ul class="list-group list-group-item-info">
-          <li class="list-group-item disabled" aria-disabled="true">SHIVANGI RAI</li>
-          <li class="list-group-item">NISHI AGARWAL</li>
-          db.users.insert({"firstName":"shamee","lastName":"aziz","type":"POLICYHOLDER","email":"sa@gmail.com","city":"Indore"})
-          <li class="list-group-item">HIMANSHU KHATRI</li>
-          <li class="list-group-item">AKSHITA PANCHAL</li>
-          <li class="list-group-item">SHAMEEN AZIZ</li>
-        </ul> -->
   </div>
 </div>
 </div>

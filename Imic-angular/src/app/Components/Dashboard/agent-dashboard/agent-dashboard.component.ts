@@ -11,13 +11,16 @@ export class AgentDashboardComponent implements OnInit {
   constructor(private commonService:CommonService, private api: ApiService) { }
    policyHolders: any= [];
   ngOnInit() {
-    this.api.get("/dashboard/" + this.commonService.loggedInUser.id + "/policyHolders").
+    this.api.get("/dashboard/" +"5d8270378cbb47360cabcdf7" + "/policyHolders").
     subscribe(response=> { 
-      this.policyHolders = response
+      this.policyHolders = response;
+      console.log(response);
     }, error=>console.log(error)
   );
     console.log(this.policyHolders);
     }
   }
+  // this.api.get("/dashboard/" + this.commonService.loggedInUser.id + "/policyHolders").
+
 
 
