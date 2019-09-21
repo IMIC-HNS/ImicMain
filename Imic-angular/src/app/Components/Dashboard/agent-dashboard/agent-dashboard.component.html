@@ -1,0 +1,24 @@
+<div class="sidebar">
+  <a class="active" [routerLink]="['/home']">Dashboard</a>
+  <a [routerLink]="['/']">LIST OF POLICYHOLDERS</a>
+  <a [routerLink]="['/']">CREATE FORM REQUEST</a>
+  <a href="">Logout</a>
+
+</div>
+<!-- Page content -->
+<div class="content">
+  <div class="row">
+    <div class="col-md-5 ">
+  
+  <div class="col-md-5">
+      <h3>Policy Holders</h3>
+      <div *ngFor="let policyholder of this.policyHolders">
+        <ul>
+          <li>{{policyholder.firstName}}</li>
+        </ul>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+

@@ -32,15 +32,24 @@ import { AgentDashboardComponent } from './Components/Dashboard/agent-dashboard/
   imports: [
     BrowserModule,
     AppRoutingModule,
+<<<<<<< HEAD
     ReactiveFormsModule,
     HttpClientModule ,
     FormsModule
   ],
+  providers: [
+    PolicyResolver,
 
     
+=======
+    FormsModule,
+    HttpClientModule ,
+    ReactiveFormsModule,
+  ],
   providers: [
     PolicyResolver,
   
+>>>>>>> origin/Admin
     CommonModule,
     HttpClientModule
 

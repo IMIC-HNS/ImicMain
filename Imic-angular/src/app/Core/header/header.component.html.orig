@@ -22,11 +22,11 @@
             <a class="nav-link" href="#">About US</a>
           </li>
           <li class="nav-item">
-
-
-
+<<<<<<< HEAD
+            <a class="nav-link" [routerLink]="['/contactus']">Contact Us</a>
+=======
             <a class="nav-link" [routerLink]="['contact-us']">Contact Us</a>
-
+>>>>>>> origin/Admin
           </li>
         </ul>
       </div>

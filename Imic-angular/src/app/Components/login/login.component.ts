@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   submitted: boolean;
   // LoginServiceService: any;
   // _authService: any;
-
+//email:String;
   constructor(private formBuilder: FormBuilder, private routes: Router,
     private LoginServiceService:LoginServiceService
     
@@ -41,7 +41,12 @@ export class LoginComponent implements OnInit {
     //     error => console.log(error)
     //   );
 
+
     this.LoginServiceService.login(this.login.value)
+    // console.log(this.login.value)
+    // if((this.LoginServiceService.loggedInUser.){
+    
+   // }
 
 
   }

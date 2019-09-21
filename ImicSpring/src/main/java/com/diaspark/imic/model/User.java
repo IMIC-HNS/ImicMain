@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 	private String SALT = "IMIC";
 	@Id
-	private ObjectId Id;
+	private ObjectId id;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -24,14 +24,14 @@ public class User {
 	 * @return the id
 	 */
 	public ObjectId getId() {
-		return Id;
+		return this.id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(ObjectId id) {
-		Id = id;
+		this.id = id;
 	}
 
 	/**
