@@ -7,6 +7,7 @@ import { AdminDashboardComponent } from './Components/Dashboard/admin-dashboard/
 import { PolicyResolver } from './Core/policyresolver';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterAgentComponent } from './Components/register-agent/register-agent.component';
+import { RegisterPolicyholderComponent } from "./Components/register-policyholder/register-policyholder.component";
 import { ContactusComponent } from './Components/contactus/contactus.component';
 import { AgentDashboardComponent } from './Components/Dashboard/agent-dashboard/agent-dashboard.component';
 
@@ -47,6 +48,10 @@ const routes: Routes = [
     path:'contact-us',
     component:ContactusComponent
 
+  },
+  {
+    path:'registerpolicyholder',
+    component:RegisterPolicyholderComponent
   }
 ];
 

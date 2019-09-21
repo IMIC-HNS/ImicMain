@@ -26,7 +26,7 @@ export class CommonService {
       },
       error=> {
         console.log(error);
-        //reject(error);
+
       }
     )
     });
