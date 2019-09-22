@@ -15,6 +15,7 @@ import { RegisterPolicyholderComponent } from './Components/register-policyholde
 import { LoginComponent } from './Components/login/login.component';
 import { CommonModule } from '@angular/common';
 import { ContactusComponent } from './Components/contactus/contactus.component';
+import { PolicyRequestComponent } from './Components/policy-request/policy-request.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ContactusComponent } from './Components/contactus/contactus.component';
      RegisterAgentComponent,
     RegisterPolicyholderComponent,
     LoginComponent,
-    ContactusComponent
+    ContactusComponent,
+    PolicyRequestComponent
   ],
   imports: [
     BrowserModule,

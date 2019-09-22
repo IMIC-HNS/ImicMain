@@ -11,6 +11,7 @@ import { LoginServiceService } from '../../login-service.service';
 export class LoginComponent implements OnInit {
   login: FormGroup;
   submitted: boolean;
+  dashBoard:any;
   // LoginServiceService: any;
   // _authService: any;
 
@@ -41,7 +42,8 @@ export class LoginComponent implements OnInit {
     //     error => console.log(error)
     //   );
 
-    this.LoginServiceService.login(this.login.value)
+ this.dashBoard=this.LoginServiceService.login(this.login.value);
+console.log(this.dashBoard);
 
 
   }
