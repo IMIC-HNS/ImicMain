@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 export class ApiService {
   
   constructor(private http: HttpClient) {
+
    }
 
    get (url: string) {
@@ -22,4 +23,6 @@ export class ApiService {
   login(user: Login) {
     return this.http.post(environment.baseURL + '/login', user);
   }
+
 }
+

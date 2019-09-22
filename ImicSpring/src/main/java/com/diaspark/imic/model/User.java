@@ -1,15 +1,20 @@
 package com.diaspark.imic.model;
 
+
 import java.util.Base64;
 
 import javax.validation.constraints.Pattern;
+
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Document(collection="users")
+@JsonIgnoreProperties
 public class User {
 	private String SALT = "IMIC";
 	@Id
@@ -24,7 +29,9 @@ public class User {
 	 * @return the id
 	 */
 	public ObjectId getId() {
+
 		return this.id;
+
 	}
 
 	/**

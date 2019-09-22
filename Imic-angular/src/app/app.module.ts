@@ -15,7 +15,11 @@ import { RegisterPolicyholderComponent } from './Components/register-policyholde
 import { LoginComponent } from './Components/login/login.component';
 import { CommonModule } from '@angular/common';
 import { ContactusComponent } from './Components/contactus/contactus.component';
+
+import { PolicyRequestComponent } from './Components/policy-request/policy-request.component';
+
 import { AgentDashboardComponent } from './Components/Dashboard/agent-dashboard/agent-dashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { AgentDashboardComponent } from './Components/Dashboard/agent-dashboard/
     RegisterPolicyholderComponent,
     LoginComponent,
     ContactusComponent,
+
+    PolicyRequestComponent
+
     AgentDashboardComponent
+
   ],
   imports: [
     BrowserModule,

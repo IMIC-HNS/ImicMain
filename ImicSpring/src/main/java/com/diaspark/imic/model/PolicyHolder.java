@@ -124,8 +124,4 @@ public class PolicyHolder extends User{
 		this.claim = claim;
 	}
 
-	
-	
-	
-	
 }
