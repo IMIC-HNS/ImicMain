@@ -1,17 +1,18 @@
 package com.diaspark.imic.model;
 
-import javax.validation.constraints.Pattern;
-
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Document(collection="users")
+@JsonIgnoreProperties
 public class User {
 	
 	@Id
-	private ObjectId Id;
+	private ObjectId id;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -22,14 +23,14 @@ public class User {
 	 * @return the id
 	 */
 	public ObjectId getId() {
-		return Id;
+		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(ObjectId id) {
-		Id = id;
+		this.id = id;
 	}
 
 	/**

@@ -24,7 +24,7 @@ import com.diaspark.imic.service.RegisterService;
  *
  */
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="*")
 @RequestMapping("/register")
 @PermitAll
 public class RegisterController {

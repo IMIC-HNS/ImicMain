@@ -97,8 +97,4 @@ public class PolicyHolder extends User{
 		this.status = status;
 	}
 
-	
-	
-	
-	
 }
