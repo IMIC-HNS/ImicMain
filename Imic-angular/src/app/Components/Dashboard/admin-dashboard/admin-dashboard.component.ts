@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from 'src/app/common.service';
+import { ApiService } from 'src/app/Core/api.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -8,14 +9,14 @@ import { CommonService } from 'src/app/common.service';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor(private commonService:CommonService) { }
+  constructor(private apiService:ApiService) { }
 
   ngOnInit() {
-    this.commonService.getAgents();
-    console.log(this.commonService.agents);
+    this.apiService.get("/getphholders");
+    console.log(this.apiService.get);
 
-    this.commonService.getPolicyHolders();
-    console.log(this.commonService.policyHolders);
+    this.apiService.get("/hjghj");
+    console.log(this.apiService.get);
 
   }
 

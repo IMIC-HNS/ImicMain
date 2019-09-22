@@ -9,11 +9,12 @@ import { CommonService } from './common.service';
 })
 export class AppComponent implements OnInit {
   
-  constructor(private cs:CommonService) {
+  constructor(private commonService:CommonService) {
     
   } 
   
   
   ngOnInit() {
+    this.commonService.getPolicies();
   }
 }

@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   dashBoard:any;
   // LoginServiceService: any;
   // _authService: any;
-
+//email:String;
   constructor(private formBuilder: FormBuilder, private routes: Router,
     private LoginServiceService:LoginServiceService
     
@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
     //     response => console.log("data posted" + response),
     //     error => console.log(error)
     //   );
+
 
  this.dashBoard=this.LoginServiceService.login(this.login.value);
 console.log(this.dashBoard);

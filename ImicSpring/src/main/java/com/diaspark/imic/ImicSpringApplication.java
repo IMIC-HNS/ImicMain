@@ -29,6 +29,7 @@ public class ImicSpringApplication {
 		admin.setEmail("shivangi.rai@diaspark.com");
 		admin.setPassword("SHIVANGI");
 		admin.setType(Type.ADMIN);
+		admin.updatePassword();
 		userRepository.save(admin);
 	}
 

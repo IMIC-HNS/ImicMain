@@ -45,6 +45,14 @@
     
     <div class="form-group">
       <label>Policy</label>
+<<<<<<< HEAD
+      <input  list="policyNumber" required [(ngModel)]="contact.policyNumber" name="policyNumber" #policyNumber='ngModel' type="string" class="form-control"> 
+      <datalist id="policyNumber">
+        <option value="{{this.myPolicy[0].policyId}}">{{this.myPolicy[0].policyName}}</option>
+        <option value="{{this.myPolicy[1].policyId}}" label="{{this.myPolicy[0].policyName}}"></option>
+        <option value="{{this.myPolicy[2].policyId}}"></option>   
+        </datalist>
+=======
       <!-- <input  list="policyNumber" required [(ngModel)]="contact.policyNumber" name="policyNumber" #policyNumber='ngModel' type="string" class="form-control">  -->
       <select [(ngModel)]="contact.policyNumber" name="policyNumber" #policyNumber='ngModel' id="policyNumber"  class="form-control">
         <option *ngFor="let policy of this.commonService.myPolicy" value="{{policy.policyId}}">{{policy.description}}</option>
@@ -52,6 +60,7 @@
       <!-- <select id="policyNumber" *ngFor="let policy of this.commonService.myPolicy">
         <option value="{{policy.policyId}}">{{policy.description}}</option>
       </select> -->
+>>>>>>> origin/Admin
       <div *ngIf="policyNumber.invalid && 
       policyNumber.touched">
       <small class="text-danger" *ngIf="policyNumber.errors?.required" >policy is required</small>

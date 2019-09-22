@@ -1,5 +1,11 @@
 package com.diaspark.imic.model;
 
+
+import java.util.Base64;
+
+import javax.validation.constraints.Pattern;
+
+
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Document(collection="users")
 @JsonIgnoreProperties
 public class User {
-	
+	private String SALT = "IMIC";
 	@Id
 	private ObjectId id;
 	private String firstName;
@@ -23,7 +29,9 @@ public class User {
 	 * @return the id
 	 */
 	public ObjectId getId() {
-		return id;
+
+		return this.id;
+
 	}
 
 	/**
@@ -101,6 +109,10 @@ public class User {
 	 */
 	public void setType(Type type) {
 		this.type = type;
+	}
+	
+	public void updatePassword() {
+	 this.password =	Base64.getEncoder().encodeToString((this.password + "-" + SALT).getBytes());
 	}
 	
 	
