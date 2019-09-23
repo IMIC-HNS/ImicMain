@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.diaspark.imic.model.Agent;
-import com.diaspark.imic.model.PolicyHolder;
 import com.diaspark.imic.service.RegisterService;
 
 /**
@@ -24,7 +23,7 @@ import com.diaspark.imic.service.RegisterService;
  *
  */
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="*")
 @RequestMapping("/register")
 @PermitAll
 public class RegisterController {

@@ -13,19 +13,42 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import com.diaspark.imic.model.User;
 
 /**
- * @author SHIVANGI RAI
+ * @author Nishi agarwal
  *
  */
 @Document(collection = "users")
 public class PolicyHolder extends User{
-	private ObjectId agentId;
+
+	private ObjectId AgentId;
+
 	private String mobileNumber;
 	private String city;
 	private String policyNumber;
 	private String aadhar;
 	private String address;
 	private Status status;
-	private Claim claim;
+	private String dob;
+	private Nominee nominee;
+	
+		public ObjectId getAgentId() {
+		return AgentId;
+	}
+	public void setAgentId(ObjectId agentId) {
+		AgentId = agentId;
+	}
+	public Nominee getNominee() {
+		return nominee;
+	}
+	public void setNominee(Nominee nominee) {
+		this.nominee = nominee;
+	}
+	
+	public String getDob() {
+		return dob;
+	}
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
 	
 	/**
 	 * @return the mobileNumber
@@ -98,30 +121,6 @@ public class PolicyHolder extends User{
 	 */
 	public void setStatus(Status status) {
 		this.status = status;
-	}
-	/**
-	 * @return the agentId
-	 */
-	public ObjectId getAgentId() {
-		return agentId;
-	}
-	/**
-	 * @param agentId the agentId to set
-	 */
-	public void setAgentId(ObjectId agentId) {
-		this.agentId = agentId;
-	}
-	/**
-	 * @return the claim
-	 */
-	public Claim getClaim() {
-		return claim;
-	}
-	/**
-	 * @param claim the claim to set
-	 */
-	public void setClaim(Claim claim) {
-		this.claim = claim;
 	}
 
 	
