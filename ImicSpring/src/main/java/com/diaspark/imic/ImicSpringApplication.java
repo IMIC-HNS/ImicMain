@@ -9,8 +9,6 @@ import org.springframework.context.event.EventListener;
 
 import com.diaspark.imic.model.Admin;
 import com.diaspark.imic.model.Type;
-//import com.diaspark.imic.model.Admin;
-import com.diaspark.imic.model.User;
 import com.diaspark.imic.repository.UserRepository;
 
 @SpringBootApplication

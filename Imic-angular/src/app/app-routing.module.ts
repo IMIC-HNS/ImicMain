@@ -9,7 +9,11 @@ import { LoginComponent } from './Components/login/login.component';
 import { RegisterAgentComponent } from './Components/register-agent/register-agent.component';
 import { RegisterPolicyholderComponent } from "./Components/register-policyholder/register-policyholder.component";
 import { ContactusComponent } from './Components/contactus/contactus.component';
+
+import { PolicyRequestComponent } from './Components/policy-request/policy-request.component';
+
 import { AgentDashboardComponent } from './Components/Dashboard/agent-dashboard/agent-dashboard.component';
+
 
 const routes: Routes = [
   {
@@ -38,7 +42,7 @@ const routes: Routes = [
   },
   {
     path:'login',
-    component:LoginComponent
+    component:LoginComponent,
   },
   {
     path:'register-agent',
@@ -50,8 +54,13 @@ const routes: Routes = [
 
   },
   {
+
+    path:'policy-request',
+    component:PolicyRequestComponent
+
     path:'registerpolicyholder',
     component:RegisterPolicyholderComponent
+
   }
 ];
 

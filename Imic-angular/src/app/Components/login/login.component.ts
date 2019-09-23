@@ -11,6 +11,7 @@ import { LoginServiceService } from '../../login-service.service';
 export class LoginComponent implements OnInit {
   login: FormGroup;
   submitted: boolean;
+  dashBoard:any;
   // LoginServiceService: any;
   // _authService: any;
 //email:String;
@@ -42,11 +43,8 @@ export class LoginComponent implements OnInit {
     //   );
 
 
-    this.LoginServiceService.login(this.login.value)
-    // console.log(this.login.value)
-    // if((this.LoginServiceService.loggedInUser.){
-    
-   // }
+ this.dashBoard=this.LoginServiceService.login(this.login.value);
+console.log(this.dashBoard);
 
 
   }

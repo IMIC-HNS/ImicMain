@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import com.diaspark.imic.model.Type;
 //import com.diaspark.imic.model.LoginUser;
 import com.diaspark.imic.model.User;
 import com.diaspark.imic.repository.UserRepository;
@@ -31,6 +32,13 @@ public class LoginServiceImpl implements LoginService {
 	public User login(User loginUser) {
 		
 		
+
+		User getUser=userRepository.findByEmail(loginUser.getEmail());
+		
+		if((getUser!=null) && (getUser.getPassword().equals(loginUser.getPassword())))
+		{	
+			return getUser;
+
 		User foundUser=userRepository.findByEmail(loginUser.getEmail());
 		String password = Base64.base64Decode(foundUser.getPassword());
 		if((foundUser!=null) && (password.split("-")[0].equals(loginUser.getPassword())))
@@ -43,8 +51,9 @@ public class LoginServiceImpl implements LoginService {
 					return foundUser;
 					
 //				}
+
 		}
-			else
+		else
 		{
 			return null;
 		}
