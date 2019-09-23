@@ -10,3 +10,4 @@ describe('PolicyholderregistrationService', () => {
     expect(service).toBeTruthy();
   });
 });
+

@@ -32,7 +32,7 @@ import { AgentDashboardComponent } from './Components/Dashboard/agent-dashboard/
     LoginComponent,
     ContactusComponent,
 
-    PolicyRequestComponent
+    PolicyRequestComponent,
 
     AgentDashboardComponent
 

@@ -31,25 +31,27 @@ public interface UserRepository extends MongoRepository<User, ObjectId>{
 	@Query
 	User findByEmail(String email);
 
+	@Query
 	List<User> findAllByType(Type type);
 	
 	@Query("{status:?0}")
 	List<PolicyHolder> findByStatus(Status s);
 
 	
-	@Query
-	User findByEmail(String email);
+	
+//	@Query
+//	User findByEmail(String email);
 
 	
-	@Query
-	PolicyHolder findByType(Type type);
+//	@Query
+//	PolicyHolder findByType(Type type);
 	
 	@Query("{'$and':[{'city': ?0},{'type':?1}]}")
 	public List <PolicyHolder> findByCityAndPolicyHolder(String city, Type policyHolder);
 
 	
-	@Query
-	List<PolicyHolder> findAllByType(Type policyholder);
+	@Query("{'type':?0}")
+	List<PolicyHolder> findAllByTypes(Type policyholder);
 
 	@Query
 	User findUserById(ObjectId userId);

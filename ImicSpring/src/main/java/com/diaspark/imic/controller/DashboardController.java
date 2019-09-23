@@ -49,19 +49,19 @@ public class DashboardController {
 	@GetMapping(value="getPolicyHolder")
 	public List<User> getPolicyHolder()
 	{
-		return dashboard.providePolicyHolders(Type.POLICYHOLDER);
+		return dashboardService.providePolicyHolders(Type.POLICYHOLDER);
 	}
 	
 	@GetMapping(value="getByStatus")
 	public List<PolicyHolder> getPolicyHolderByStatus()
 	{
-		return dashboard.providePolicyHolder(Status.SUBMITTED);
+		return dashboardService.providePolicyHolder(Status.SUBMITTED);
 	}
 	
 	@PostMapping(value="decision/{userId}")
 	public PolicyHolder changeStatus(@PathVariable("userId") ObjectId userId,@RequestParam("status") Status decided)
 	{
-		return dashboard.updateUser(decided, userId);
+		return dashboardService.updateUser(decided, userId);
 		
 	}
 }

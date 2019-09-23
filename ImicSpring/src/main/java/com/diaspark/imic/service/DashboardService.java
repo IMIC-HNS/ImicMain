@@ -30,36 +30,31 @@ public class DashboardService {
 	@Autowired
 	UserRepository userRepository;
 	
-	public List<PolicyHolder> policyHolders(ObjectId userId)
-			
-	
-
 	public List<User> providePolicyHolders(Type type)
 	{
 		return userRepository.findAllByType(type);
 	}
 
 	public List<PolicyHolder> providePolicyHolder(Status submitted) {
-		// TODO Auto-generated method stub
-//		submitted=Status.REQUESTED;
 		return userRepository.findByStatus(submitted);
 	}
 
 	public PolicyHolder updateUser(Status decided, ObjectId userId) {
-		// TODO Auto-generated method stub
-		
+	
 		PolicyHolder user = (PolicyHolder)(userRepository.findById(userId).get());
 		user.setStatus(decided);
 		return user;
 	}
 
-					{
+	public List<PolicyHolder> policyHolders(ObjectId userId)
+		{
 					User founduserbyid= userRepository.findUserById(userId); 
 					
 					if(founduserbyid.getType().equals(Type.ADMIN))
 					{
-						return userRepository.findAllByType(Type.POLICYHOLDER);			
-					}		
+						return userRepository.findAllByTypes(Type.POLICYHOLDER);			
+					}	
+					
 					else if(founduserbyid.getType().equals(Type.AGENT))
 					{
 						

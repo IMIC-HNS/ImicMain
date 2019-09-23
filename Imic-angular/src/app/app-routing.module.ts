@@ -57,7 +57,8 @@ const routes: Routes = [
 
     path:'policy-request',
     component:PolicyRequestComponent
-
+  },
+  {
     path:'registerpolicyholder',
     component:RegisterPolicyholderComponent
 
