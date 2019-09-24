@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonService } from 'src/app/common.service';
+import { CommonService } from 'src/app/Core/common.service';
 import { ApiService } from 'src/app/Core/api.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class AgentDashboardComponent implements OnInit {
   constructor(private commonService:CommonService, private api: ApiService) { }
    policyHolders: any= [];
   ngOnInit() {
-    this.api.get("/dashboard/" +"5d8270378cbb47360cabcdf7" + "/policyHolders").
+    this.api.get("/dashboard/" + this.commonService.loggedInUser.id + "/policyHolders").
     subscribe(response=> { 
       this.policyHolders = response;
       console.log(response);

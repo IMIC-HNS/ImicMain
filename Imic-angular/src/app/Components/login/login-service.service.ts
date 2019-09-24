@@ -4,8 +4,8 @@ import { FormGroup } from '@angular/forms';
 
 import { Router, ActivatedRoute } from '@angular/router'
 
-import { ApiService } from './Core/api.service';
-import { CommonService } from './common.service';
+import { ApiService } from '../../Core/api.service';
+import { CommonService } from '../../Core/common.service';
 
 @Injectable({
   providedIn: 'root'

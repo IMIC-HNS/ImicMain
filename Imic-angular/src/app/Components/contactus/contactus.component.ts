@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators } from "@angular/forms";
 import { ContactUs } from 'src/app/Components/contactus/contactus';
 import { ContactusService } from './contactus.service';
-import { CommonService } from 'src/app/common.service';
+import { CommonService } from 'src/app/Core/common.service';
 
 @Component({
   selector: 'app-contactus',

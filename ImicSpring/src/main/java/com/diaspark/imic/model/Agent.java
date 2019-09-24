@@ -1,5 +1,11 @@
 package com.diaspark.imic.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+
 //import javax.validation.constraints.NotEmpty;
 
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -12,6 +18,9 @@ public class Agent extends User{
 	private String mobileNumber;
 	private String city;
 	private String dateOfBirth;
+	
+	@DBRef(lazy = true)
+	private List<PolicyHolder> policyHolders = new ArrayList();
 	
 	/**
 	 * @return the mobileNumber
@@ -50,5 +59,17 @@ public class Agent extends User{
 	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
+	/**
+	 * @return the policyHolders
+	 */
+	public List<PolicyHolder> getPolicyHolders() {
+		return policyHolders;
+	}
+	
+	public void addPolicyHolder(PolicyHolder policyHolder) {
+		this.policyHolders.add(policyHolder);
+	}
+	
+	
 	
 }

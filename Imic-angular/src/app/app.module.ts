@@ -8,10 +8,10 @@ import { HomeComponent } from './Components/home/home.component';
 import { HttpClientModule} from '@angular/common/http';
 import { AdminDashboardComponent } from './Components/Dashboard/admin-dashboard/admin-dashboard.component';
 import { PolicyResolver } from './Core/policyresolver';
-import { RegisterAgentComponent } from './Components/register-agent/register-agent.component';
+import { RegisterAgentComponent } from './Components/Register/register-agent/register-agent.component';
 import { ReactiveFormsModule } from '@angular/forms';
 // import { HttpClientModule } from '@angular/common/http';
-import { RegisterPolicyholderComponent } from './Components/register-policyholder/register-policyholder.component';
+import { RegisterPolicyholderComponent } from './Components/Register/register-policyholder/register-policyholder.component';
 import { LoginComponent } from './Components/login/login.component';
 import { CommonModule } from '@angular/common';
 import { ContactusComponent } from './Components/contactus/contactus.component';
@@ -19,6 +19,8 @@ import { ContactusComponent } from './Components/contactus/contactus.component';
 import { PolicyRequestComponent } from './Components/policy-request/policy-request.component';
 
 import { AgentDashboardComponent } from './Components/Dashboard/agent-dashboard/agent-dashboard.component';
+import { PolicyholderDashboardComponent } from './Components/Dashboard/policyholder-dashboard/policyholder-dashboard.component';
+import { ProfileComponent } from './Components/Dashboard/profile/profile.component';
 
 
 @NgModule({
@@ -34,7 +36,11 @@ import { AgentDashboardComponent } from './Components/Dashboard/agent-dashboard/
 
     PolicyRequestComponent,
 
-    AgentDashboardComponent
+    AgentDashboardComponent,
+
+    PolicyholderDashboardComponent,
+
+    ProfileComponent
 
   ],
   imports: [

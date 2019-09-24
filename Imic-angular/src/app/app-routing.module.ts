@@ -6,13 +6,15 @@ import { HomeComponent } from './Components/home/home.component';
 import { AdminDashboardComponent } from './Components/Dashboard/admin-dashboard/admin-dashboard.component';
 import { PolicyResolver } from './Core/policyresolver';
 import { LoginComponent } from './Components/login/login.component';
-import { RegisterAgentComponent } from './Components/register-agent/register-agent.component';
-import { RegisterPolicyholderComponent } from "./Components/register-policyholder/register-policyholder.component";
+import { RegisterAgentComponent } from './Components/Register/register-agent/register-agent.component';
+import { RegisterPolicyholderComponent } from "./Components/Register/register-policyholder/register-policyholder.component";
 import { ContactusComponent } from './Components/contactus/contactus.component';
 
 import { PolicyRequestComponent } from './Components/policy-request/policy-request.component';
 
 import { AgentDashboardComponent } from './Components/Dashboard/agent-dashboard/agent-dashboard.component';
+import { PolicyholderDashboardComponent } from './Components/Dashboard/policyholder-dashboard/policyholder-dashboard.component';
+import { ProfileComponent } from './Components/Dashboard/profile/profile.component';
 
 
 const routes: Routes = [
@@ -39,6 +41,14 @@ const routes: Routes = [
   {
     path:'agent-dashboard',
     component:AgentDashboardComponent
+  },
+  {
+    path:'policyholder-dashboard',
+    component:PolicyholderDashboardComponent
+  },
+  {
+    path:'profile',
+    component:ProfileComponent
   },
   {
     path:'login',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonService } from 'src/app/common.service';
+import { CommonService } from 'src/app/Core/common.service';
 import { ApiService } from 'src/app/Core/api.service';
 
 @Component({

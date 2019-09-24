@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.diaspark.imic.model.PolicyHolder;
 import com.diaspark.imic.model.User;
 import com.diaspark.imic.service.UserDetailService;
 
@@ -26,4 +27,5 @@ public class UserDetail {
 	{
 		return userDetail.getUserDetails(userId, isEncoded);
 	}
+	
 }

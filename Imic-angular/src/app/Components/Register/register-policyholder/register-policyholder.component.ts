@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators,FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { PolicyholderregistrationService } from "src/app/policyholderregistration.service";
+import { PolicyholderregistrationService } from "src/app/Components/Register/register-policyholder/policyholderregistration.service";
 import { HttpClient } from '@angular/common/http';
 import { RegisterPolicyholder } from './register-policyholder';
 import { Observable } from 'rxjs/internal/Observable';
-import { CommonService } from 'src/app/common.service';
+import { CommonService } from 'src/app/Core/common.service';
 
 @Component({
   selector: 'app-register-policyholder',

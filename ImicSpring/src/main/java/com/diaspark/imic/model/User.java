@@ -18,7 +18,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties
 @Component
 public class User {
-	private String SALT = "IMIC";
+	
+	private static transient String SALT = "IMIC";
 	@Id
 	private ObjectId id;
 	private String firstName;

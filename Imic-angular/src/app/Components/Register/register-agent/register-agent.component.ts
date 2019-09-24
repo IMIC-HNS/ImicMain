@@ -3,7 +3,7 @@ import { FormBuilder, Validators,  FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 //import { HttpClient } from '@angular/common/http';
-import { AgentregistrationServiceService } from 'src/app/agentregistration-service.service';
+import { AgentregistrationServiceService } from 'src/app/Components/Register/register-agent/agentregistration-service.service';
 
 @Component({
   selector: 'app-register-agent',
