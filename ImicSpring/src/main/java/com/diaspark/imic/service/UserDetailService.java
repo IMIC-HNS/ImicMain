@@ -15,8 +15,11 @@ public class UserDetailService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	public Optional<User> getUserDetails(ObjectId userId)
+	public Optional<User> getUserDetails(ObjectId userId, boolean isEncoded)
 	{
+		if(isEncoded) {
+			userId = null;//decode id
+		}
 		return userRepository.findById(userId);
 		
 	}

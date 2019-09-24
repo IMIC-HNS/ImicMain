@@ -9,12 +9,14 @@ import javax.validation.constraints.Pattern;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Document(collection="users")
 @JsonIgnoreProperties
+@Component
 public class User {
 	private String SALT = "IMIC";
 	@Id
@@ -28,9 +30,9 @@ public class User {
 	/**
 	 * @return the id
 	 */
-	public ObjectId getId() {
+	public String getId() {
 
-		return this.id;
+		return this.id.toHexString();
 
 	}
 
@@ -114,6 +116,17 @@ public class User {
 	public void updatePassword() {
 	 this.password =	Base64.getEncoder().encodeToString((this.password + "-" + SALT).getBytes());
 	}
+	
+	public ObjectId getObjectId(String id) {
+		return new ObjectId(id);
+	}
+
+	@Override
+	public String toString() {
+		return "User [SALT=" + SALT + ", id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
+				+ email + ", password=" + password + ", type=" + type + "]";
+	}
+	
 	
 	
 

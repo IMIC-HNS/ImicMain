@@ -35,15 +35,23 @@ public class DashboardService {
 		return userRepository.findAllByType(type);
 	}
 
+	public List<User> provideAgents(Type type)
+	{
+		return userRepository.findAllByType(type);
+		
+	}
+	
+	
 	public List<PolicyHolder> providePolicyHolder(Status submitted) {
 		return userRepository.findByStatus(submitted);
 	}
 
 	public PolicyHolder updateUser(Status decided, ObjectId userId) {
 	
-		PolicyHolder user = (PolicyHolder)(userRepository.findById(userId).get());
+		PolicyHolder user = (userRepository.findPolicyHolderById(userId));
 		user.setStatus(decided);
-		return user;
+		userRepository.save(user);
+		return userRepository.findPolicyHolderById(userId);
 	}
 
 	public List<PolicyHolder> policyHolders(ObjectId userId)

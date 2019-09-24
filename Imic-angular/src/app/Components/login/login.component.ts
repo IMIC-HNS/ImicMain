@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
     //     error => console.log(error)
     //   );
 
-
+console.log(this.login.value);
  this.dashBoard=this.LoginServiceService.login(this.login.value);
 console.log(this.dashBoard);
 

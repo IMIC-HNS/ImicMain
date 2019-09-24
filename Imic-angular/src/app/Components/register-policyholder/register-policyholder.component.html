@@ -1,6 +1,4 @@
-<p>
-  register-policyholder works!
-</p>
+
 
 <div class="container-fluid" id="form">
   <div class="card m-3">
@@ -10,14 +8,14 @@
               <div class="form-row"></div>
                   <div class="form-group">
                       <label>First Name</label>
-                      <input required type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                      <input required type="text" formControlName="firstName" [(ngModel)]="this.policyHolder.firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
                       <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
                           <div *ngIf="f.firstName.errors.required">First Name is required</div>
                       </div>
                   </div>
                   <div class="form-group">
                       <label>Last Name</label>
-                      <input required type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                      <input required type="text" formControlName="lastName" [(ngModel)]="this.policyHolder.lastName" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
                       <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
                           <div *ngIf="f.lastName.errors.required">Last Name is required</div>
                       </div>
@@ -25,7 +23,7 @@
               
               <div class="form-group">
                   <label>Email-Id</label>
-                  <input required type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                  <input required type="text" formControlName="email" [(ngModel)]="this.policyHolder.email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
                   <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                       <div *ngIf="f.email.errors.required">Email is required</div>
                       <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
@@ -33,7 +31,7 @@
               </div>
               <div class="form-group">
                   <label>Mobile-no</label>
-                  <input required type="number" formControlName="mobileNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobileNumber.errors }" />
+                  <input required type="number" formControlName="mobileNumber" [(ngModel)]="this.policyHolder.mobileNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobileNumber.errors }" />
                   <div *ngIf="submitted && f.mobileNumber.errors" class="invalid-feedback">
                       <div *ngIf="f.mobileNumber.errors.required">mobile-no is required</div>
                       <div *ngIf="f.mobileNumber.errors.minlength">mobile-no must be a valid </div>
@@ -42,14 +40,10 @@
               
               <div class="form-group">
                   <label>Policy</label>
-                  <select formControlName="policyNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.policyNumber.errors }">
-                      <option>policy 1</option>
-                      <option>policy 2</option>
-                      <option>policy 3</option>
-                      <!-- <option value="{{this.myPolicy[0].policyId}}">policies[0]</option>
-                      <option value="{{this.myPolicy[1].policyId}}">policies[1]</option>
-                      <option value="{{this.myPolicy[2].policyId}}">policies[2]</option> -->
-                  </select>
+                  <!-- <input type="text" [(ngModel)]="this.policyHolder.policyNumber"> -->
+                  <!-- <select formControlName="policyNumber" [(ngModel)]="registerpolicyholder.policyNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.policyNumber.errors }">
+                        <option *ngFor="let policy of this.commonService.myPolicy" value="{{policy.policyId}}">{{policy.description}}</option>
+                  </select> -->
                   <div *ngIf="submitted && f.policyNumber.errors" class="invalid-feedback">
                       <div *ngIf="f.policyNumber?.errors.required">Title is required</div>
                   </div>
@@ -57,7 +51,7 @@
 
              <div class="form-group">
                 <label>City</label>
-                <select id="city" type="text" formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+                <select id="city" type="text" formControlName="city" [(ngModel)]="registerpolicyholder.city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
                     <option value="Indore">Indore</option>
                     <option value="Gwalior">Gwalior</option>
                     <option value="Ratlam">Ratlam</option>
@@ -70,7 +64,7 @@
            
              <div class="form-group">
                 <label>Adhar-no</label>
-                <input required type="text" formControlName="aadhar" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.aadhar.errors }" />
+                <input [required]="!this.isAgent" type="text" formControlName="aadhar" [(ngModel)]="registerpolicyholder.aadhar" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.aadhar.errors }" />
                 <div *ngIf="submitted && f.aadhar.errors" class="invalid-feedback">
                     <div *ngIf="f.aadhar.errors.required">Adhar-no is required</div>
                 </div>
@@ -78,7 +72,7 @@
 
             <div class="form-group">
                 <label>Date of birth</label>
-                <input required type="date" formControlName="dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" />
+                <input [required]="!this.isAgent" type="date" formControlName="dob" [(ngModel)]="registerpolicyholder.dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" />
                 <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
                     <div *ngIf="f.dob.errors.required">dob is required</div>
                 </div>
@@ -87,7 +81,7 @@
             
             <div class="form-group">
                 <label>Add aadhar document</label>
-                <input required type="file" formControlName="aadhardoc" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.aadhardoc.errors }" />
+                <input [required]="!this.isAgent" type="file" formControlName="aadhardoc"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.aadhardoc.errors }" />
                 <div *ngIf="submitted && f.aadhardoc.errors" class="invalid-feedback">
                     <div *ngIf="f.aadhardoc.errors.required">Aadhar document is required</div>
                 </div>
@@ -96,28 +90,28 @@
               <label>Nominee:</label>
               <div class="form-group">
                     <label>Nominee name</label>
-                    <input required type="text" formControlName="nomine" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nomine.errors }" />
+                    <input [required]="!this.isAgent" type="text" formControlName="nomine" [(ngModel)]="registerpolicyholder.nomine" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nomine.errors }" />
                     <div *ngIf="submitted && f.nomine.errors" class="invalid-feedback">
                         <div *ngIf="f.nomine.errors.required">Name is required</div>
                     </div>
                 </div>
                 <div class="form-group">
                         <label>Nominee Relation</label>
-                        <input required type="text" formControlName="relation" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.relation.errors }" />
+                        <input [required]="!this.isAgent" type="text" formControlName="relation" [(ngModel)]="registerpolicyholder.relation" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.relation.errors }" />
                         <div *ngIf="submitted && f.relation.errors" class="invalid-feedback">
                             <div *ngIf="f.relation.errors.required">relation is required</div>
                         </div>
                 </div>
                     <div class="form-group">
                             <label>Nominee Aadhar-no</label>
-                            <input required type="text" formControlName="aadharno" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.aadharno.errors }" />
+                            <input [required]="!this.isAgent" type="text" formControlName="aadharno" [(ngModel)]="registerpolicyholder.aadharno" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.aadharno.errors }" />
                             <div *ngIf="submitted && f.aadharno.errors" class="invalid-feedback">
                                 <div *ngIf="f.aadharno.errors.required">aadharno is required</div>
                             </div>
                     </div>
 
               <div class="text-center">
-                  <button class="btn btn-primary mr-1">Register</button>
+                  <button class="btn btn-primary mr-1" (click)="sendMail()">Register</button>
               </div>
           </form>
       </div>

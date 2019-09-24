@@ -44,6 +44,12 @@ public class DashboardController {
 		
 		
 	}
+	
+	@GetMapping(value="getAgents")
+	public List<User> getAgent()
+	{
+		return dashboardService.provideAgents(Type.AGENT);
+	}
 
 	
 	@GetMapping(value="getPolicyHolder")

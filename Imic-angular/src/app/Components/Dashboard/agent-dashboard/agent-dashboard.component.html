@@ -15,7 +15,7 @@
       <div *ngFor="let policyholder of this.policyHolders">
         <ul>
           <li>{{policyholder.firstName}}</li>
-          <a class="active" [routerLink]="['/']">initialize form</a>
+          <a class="active" [routerLink]="['/registerpolicyholder/' + policyholder.id]">initialize form</a>
         </ul>
       </div>
   </div>

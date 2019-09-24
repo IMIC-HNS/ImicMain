@@ -8,14 +8,22 @@ import { ApiService } from 'src/app/Core/api.service';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent implements OnInit {
+  agents: Object;
+  policyHolders: Object;
 
   constructor(private apiService:ApiService) { }
 
   ngOnInit() {
-    this.apiService.get("/getphholders");
+    this.apiService.get("/dashboard/getPolicyHolder").subscribe(
+      response=>this.policyHolders=response,
+      error=>console.log(error)
+    )
     console.log(this.apiService.get);
 
-    this.apiService.get("/hjghj");
+    this.apiService.get("/dashboard/getAgents").subscribe(
+      response=>this.agents=response,
+      error=>console.log(error)
+    );
     console.log(this.apiService.get);
 
   }

@@ -6,14 +6,14 @@ import { FormGroup  } from "@angular/forms";
   providedIn: 'root'
 })
 export class PolicyholderregistrationService {
-  private url="http://localhost:8080/policyholder/5d84c1f7cb7fa1e537586e6c";
+  private url="http://localhost:8080/policyholder/";
 
   constructor(private _http: HttpClient) {
    }
 
-   postData(register:FormGroup)
+   postData(register:FormGroup, id: string)
  {  console.log(register);
-    return this._http.post<any>(this.url,register);
+    return this._http.post<any>(this.url + id,register);
  }
 
 }

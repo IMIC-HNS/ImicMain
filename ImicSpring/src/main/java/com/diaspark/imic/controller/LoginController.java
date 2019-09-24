@@ -23,7 +23,7 @@ import com.diaspark.imic.service.LoginServiceImpl;
  */
 @RestController
 @CrossOrigin(origins="*")
-@RequestMapping("/")
+@RequestMapping("/login")
 public class LoginController {
 	
 	@Autowired
@@ -32,7 +32,7 @@ public class LoginController {
 	//@Autowired
 	//LoginServiceImpl loginServiceImpl;
 	
-	@PostMapping("login/")
+	@PostMapping("/")
 	public User login(@RequestBody @Valid User loginUser) {
 		return loginService.login(loginUser);
 	}
