@@ -1,0 +1,14 @@
+<div>
+  <div *ngFor="let holder of this.policyHolder">
+    <h2>{{holder.firstName}}</h2>
+      <div><button id="mybutton" (click)="this.showAlert()">Show Details</button></div>
+      <div *ngIf="this.myvalue" class="details">
+        <h5>{{holder.mobileNumber}}</h5>
+        <h5>{{holder.city}}</h5>
+        <h5>{{holder.email}}</h5>
+        <h5>{{holder.policyNumber}}</h5>
+        <button (click)="this.approval(holder.id)">Approve</button>
+        <button (click)="this.rejection(holder.id)">Reject</button>
+      <div><div ng-show="this.myvalue" class="hideByDefault">Here I am</div></div>
+  </div></div>
+</div>

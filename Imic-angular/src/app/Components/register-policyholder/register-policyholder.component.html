@@ -1,0 +1,118 @@
+
+
+<div class="container-fluid" id="form">
+  <div class="card m-3">
+      <h5 class="card-header">Add-Details</h5>
+      <div class="card-body">
+          <form [formGroup]= "registerForm1" (ngSubmit)="onSubmit()">
+              <div class="form-row"></div>
+                  <div class="form-group">
+                      <label>First Name</label>
+                      <input required type="text" formControlName="firstName" [(ngModel)]="this.policyHolder.firstName" class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                      <div *ngIf="!submitted || registerForm1.controls['firstName'].invalid" class="invalid-feedback">
+                          <div *ngIf="registerForm1.controls['firstName'].hasError('required')">First Name is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Last Name</label>
+                      <input required type="text" formControlName="lastName" [(ngModel)]="this.policyHolder.lastName" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                      <div *ngIf="!submitted || registerForm1.controls['lastName'].invalid" class="invalid-feedback">
+                          <div *ngIf="registerForm1.controls['lastName'].hasError('required')">Last Name is required</div>
+                      </div>
+                  </div>
+              
+              <div class="form-group">
+                  <label>Email-Id</label>
+                  <input required type="text" formControlName="email" [(ngModel)]="this.policyHolder.email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                  <div *ngIf="!submitted || registerForm1.controls['email'].invalid" class="invalid-feedback">
+                      <div *ngIf="registerForm1.controls['email'].hasError('required')">Email is required</div>
+                      <div *ngIf="registerForm1.controls['email'].hasError('email')">Email must be a valid email address</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label>Mobile-no</label>
+                  <input required type="number" formControlName="mobileNumber" [(ngModel)]="this.policyHolder.mobileNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobileNumber.errors }" />
+                  <div *ngIf="!submitted || registerForm1.controls['mobileNumber'].invalid" class="invalid-feedback">
+                      <div *ngIf="registerForm1.controls['mobileNumber'].hasError('required')">mobile-no is required</div>
+                      <div *ngIf="registerForm1.controls['mobileNumber'].hasError('minlength')">mobile-no must be a valid </div>
+                  </div>
+              </div>
+              
+              <div class="form-group">
+                  <label>Policy</label>
+                  <div *ngIf="!submitted || registerForm1.controls['policyNumber'].invalid" class="invalid-feedback">
+                      <div *ngIf="registerForm1.controls['policyNumber'].hasError('required')">policy is required</div>
+                  </div>
+             </div>
+
+             <div class="form-group">
+                <label>City</label>
+                <select id="city" type="text" formControlName="city" [(ngModel)]="this.policyHolder.city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+                    <option value="Indore">Indore</option>
+                    <option value="Gwalior">Gwalior</option>
+                    <option value="Ratlam">Ratlam</option>
+                      
+                    </select>
+                <div *ngIf="!submitted || registerForm1.controls['city'].invalid" class="invalid-feedback">
+                    <div *ngIf="registerForm1.controls['city'].hasError('required')">city is required</div>
+                </div>
+            </div>
+           
+             <div class="form-group">
+                <label>Adhar-no</label>
+                <input [required]="!this.isAgent" type="text" formControlName="aadhar" [(ngModel)]="registerpolicyholder.aadhar" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.aadhar.errors }" />
+                <div *ngIf="!submitted || registerForm1.controls['aadhar'].invalid" class="invalid-feedback">
+                    <div *ngIf="registerForm1.controls['aadhar'].hasError('required')">Adhar-no is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Date of birth</label>
+                <input [required]="!this.isAgent" type="date" formControlName="dob" [(ngModel)]="registerpolicyholder.dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" />
+                <div *ngIf="!submitted || registerForm1.controls['dob'].invalid" class="invalid-feedback">
+                    <div *ngIf="registerForm1.controls['dob'].hasError('required')">dob is required</div>
+                </div>
+            </div>
+
+            
+            <div class="form-group">
+                <label>Add aadhar document</label>
+                <input [required]="!this.isAgent" type="file" formControlName="aadharDoc"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.aadharDoc.errors }" />
+                <div *ngIf="!submitted || registerForm1.controls['aadharDoc'].invalid" class="invalid-feedback">
+                    <div *ngIf="registerForm1.controls['aadharDoc'].hasError('required')">Aadhar document is required</div>
+                </div>
+            </div>
+             
+              <label>Nominee:</label>
+              <div formGroupName="nominee">
+              <div class="form-group">
+                    <label>Nominee name</label>
+                    <input [required]="!this.isAgent" type="text" formControlName="nomine" [(ngModel)]="registerpolicyholder.nominee.nomine" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm1.controls['nominee'].controls['nomine'].invalid }" />
+                    <div *ngIf="!submitted || registerForm1.controls['nominee'].controls['nomine'].invalid" class="invalid-feedback">
+                        <div *ngIf="registerForm1.controls['nominee'].controls['nomine'].hasError('required')">Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                        <label>Nominee Relation</label>
+                        <input [required]="!this.isAgent" type="text" formControlName="relationship" [(ngModel)]="registerpolicyholder.nominee.relationship" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm1.controls['nominee'].controls['relationship'].invalid }" />
+                        <div *ngIf="!submitted || registerForm1.controls['nominee'].controls['relationship'].invalid" class="invalid-feedback">
+                            <div *ngIf="registerForm1.controls['nominee'].controls['relationship'].hasError('required')">relation is required</div>
+                        </div>
+                </div>
+                    <div class="form-group">
+                            <label>Nominee aadharNumber</label>
+                            <input [required]="!this.isAgent" type="text" formControlName="aadharNumber" [(ngModel)]="registerpolicyholder.nominee.aadharNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm1.controls['nominee'].controls['aadharNumber'].invalid }" />
+                            <div *ngIf="!submitted || registerForm1.controls['nominee'].controls['aadharNumber'].invalid" class="invalid-feedback">
+                                <div *ngIf="registerForm1.controls['nominee'].controls['aadharNumber'].hasError('required')">aadharNumber is required</div>
+                            </div>
+                    </div>
+              </div>
+              <div class="text-center">
+                  <button class="btn btn-primary mr-1" (click)="sendMail()">Register</button>
+              </div>
+          </form>
+      </div>
+  </div>
+  
+</div>  
