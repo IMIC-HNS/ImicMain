@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginServiceService } from '../../login-service.service';
+import { ApiService } from 'src/app/Core/api.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   // _authService: any;
 
   constructor(private formBuilder: FormBuilder, private routes: Router,
-    private LoginServiceService:LoginServiceService
+    private LoginServiceService:LoginServiceService,private api:ApiService
     
     ) { }
 

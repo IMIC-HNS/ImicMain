@@ -39,8 +39,9 @@ public class DashboardService {
 	public PolicyHolder updateUser(Status decided, ObjectId userId) {
 		// TODO Auto-generated method stub
 		
-		PolicyHolder user = (PolicyHolder)(userRepository.findById(userId).get());
+		PolicyHolder user = (userRepository.findPolicyHolderById(userId));
 		user.setStatus(decided);
-		return user;
+		userRepository.save(user);
+		return userRepository.findPolicyHolderById(userId);
 	}
 }

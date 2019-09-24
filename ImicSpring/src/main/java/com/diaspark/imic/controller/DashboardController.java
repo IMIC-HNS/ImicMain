@@ -19,7 +19,7 @@ import com.diaspark.imic.service.DashboardService;
 
 @RestController
 @CrossOrigin(origins="*")
-@RequestMapping(value="/")
+@RequestMapping(value="/dashboard/")
 public class DashboardController {
 
 	@Autowired
@@ -36,17 +36,17 @@ public class DashboardController {
 	{
 		return dashboard.providePolicyHolders(Type.POLICYHOLDER);
 	}
-	
-	@GetMapping(value="getByStatus")
-	public List<PolicyHolder> getPolicyHolderByStatus()
-	{
-		return dashboard.providePolicyHolder(Status.SUBMITTED);
-	}
-	
-	@PostMapping(value="decision/{userId}")
-	public PolicyHolder changeStatus(@PathVariable("userId") ObjectId userId,@RequestParam("status") Status decided)
-	{
-		return dashboard.updateUser(decided, userId);
 		
-	}
+		@GetMapping(value="getByStatus")
+		public List<PolicyHolder> getPolicyHolderByStatus(@RequestParam("status") Status required)
+		{
+			return dashboard.providePolicyHolder(required);
+		}
+		
+		@PostMapping(value="decision/{userId}")
+		public PolicyHolder changeStatus(@PathVariable("userId") ObjectId userId,@RequestParam("status") Status decided)
+		{
+			return dashboard.updateUser(decided, userId);
+			
+		}
 }

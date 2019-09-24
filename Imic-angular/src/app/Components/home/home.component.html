@@ -1,6 +1,7 @@
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<app-header></app-header>
 <div class=container-fluid>
 
 
@@ -24,7 +25,10 @@
   </div>
   <div class="row policies">
    <div class="col-md-8">
-     <p>{{this.myPolicy[0].description}}</p>
+     <p>{{this.myPolicy[0].description}}
+       <button class="float-right" (click)="contactUs(0)">Request For This Policy</button>
+     </p>
+
    </div>
    <div class="col-md-4">
      <img src="https://static.radio.net/images/broadcasts/10/90/2245/1/c300.png" height="50%" class="rounded-circle">
@@ -37,14 +41,18 @@
           <img src="https://static.radio.net/images/broadcasts/10/90/2245/1/c300.png"  height="50%" class="rounded-circle">
         </div>  
     <div class="col-md-8">
-        <p>{{this.myPolicy[1].description}}</p>
+        <p>{{this.myPolicy[1].description}}
+            <button class="float-right" (click)="contactUs(1)">Request For This Policy</button>
+        </p>
       </div>
      
        
      </div>
      <div class="row policies">
         <div class="col-md-8">
-          <p>{{this.myPolicy[2].description}}</p>
+          <p>{{this.myPolicy[2].description}}
+              <button class="float-right" (click)="contactUs(2)">Request For This Policy</button>
+          </p>
         </div>
         <div class="col-md-4">
           <img src="https://static.radio.net/images/broadcasts/10/90/2245/1/c300.png"  height="50%" class="rounded-circle">

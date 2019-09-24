@@ -1,9 +1,77 @@
-.details
+/* .details
 {
     margin:10px;
-    background-color: blueviolet;
-    color:whitesmoke;
+    background-color:oldlace;
+    color:black;
+    border:5px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px oldlace;
 }
-.details h5{
+.details span{
+    margin: 20px;
+    font-size: 120%;
+}
+.details button{
+    margin: 5px;
+    float: center;
+}
+.sub-detail{
+    background-color: cadetblue;
+}
+.sub-detail h5
+{
+    color:whitesmoke;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 1px;
+} */
+
+.details
+{
+    border:2px solid black;
+    background-color: oldlace;
+    margin: 20px;
+    border-radius: 10px;
+    width: 60%;
+}
+.details h4{
+    margin:40px;
+}
+.details span{
+    font-size: 140%;
+    margin: 20px;
+    margin-left: 50px;
+    padding: 5px;
+    border:1px solid black;
+    background-color: beige;
+    box-shadow: 1px 1px 1px 1px black;
+    border-radius: 5px;
+    background-color: chocolate;
+    color: beige;
+}
+.details button{
     margin: 2px;
+}
+.sub-detail{
+    margin: 10px;
+    border: 2px solid burlywood;
+    border-radius: 5px;
+    background-color:slateblue;
+    width: 40%;
+    animation-name: example;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+.sub-detail .row{
+    margin: 2px;
+    padding: 2px;
+}
+@keyframes example {
+    from {background-color:slateblue;}
+    to {background-color: aliceblue;
+}
+}
+table thead tr{
+    background-color: cadetblue;
 }

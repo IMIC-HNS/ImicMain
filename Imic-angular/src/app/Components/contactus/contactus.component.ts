@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder,Validators } from "@angular/forms";
 import { ContactUs } from 'src/app/Components/contactus/contactus';
 import { ContactusService } from './contactus.service';
@@ -13,13 +13,14 @@ export class ContactusComponent implements OnInit {
     
   private contact:ContactUs = new ContactUs("","","", "", "", "");
 
+  @Input() policyId:Number;
   constructor(
     private contactusService: ContactusService,private commonService:CommonService
   ) { }
 
 
   ngOnInit() {
-    //this.onSubmit();
+    console.log(this.policyId);
   }
   createPolicyHolder():void{
     this.contactusService.createPolicyHolder(this.contact)

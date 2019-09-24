@@ -28,4 +28,7 @@ public interface UserRepository extends MongoRepository<User, ObjectId>{
 	
 	@Query("{status:?0}")
 	List<PolicyHolder> findByStatus(Status s);
+	
+	@Query
+	PolicyHolder findPolicyHolderById(ObjectId id);
 }

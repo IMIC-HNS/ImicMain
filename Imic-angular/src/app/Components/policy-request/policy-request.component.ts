@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/Core/api.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-policy-request',
@@ -9,43 +10,17 @@ import { ApiService } from 'src/app/Core/api.service';
 export class PolicyRequestComponent implements OnInit {
   id: string;
 
-  constructor(private api:ApiService) { }
-  url="/getByStatus";
-  decisionUrl="/decision/";
+  constructor(private api:ApiService,private route:ActivatedRoute,private router:Router) { }
+  url="/dashboard/getByStatus?status=REQUESTED";
+  // decisionUrl="/decision/";
   policyHolder:any=[];
  updatedUser={};
-  
 
-    myvalue = false;
   
-    showAlert (){
-      this.myvalue = true;  
+    showAlert (holder){
+      holder.myvalue = true;  
     };
 
-  //   mongoObjectId = function (id) {
-  //     var timestamp = this.id.timestamp.toString(16);
-  //     return timestamp + 'xxxxxxxxxxxxxxxx'.replace(/[x]/g, function() {
-  //         return (Math.random() * 16 | 0).toString(16);
-  //     }).toLowerCase();
-  // };
-  
-  approval(id)
-  // { this.id=this.mongoObjectId(id);
-{     this.id="5d84d241e123af83e1093d81";
-    console.log(this.id);
-    this.api.post(this.decisionUrl+ this.id + "?status=ACCEPTED", {}).subscribe(
-      response=>this.updatedUser=response,
-      error=>console.log(error)
-
-    );
-  }
-rejection(id)
-{
-  this.api.post(this.decisionUrl+this.id+"?status=REJECTED",{}).subscribe(
-    response=>this.updatedUser=response,
-    error=>console.log(error)
-  );
-}
 
   ngOnInit() {
   

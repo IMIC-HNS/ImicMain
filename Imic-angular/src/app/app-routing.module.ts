@@ -23,8 +23,13 @@ const routes: Routes = [
   },
   {
     path:'admin-dashboard',
-    component:AdminDashboardComponent
-},
+    component:AdminDashboardComponent,
+  },
+      {
+        path:'policy-request',
+        component:PolicyRequestComponent
+      },
+    
   {
     path:'login',
     component:LoginComponent,
@@ -38,10 +43,7 @@ const routes: Routes = [
     component:ContactusComponent
 
   },
-  {
-    path:'policy-request',
-    component:PolicyRequestComponent
-  }
+
 ];
 
 @NgModule({

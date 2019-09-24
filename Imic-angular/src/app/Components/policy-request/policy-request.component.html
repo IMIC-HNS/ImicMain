@@ -1,14 +1,39 @@
-<div>
   <div *ngFor="let holder of this.policyHolder">
-    <h2>{{holder.firstName}}</h2>
-      <div><button id="mybutton" (click)="this.showAlert()">Show Details</button></div>
-      <div *ngIf="this.myvalue" class="details">
-        <h5>{{holder.mobileNumber}}</h5>
-        <h5>{{holder.city}}</h5>
-        <h5>{{holder.email}}</h5>
-        <h5>{{holder.policyNumber}}</h5>
-        <button (click)="this.approval(holder.id)">Approve</button>
-        <button (click)="this.rejection(holder.id)">Reject</button>
-      <div><div ng-show="this.myvalue" class="hideByDefault">Here I am</div></div>
-  </div></div>
-</div>
+    <div class="container-fluid" class="details">
+      <div class="row">
+        <h4>Policy Holders</h4>
+      </div>
+    <!-- <button id="mybutton" class="btn btn-info mx-auto d-block" (click)="this.showAlert(holder)">Show Details</button> -->
+      
+    <!-- <div *ngIf="holder.myvalue" class="sub-detail">
+      <div class="row"><h6>{{holder.mobileNumber}}</h6>
+        </div>
+        <div class="row"><h6>{{holder.city}}</h6>
+          </div> -->
+          <!-- <div class="row"><h6>{{holder.emailId}}</h6></div>
+          <div class="row"><h6>{{holder.policyNumber}}</h6></div> -->
+        
+        <!-- <button (click)="this.approval(holder.id)" class="btn btn-success">Approve</button>
+        <button (click)="this.rejection(holder.id)" class="btn btn-danger">Reject</button> -->
+
+        <table class="table table-striped">
+            <thead>
+           
+              <tr>
+              <th scope="col">S.No</th>
+              <th scope="col">Name</th>
+              <th scope="col">City</th>
+              <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let holder of policyHolder; index as i">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ holder.firstName }} {{holder.lastName}}</td>
+                  <td>{{ holder.city}}</td>
+                  <!-- <td>{{}}</td> -->
+                </tr>
+                </tbody>
+              </table>
+      </div>
+  </div>

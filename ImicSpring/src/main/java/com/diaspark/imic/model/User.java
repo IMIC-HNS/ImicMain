@@ -22,8 +22,8 @@ public class User {
 	/**
 	 * @return the id
 	 */
-	public ObjectId getId() {
-		return id;
+	public String getId() {
+		return id.toHexString();
 	}
 
 	/**
@@ -59,6 +59,12 @@ public class User {
 	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", password=" + password + ", type=" + type + "]";
 	}
 
 	/**
