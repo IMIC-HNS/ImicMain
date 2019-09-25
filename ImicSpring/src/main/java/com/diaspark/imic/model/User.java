@@ -16,7 +16,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Document(collection="users")
 @JsonIgnoreProperties
-@Component
 public class User {
 	
 	private static transient String SALT = "IMIC";
@@ -32,9 +31,7 @@ public class User {
 	 * @return the id
 	 */
 	public String getId() {
-
-		return this.id.toHexString();
-
+		return id.toHexString();
 	}
 
 	/**
@@ -117,7 +114,7 @@ public class User {
 	public void updatePassword() {
 	 this.password =	Base64.getEncoder().encodeToString((this.password + "-" + SALT).getBytes());
 	}
-	
+
 	public ObjectId getObjectId(String id) {
 		return new ObjectId(id);
 	}
@@ -127,8 +124,8 @@ public class User {
 		return "User [SALT=" + SALT + ", id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
 				+ email + ", password=" + password + ", type=" + type + "]";
 	}
-	
-	
-	
+
+
+
 
 }

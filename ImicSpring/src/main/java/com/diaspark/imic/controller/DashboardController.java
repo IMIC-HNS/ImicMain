@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.diaspark.imic.controller;
 
 import java.util.List;
@@ -35,14 +32,14 @@ import com.diaspark.imic.service.DashboardService;
 public class DashboardController {
 
 	@Autowired
-	DashboardService dashboardService;
-	
+	private DashboardService dashboardService;
+
 	@GetMapping("{userId}/policyHolders")
 	public List<PolicyHolder> listofPH(@PathVariable("userId") ObjectId userId)
 	{
 		return dashboardService.policyHolders(userId);
-		
-		
+
+
 	}
 	
 	@GetMapping(value="getAgents")
@@ -51,7 +48,7 @@ public class DashboardController {
 		return dashboardService.provideAgents(Type.AGENT);
 	}
 
-	
+
 	@GetMapping(value="getPolicyHolder")
 	public List<User> getPolicyHolder()
 	{
@@ -63,7 +60,7 @@ public class DashboardController {
 	{
 		return dashboardService.providePolicyHolder(Status.SUBMITTED);
 	}
-	
+
 	@PostMapping(value="decision/{userId}")
 	public PolicyHolder changeStatus(@PathVariable("userId") ObjectId userId,@RequestParam("status") Status decided)
 	{
@@ -71,8 +68,3 @@ public class DashboardController {
 		
 	}
 }
-
-
-
-
-

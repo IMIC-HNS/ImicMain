@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/Core/api.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-policy-request',
@@ -9,43 +10,18 @@ import { ApiService } from 'src/app/Core/api.service';
 export class PolicyRequestComponent implements OnInit {
   id: string;
 
-  constructor(private api:ApiService) { }
-  url="/dashboard/getByStatus";
-  decisionUrl="/dashboard/decision/";
+  constructor(private api:ApiService,private route:ActivatedRoute,private router:Router) { }
+  url="/dashboard/getByStatus?status=REQUESTED";
+  // decisionUrl="/decision/";
   policyHolder:any=[];
  updatedUser={};
   
 
-    myvalue = false;
   
-    showAlert (){
-      this.myvalue = true;  
+    showAlert (holder){
+      holder.myValue = true;
     };
 
-  approval(id){    
-    console.log(id);
-    this.api.post(this.decisionUrl+ id + "?status=ACCEPTED", {}).subscribe(
-      response=>
-      {this.updatedUser=response;
-        console.log(this.updatedUser);
-        alert("Approval Successful");
-        window.location.reload();
-      },
-      error=>console.log(error)
-
-    );
-  }
-  rejection(id)
-  {
-    this.api.post(this.decisionUrl+id+"?status=REJECTED",{}).subscribe(
-      response=>{this.updatedUser=response;
-        console.log(this.updatedUser);
-        alert("Rejection Successful")
-        window.location.reload();
-      },
-      error=>console.log(error)
-    );
-  }
 
   ngOnInit() {
   
@@ -61,4 +37,3 @@ export class PolicyRequestComponent implements OnInit {
   }
 
 }
-  

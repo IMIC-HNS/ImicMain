@@ -1,4 +1,3 @@
-
 package com.diaspark.imic.service;
 
 import java.util.List;
@@ -26,9 +25,8 @@ import com.diaspark.imic.repository.UserRepository;
 @Service
 public class DashboardService {
 
-	
 	@Autowired
-	UserRepository userRepository;
+	private UserRepository userRepository;
 	
 	public List<User> providePolicyHolders(Type type)
 	{
@@ -41,13 +39,17 @@ public class DashboardService {
 		
 	}
 	
-	
+	public List<User> providePolicyHolders(Type type)
+	{
+		return userRepository.findAllByType(type);
+	}
+
 	public List<PolicyHolder> providePolicyHolder(Status submitted) {
 		return userRepository.findByStatus(submitted);
 	}
 
 	public PolicyHolder updateUser(Status decided, ObjectId userId) {
-	
+
 		PolicyHolder user = (userRepository.findPolicyHolderById(userId));
 		user.setStatus(decided);
 		userRepository.save(user);
@@ -56,26 +58,26 @@ public class DashboardService {
 
 	public List<PolicyHolder> policyHolders(ObjectId userId)
 		{
-					User foundUser= userRepository.findUserById(userId); 
+					User foundUser= userRepository.findUserById(userId);
 					if(foundUser==null) {
 						throw new ResourceAccessException("USER not found");
 					}
-					
+
 					if(foundUser.getType().equals(Type.ADMIN))
 					{
-						return userRepository.findAllByTypes(Type.POLICYHOLDER);			
-					}	
-					
+						return userRepository.findAllByTypes(Type.POLICYHOLDER);
+					}
+
 					else if(foundUser.getType().equals(Type.AGENT))
 					{
-						
+
 						return userRepository.findByCityAndPolicyHolder("Indore", Type.POLICYHOLDER);
-						
+
 					}
-				
-					else	
+
+					else
 				return null;
-						
+
 			}
 
 

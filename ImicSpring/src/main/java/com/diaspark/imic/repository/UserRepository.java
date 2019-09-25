@@ -8,7 +8,6 @@ import java.util.List;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
-
 import org.springframework.stereotype.Repository;
 
 import org.springframework.stereotype.Component;
@@ -23,7 +22,6 @@ import com.diaspark.imic.model.User;
  * @author SHIVANGI RAI
  *
  */
-
 @Repository
 public interface UserRepository extends MongoRepository<User, ObjectId>{
 	@Query
@@ -35,19 +33,22 @@ public interface UserRepository extends MongoRepository<User, ObjectId>{
 	@Query("{status:?0}")
 	List<PolicyHolder> findByStatus(Status s);
 
-	
-	
+	@Query
+	PolicyHolder findPolicyHolderById(ObjectId id);
+
+
+
 //	@Query
 //	User findByEmail(String email);
 
-	
+
 //	@Query
 //	PolicyHolder findByType(Type type);
-	
+
 	@Query("{'$and':[{'city': ?0},{'type':?1}]}")
 	public List<PolicyHolder> findByCityAndPolicyHolder(String city, Type policyHolder);
 
-	
+
 	@Query("{'type':?0}")
 	List<PolicyHolder> findAllByTypes(Type policyholder);
 
@@ -56,7 +57,7 @@ public interface UserRepository extends MongoRepository<User, ObjectId>{
 
 	@Query
 	PolicyHolder findPolicyHolderById(ObjectId userId);
-	
+
 
 	PolicyHolder findById(String userId);
 
