@@ -30,7 +30,7 @@ export class RegisterAgentComponent implements OnInit {
       mobileNumber: ['', [Validators.required, Validators.minLength(10)]],
       city: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      dateOfBirth: ['', Validators.required],
+      dob: ['', Validators.required],
     
   });
 
@@ -53,22 +53,8 @@ onSubmit() {
   
 }
 
-
 onReset() {
   this.submitted = false;
   this.registerForm.reset();
 }
 }
-// display form values on success
-  //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
-
-  //console.log('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
-
-
-  // this.http.post<any>(this.url,this.registerForm.value);
-  // return this.http.post(this.url,this.registerForm.value);
-  //console.log(this.http.post<any>(this.url,this.registerForm.value));
-
-
-  //this.http.post<any>(this.url,this.registerForm.value);
-  //console.log(this.http.post<any>(this.url,this.registerForm.value));

@@ -8,7 +8,7 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Service;
-
+import org.springframework.web.client.ResourceAccessException;
 
 import com.diaspark.imic.model.User;
 import com.diaspark.imic.model.PolicyHolder;
@@ -56,23 +56,26 @@ public class DashboardService {
 
 	public List<PolicyHolder> policyHolders(ObjectId userId)
 		{
-					User founduserbyid= userRepository.findUserById(userId); 
+					User foundUser= userRepository.findUserById(userId); 
+					if(foundUser==null) {
+						throw new ResourceAccessException("USER not found");
+					}
 					
-					if(founduserbyid.getType().equals(Type.ADMIN))
+					if(foundUser.getType().equals(Type.ADMIN))
 					{
 						return userRepository.findAllByTypes(Type.POLICYHOLDER);			
 					}	
 					
-					else if(founduserbyid.getType().equals(Type.AGENT))
+					else if(foundUser.getType().equals(Type.AGENT))
 					{
 						
 						return userRepository.findByCityAndPolicyHolder("Indore", Type.POLICYHOLDER);
-						//return userRepository.findByCity(Type.POLICYHOLDER);
+						
 					}
-				//return userRepository.findByCityAndPolicyHolder("Indore", Type.POLICYHOLDER.name());
+				
 					else	
 				return null;
-						//userRepository.findByCity(Type.POLICYHOLDER);
+						
 			}
 
 

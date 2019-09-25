@@ -22,16 +22,7 @@ export class PolicyRequestComponent implements OnInit {
       this.myvalue = true;  
     };
 
-  //   mongoObjectId = function (id) {
-  //     var timestamp = this.id.timestamp.toString(16);
-  //     return timestamp + 'xxxxxxxxxxxxxxxx'.replace(/[x]/g, function() {
-  //         return (Math.random() * 16 | 0).toString(16);
-  //     }).toLowerCase();
-  // };
-  
-  approval(id)
-  // { this.id=this.mongoObjectId(id);
-{    
+  approval(id){    
     console.log(id);
     this.api.post(this.decisionUrl+ id + "?status=ACCEPTED", {}).subscribe(
       response=>

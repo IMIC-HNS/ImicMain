@@ -23,7 +23,7 @@ public class UserDetail {
 	private UserDetailService userDetail;
 	
 	@GetMapping(value="/{userId}/{isEncoded}")
-	public Optional<User> getDetails(@PathVariable("userId") ObjectId userId, @PathVariable("isEncoded") boolean isEncoded)
+	public PolicyHolder getDetails(@PathVariable("userId") String userId, @PathVariable("isEncoded") boolean isEncoded)
 	{
 		return userDetail.getUserDetails(userId, isEncoded);
 	}

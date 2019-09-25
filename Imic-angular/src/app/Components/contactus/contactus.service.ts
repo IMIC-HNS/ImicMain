@@ -14,25 +14,11 @@ export class ContactusService {
 
   constructor(private httpClient: HttpClient) { }
 
-  // postData(register:NgForm)
-  // {  console.log(register);
-  //    return this._http.post<any>(this.url,register);
-  // }
-
   public createPolicyHolder(contactus)
   {
-    console.log("P.H. details");
+    console.log("Policy. Holder. details.");
     return this.httpClient.post<ContactUs>("http://localhost:8080/contactus/",contactus);
   }
 
-
-  
-//  login(user){
-//   return this._http.post<any>(this.login_url,user)
-//   .subscribe(
-//    res =>{
-//      console.log(res);
-//    }
-//   )
    }
   

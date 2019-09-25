@@ -4,7 +4,7 @@ public class Nominee {
 	
     private String nomine;
 	private String relationship;
-	private String aadharno;
+	private String aadharNumber;
 	
 	public String getNomine() {
 		return nomine;
@@ -18,10 +18,10 @@ public class Nominee {
 	public void setRelationship(String relationship) {
 		this.relationship = relationship;
 	}
-	public String getAadharno() {
-		return aadharno;
+	public String getAadharNumber() {
+		return aadharNumber;
 	}
-	public void setAadharno(String aadharno) {
-		this.aadharno = aadharno;
+	public void setAadharNumber(String aadharNumber) {
+		this.aadharNumber = aadharNumber;
 	}
 }

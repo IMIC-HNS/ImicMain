@@ -56,6 +56,9 @@ public interface UserRepository extends MongoRepository<User, ObjectId>{
 
 	@Query
 	PolicyHolder findPolicyHolderById(ObjectId userId);
+	
+
+	PolicyHolder findById(String userId);
 
 	//@Query
 	//List<PolicyHolder> findAllPolicyHolders(Type policyholder);

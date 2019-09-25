@@ -13,9 +13,7 @@ export class LoginComponent implements OnInit {
   submitted: boolean;
   dashBoard:any;
   userData:any;
-  // LoginServiceService: any;
-  // _authService: any;
-//email:String;
+
   constructor(private formBuilder: FormBuilder, private routes: Router,
     private LoginServiceService:LoginServiceService
     
@@ -32,16 +30,9 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
 
-
 console.log(this.login.value);
 this.dashBoard=this.LoginServiceService.login(this.login.value);
 console.log(this.dashBoard);
-    //user=this.LoginServiceService.users;
-
-
-
-
-
-  }
+ }
 
 }

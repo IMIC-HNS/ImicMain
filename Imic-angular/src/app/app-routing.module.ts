@@ -55,17 +55,11 @@ const routes: Routes = [
     component:LoginComponent,
   },
   {
-    path:'register-agent',
-    component:RegisterAgentComponent
-  },
-  {
     path:'contact-us',
     component:ContactusComponent
-
   },
   {
-
-    path:'policy-request',
+     path:'policy-request',
     component:PolicyRequestComponent
   },
   {

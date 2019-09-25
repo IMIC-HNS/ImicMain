@@ -38,7 +38,7 @@
                     <label>Mobile-Number</label>
                     <input required type="text" formControlName="mobileNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobileNumber.errors }" />
                     <div *ngIf="submitted && f.mobileNumber.errors" class="invalid-feedback">
-                        <div *ngIf="f.mobileNumber.errors.required">mobile-no is required</div>
+                        <div *ngIf="f.mobileNumber.errors.required">mobile-Number is required</div>
                         <div *ngIf="f.mobileNumber.errors.minlength">Mobile-Number must be a valid </div>
                     </div>
                 </div>
@@ -59,9 +59,9 @@
                 </div>
                 <div class="form-group col-5">
                     <label>Date of birth</label>
-                    <input required type="date" formControlName="dateOfBirth" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }" />
-                    <div *ngIf="submitted && f.dateOfBirth.errors" class="invalid-feedback">
-                        <div *ngIf="f.dateOfBirth.errors.required">Date of birth is required</div>
+                    <input required type="date" formControlName="dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" />
+                    <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+                        <div *ngIf="f.dob.errors.required">Date of birth is required</div>
                     </div>
                 </div>
 

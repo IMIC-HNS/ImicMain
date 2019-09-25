@@ -30,24 +30,6 @@ export class CommonService {
       }
     )
     });
-    // console.log(this.myPolicy);
-    
   }
 
-    // getAgents()
-    // {
-    //     this.http.get(this.agentUrl).
-    //     subscribe(
-    //       response=>this.agents=response,
-    //       error=>console.log(error)
-    //     );
-    // }
-
-    // getPolicyHolders()
-    // {
-    //   this.http.get(this.policyHolderUrl).
-    //   subscribe(response=>this.policyHolders=response,
-    //     error=>console.log(error)
-    //     );
-    // }
 }

@@ -3,7 +3,6 @@
  */
 package com.diaspark.imic.controller;
 
-import javax.annotation.security.PermitAll;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.diaspark.imic.model.PolicyHolder;
 import com.diaspark.imic.service.ContactusService;
 
@@ -24,7 +24,6 @@ import com.diaspark.imic.service.ContactusService;
 @RestController
 @CrossOrigin(origins="*")
 @RequestMapping("/contactus")
-//@PermitAll
 public class ContactusController {
 	@Autowired
 	ContactusService contactusService;

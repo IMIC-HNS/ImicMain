@@ -1,3 +1,5 @@
+import { Nominee } from './Nominee';
+
 export class RegisterPolicyholder 
 {
     constructor(
@@ -5,14 +7,12 @@ export class RegisterPolicyholder
         public lastName:string,
         public email:string,
         public mobileNumber:string,
-        public policyNumber:Number,
+        public policyNumber:string,
         public city:string,
-        public aadhar:Number,
-        public dob:Date,
-        public aadhardoc:Document,
-        public nomine:string,
-        public relation:string,
-        public aadharno:Number
+        public aadhar:string,
+        public dob:string,
+        public aadharDoc:string,
+        public nominee:Nominee
     )
     {}
 }

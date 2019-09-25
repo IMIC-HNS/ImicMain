@@ -19,22 +19,23 @@ import com.diaspark.imic.model.User;
 @Document(collection = "users")
 public class PolicyHolder extends User{
 
-	private ObjectId AgentId;
+	private ObjectId agentId;
 
 	private String mobileNumber;
 	private String city;
 	private String policyNumber;
 	private String aadhar;
 	private String address;
+	private String aadharDoc;
 	private Status status;
 	private String dob;
-	private Nominee nominee;
+	private Nominee nominee=new Nominee();
 	
 		public ObjectId getAgentId() {
-		return AgentId;
+		return agentId;
 	}
 	public void setAgentId(ObjectId agentId) {
-		AgentId = agentId;
+		this.agentId = agentId;
 	}
 	public Nominee getNominee() {
 		return nominee;
@@ -110,9 +111,26 @@ public class PolicyHolder extends User{
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
+	
+	
+	/**
+	 * @return the aadharDoc
+	 */
+	public String getAadharDoc() {
+		return aadharDoc;
+	}
+	/**
+	 * @param aadharDoc the aadharDoc to set
+	 */
+	public void setAadharDoc(String aadharDoc) {
+		this.aadharDoc = aadharDoc;
+	}
 	/**
 	 * @return the status
 	 */
+	
+	
 	public Status getStatus() {
 		return status;
 	}

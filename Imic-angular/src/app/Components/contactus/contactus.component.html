@@ -38,8 +38,8 @@
       <input required maxlength="10" [(ngModel)]="contact.mobileNumber" name="mobileNumber" #mobileNumber='ngModel'  type="number" class="form-control"> 
       <div *ngIf="mobileNumber.invalid && 
       mobileNumber.touched">
-      <small class="text-danger" *ngIf="mobileNumber.errors?.required" >mobileno is required</small>
-      <small class="text-danger" *ngIf="mobileNumber.errors?.maxlength" >mobileno maximum length should be 10</small>
+      <small class="text-danger" *ngIf="mobileNumber.errors?.required" >mobile Number is required</small>
+      <small class="text-danger" *ngIf="mobileNumber.errors?.maxlength" >mobile Number maximum length should be 10</small>
     </div> 
     </div>
     
@@ -75,6 +75,4 @@
     <button class="btn-btn-primary"(click)="createPolicyHolder()" type="submit">Register</button>
   </form>
 </div>
-<p>
-  contactus-user works!
-</p>
+

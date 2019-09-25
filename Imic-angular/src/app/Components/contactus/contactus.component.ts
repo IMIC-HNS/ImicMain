@@ -17,12 +17,8 @@ export class ContactusComponent implements OnInit {
 
     private contactusService: ContactusService,private commonService:CommonService
   ) { }
-
-
-
-   
+  
   ngOnInit() {
-    //this.onSubmit();
   }
   createPolicyHolder():void{
     console.log(this.commonService.myPolicy);
@@ -33,9 +29,5 @@ export class ContactusComponent implements OnInit {
     });
   };
 
-  // onSubmit() {
-    
-  //   console.log(this.contact);
-  // }
 }
 
