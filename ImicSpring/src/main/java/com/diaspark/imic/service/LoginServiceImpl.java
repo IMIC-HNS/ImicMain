@@ -3,11 +3,14 @@
  */
 package com.diaspark.imic.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import com.diaspark.imic.model.LoginUser;
+import com.diaspark.imic.model.Type;
+//import com.diaspark.imic.model.LoginUser;
 import com.diaspark.imic.model.User;
 import com.diaspark.imic.repository.UserRepository;
 
@@ -15,23 +18,25 @@ import com.diaspark.imic.repository.UserRepository;
  * @author SHIVANGI RAI
  *
  */
-@Component
-//@Service
+
+@Service
 public class LoginServiceImpl implements LoginService {
 	
-	@Autowired
-	LoginService loginService;
+	private static final Logger LOGGER = LoggerFactory.getLogger(LoginServiceImpl.class);
 
 	@Autowired
 	UserRepository userRepository;
 	
-	public User login(LoginUser loginUser) {
+	
+	public User login(User loginUser) {
+		
 		
 		User getUser=userRepository.findByEmail(loginUser.getEmail());
-		if(getUser.getPassword().equals(((Integer)loginUser.getPassword().hashCode()).toString()))
-				{
-					return getUser;
-				}
+		
+		if((getUser!=null) && (getUser.getPassword().equals(loginUser.getPassword())))
+		{	
+			return getUser;
+		}
 		else
 		{
 			return null;
