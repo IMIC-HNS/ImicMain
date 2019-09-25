@@ -41,6 +41,7 @@
                 
                 <div class="form-group">
                     <label>Policy</label>
+                    <input required type="text" formControlName="policyNumber" [(ngModel)]="this.policyHolder.policyNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.policyNumber.errors }" />
                     <div *ngIf="!submitted || registerForm1.controls['policyNumber'].invalid" class="invalid-feedback">
                         <div *ngIf="registerForm1.controls['policyNumber'].hasError('required')">policy is required</div>
                     </div>
