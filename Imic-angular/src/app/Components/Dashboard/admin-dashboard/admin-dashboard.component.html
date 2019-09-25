@@ -1,0 +1,26 @@
+
+<div class="sidebar">
+  <a class="active" [routerLink]="['/admin-dashboard']">Dashboard</a>
+  <a [routerLink]="['/register-agent']">Add Agent</a>
+  <a [routerLink]="['/policy-request']">Requests For Policy</a>
+  <a href="">Logout</a>
+</div>
+
+
+<div class="content">
+  <div class="row">
+    <div class="col-md-5 ">
+    <h3>Agents</h3>
+    <ul class="list-group blue" *ngFor="let agent of this.agents">
+        <li class="list-group-item disabled">{{agent.firstName}}</li>
+      </ul>
+  </div>
+  <div class="col-md-5">
+      <h3>Policy Holders</h3>
+      <ul class="list-group list-group-item-info" *ngFor="let policyHolder of this.policyHolders">
+          <li class="list-group-item">{{policyHolder.firstName}}</li>
+        </ul>
+    </div>
+</div>
+  
+</div>

@@ -1,6 +1,6 @@
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-import { CommonService } from '../common.service';
+import { CommonService } from './common.service';
 import { Injectable } from '@angular/core';
 
 @Injectable()
