@@ -21,7 +21,7 @@
                             <div *ngIf="registerForm1.controls['lastName'].hasError('required')">Last Name is required</div>
                         </div>
                     </div>
-                
+
                 <div class="form-group">
                     <label>Email-Id</label>
                     <input required type="text" formControlName="email" [(ngModel)]="this.policyHolder.email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
@@ -38,7 +38,7 @@
                         <div *ngIf="registerForm1.controls['mobileNumber'].hasError('minlength')">mobile-no must be a valid </div>
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label>Policy</label>
                     <input required type="text" formControlName="policyNumber" [(ngModel)]="this.policyHolder.policyNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.policyNumber.errors }" />
@@ -46,37 +46,37 @@
                         <div *ngIf="registerForm1.controls['policyNumber'].hasError('required')">policy is required</div>
                     </div>
                </div>
-  
+
                <div class="form-group">
                   <label>City</label>
                   <select id="city" type="text" formControlName="city" [(ngModel)]="this.policyHolder.city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
                       <option value="Indore">Indore</option>
                       <option value="Gwalior">Gwalior</option>
                       <option value="Ratlam">Ratlam</option>
-                        
+
                       </select>
                   <div *ngIf="!submitted || registerForm1.controls['city'].invalid" class="invalid-feedback">
                       <div *ngIf="registerForm1.controls['city'].hasError('required')">city is required</div>
                   </div>
               </div>
-             
+
                <div class="form-group">
                   <label>Adhar-no</label>
-                  <input [required]="!this.isAgent" type="text" formControlName="aadhar" [(ngModel)]="registerpolicyholder.aadhar" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.aadhar.errors }" />
+                  <input [required]="!this.isAgent" type="text" formControlName="aadhar" [(ngModel)]="policyHolder.aadhar" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.aadhar.errors }" />
                   <div *ngIf="!submitted || registerForm1.controls['aadhar'].invalid" class="invalid-feedback">
                       <div *ngIf="registerForm1.controls['aadhar'].hasError('required')">Adhar-no is required</div>
                   </div>
               </div>
-  
+
               <div class="form-group">
                   <label>Date of birth</label>
-                  <input [required]="!this.isAgent" type="date" formControlName="dob" [(ngModel)]="registerpolicyholder.dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" />
+                  <input [required]="!this.isAgent" type="date" formControlName="dob" [(ngModel)]="policyHolder.dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" />
                   <div *ngIf="!submitted || registerForm1.controls['dob'].invalid" class="invalid-feedback">
                       <div *ngIf="registerForm1.controls['dob'].hasError('required')">dob is required</div>
                   </div>
               </div>
-  
-              
+
+
               <div class="form-group">
                   <label>Add aadhar document</label>
                   <input [required]="!this.isAgent" type="file" formControlName="aadharDoc"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.aadharDoc.errors }" />
@@ -84,37 +84,38 @@
                       <div *ngIf="registerForm1.controls['aadharDoc'].hasError('required')">Aadhar document is required</div>
                   </div>
               </div>
-               
+
                 <label>Nominee:</label>
                 <div formGroupName="nominee">
                 <div class="form-group">
                       <label>Nominee name</label>
-                      <input [required]="!this.isAgent" type="text" formControlName="nomine" [(ngModel)]="registerpolicyholder.nominee.nomine" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm1.controls['nominee'].controls['nomine'].invalid }" />
-                      <div *ngIf="!submitted || registerForm1.controls['nominee'].controls['nomine'].invalid" class="invalid-feedback">
-                          <div *ngIf="registerForm1.controls['nominee'].controls['nomine'].hasError('required')">Name is required</div>
+                      <input [required]="!this.isAgent" type="text" formControlName="nomine" [(ngModel)]="policyHolder.nominee.nomine" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm1.controls['nominee']['controls']['nomine'].invalid }" />
+                      <div *ngIf="!submitted || registerForm1.controls['nominee']['controls']['nomine'].invalid"
+                           class="invalid-feedback">
+                          <div
+                            *ngIf="registerForm1.controls['nominee']['controls']['nomine'].hasError('required')">Name is required</div>
                       </div>
                   </div>
                   <div class="form-group">
                           <label>Nominee Relation</label>
-                          <input [required]="!this.isAgent" type="text" formControlName="relationship" [(ngModel)]="registerpolicyholder.nominee.relationship" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm1.controls['nominee'].controls['relationship'].invalid }" />
-                          <div *ngIf="!submitted || registerForm1.controls['nominee'].controls['relationship'].invalid" class="invalid-feedback">
-                              <div *ngIf="registerForm1.controls['nominee'].controls['relationship'].hasError('required')">relation is required</div>
+                          <input [required]="!this.isAgent" type="text" formControlName="relationship" [(ngModel)]="policyHolder.nominee.relationship" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm1.controls['nominee']['controls']['relationship'].invalid }" />
+                          <div *ngIf="!submitted || registerForm1.controls['nominee']['controls']['relationship'].invalid" class="invalid-feedback">
+                              <div *ngIf="registerForm1.controls['nominee']['controls']['relationship'].hasError('required')">relation is required</div>
                           </div>
                   </div>
                       <div class="form-group">
                               <label>Nominee aadharNumber</label>
-                              <input [required]="!this.isAgent" type="text" formControlName="aadharNumber" [(ngModel)]="registerpolicyholder.nominee.aadharNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm1.controls['nominee'].controls['aadharNumber'].invalid }" />
-                              <div *ngIf="!submitted || registerForm1.controls['nominee'].controls['aadharNumber'].invalid" class="invalid-feedback">
-                                  <div *ngIf="registerForm1.controls['nominee'].controls['aadharNumber'].hasError('required')">aadharNumber is required</div>
+                              <input [required]="!this.isAgent" type="text" formControlName="aadharNumber" [(ngModel)]="policyHolder.nominee.aadharNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm1.controls['nominee']['controls']['aadharNumber'].invalid }" />
+                              <div *ngIf="!submitted || registerForm1.controls['nominee']['controls']['aadharNumber'].invalid" class="invalid-feedback">
+                                  <div *ngIf="registerForm1.controls['nominee']['controls']['aadharNumber'].hasError('required')">aadharNumber is required</div>
                               </div>
                       </div>
                 </div>
                 <div class="text-center">
-                    <button class="btn btn-primary mr-1" (click)="sendMail()">Register</button>
+                    <button class="btn btn-primary mr-1" type="submit">Register</button>
                 </div>
             </form>
         </div>
     </div>
-    
-  </div>  
-  
+
+  </div>

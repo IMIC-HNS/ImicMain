@@ -36,15 +36,6 @@ public interface UserRepository extends MongoRepository<User, ObjectId>{
 	@Query
 	PolicyHolder findPolicyHolderById(ObjectId id);
 
-
-
-//	@Query
-//	User findByEmail(String email);
-
-
-//	@Query
-//	PolicyHolder findByType(Type type);
-
 	@Query("{'$and':[{'city': ?0},{'type':?1}]}")
 	public List<PolicyHolder> findByCityAndPolicyHolder(String city, Type policyHolder);
 
@@ -55,18 +46,5 @@ public interface UserRepository extends MongoRepository<User, ObjectId>{
 	@Query
 	User findUserById(ObjectId userId);
 
-	@Query
-	PolicyHolder findPolicyHolderById(ObjectId userId);
-
-
 	PolicyHolder findById(String userId);
-
-	//@Query
-	//List<PolicyHolder> findAllPolicyHolders(Type policyholder);
-
-	//@Query("{'city':?0}")
-	//public List<PolicyHolder> findByCity(Type policyholder);
-
-
-
 }

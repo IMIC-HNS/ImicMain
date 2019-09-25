@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder,Validators } from "@angular/forms";
+import { FormBuilder, Validators } from '@angular/forms';
 import { ContactUs } from 'src/app/Components/contactus/contactus';
 import { ContactusService } from './contactus.service';
 import { CommonService } from 'src/app/Core/common.service';
@@ -10,31 +10,31 @@ import { CommonService } from 'src/app/Core/common.service';
   styleUrls: ['./contactus.component.css']
 })
 export class ContactusComponent implements OnInit {
-  
-  private contact:ContactUs = new ContactUs("","","", "", "", "");
 
-  policyId:Number;
-  policyName:String
+  contact: ContactUs = new ContactUs('', '', '', '', '', '');
+
+  policyId: string;
+  policyName: string;
   constructor(
-    private contactusService: ContactusService,private commonService:CommonService
+    private contactusService: ContactusService, private commonService: CommonService
   ) { }
 
 
   ngOnInit() {
-    this.policyId=this.commonService.policyId;
+    this.contact.policyNumber = this.commonService.policyId;
     console.log(this.policyId);
-    this.policyName=this.commonService.myPolicy[0].description;
+    this.commonService.policyId = undefined;
   }
-  createPolicyHolder():void{
+  createPolicyHolder(): void {
     console.log(this.commonService.myPolicy);
     this.contactusService.createPolicyHolder(this.contact)
-    .subscribe(data=>{
-      alert("Details sent");
+    .subscribe(data => {
+      alert('Details sent');
     });
-  };
+  }
 
   // onSubmit() {
-  
+
   //   console.log(this.contact);
   // }
 }

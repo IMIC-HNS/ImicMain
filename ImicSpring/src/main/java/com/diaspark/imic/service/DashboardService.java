@@ -20,65 +20,50 @@ import com.diaspark.imic.repository.UserRepository;
 
 /**
  * @author SHIVANGI RAI
- *
  */
 @Service
 public class DashboardService {
 
-	@Autowired
-	private UserRepository userRepository;
-	
-	public List<User> providePolicyHolders(Type type)
-	{
-		return userRepository.findAllByType(type);
-	}
+    @Autowired
+    private UserRepository userRepository;
 
-	public List<User> provideAgents(Type type)
-	{
-		return userRepository.findAllByType(type);
-		
-	}
-	
-	public List<User> providePolicyHolders(Type type)
-	{
-		return userRepository.findAllByType(type);
-	}
+    public List<User> providePolicyHolders(Type type) {
+        return userRepository.findAllByType(type);
+    }
 
-	public List<PolicyHolder> providePolicyHolder(Status submitted) {
-		return userRepository.findByStatus(submitted);
-	}
+    public List<User> provideAgents(Type type) {
+        return userRepository.findAllByType(type);
 
-	public PolicyHolder updateUser(Status decided, ObjectId userId) {
+    }
 
-		PolicyHolder user = (userRepository.findPolicyHolderById(userId));
-		user.setStatus(decided);
-		userRepository.save(user);
-		return userRepository.findPolicyHolderById(userId);
-	}
+    public List<PolicyHolder> providePolicyHolder(Status submitted) {
+        return userRepository.findByStatus(submitted);
+    }
 
-	public List<PolicyHolder> policyHolders(ObjectId userId)
-		{
-					User foundUser= userRepository.findUserById(userId);
-					if(foundUser==null) {
-						throw new ResourceAccessException("USER not found");
-					}
+    public PolicyHolder updateUser(Status decided, ObjectId userId) {
 
-					if(foundUser.getType().equals(Type.ADMIN))
-					{
-						return userRepository.findAllByTypes(Type.POLICYHOLDER);
-					}
+        PolicyHolder user = (userRepository.findPolicyHolderById(userId));
+        user.setStatus(decided);
+        userRepository.save(user);
+        return userRepository.findPolicyHolderById(userId);
+    }
 
-					else if(foundUser.getType().equals(Type.AGENT))
-					{
+    public List<PolicyHolder> policyHolders(ObjectId userId) {
+        User foundUser = userRepository.findUserById(userId);
+        if (foundUser == null) {
+            throw new ResourceAccessException("USER not found");
+        }
 
-						return userRepository.findByCityAndPolicyHolder("Indore", Type.POLICYHOLDER);
+        if (foundUser.getType().equals(Type.ADMIN)) {
+            return userRepository.findAllByTypes(Type.POLICYHOLDER);
+        } else if (foundUser.getType().equals(Type.AGENT)) {
 
-					}
+            return userRepository.findByCityAndPolicyHolder("Indore", Type.POLICYHOLDER);
 
-					else
-				return null;
+        } else
+            return null;
 
-			}
+    }
 
 
 }

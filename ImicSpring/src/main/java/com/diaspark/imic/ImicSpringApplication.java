@@ -9,6 +9,7 @@ import org.springframework.context.event.EventListener;
 
 import com.diaspark.imic.model.Admin;
 import com.diaspark.imic.model.Type;
+import com.diaspark.imic.model.User;
 import com.diaspark.imic.repository.UserRepository;
 
 @SpringBootApplication
@@ -24,13 +25,18 @@ public class ImicSpringApplication {
 	
 	@EventListener(ApplicationReadyEvent.class)
 		private void createAdmin() {
-		Admin admin = new Admin();
-	
-		admin.setEmail("shivangi.rai@diaspark.com");
-		admin.setPassword("SHIVANGI");
-		admin.setType(Type.ADMIN);
-		admin.updatePassword();
-		userRepository.save(admin);
+		User user = userRepository.findByEmail("admin@diaspark.com");
+		if(user != null) {
+			System.out.println("already existed");
+		} else {
+			Admin admin = new Admin();
+
+			admin.setEmail("admin@diaspark.com");
+			admin.setPassword("SHIVANGI");
+			admin.setType(Type.ADMIN);
+			admin.updatePassword();
+			userRepository.save(admin);
+		}
 	}
 
 }

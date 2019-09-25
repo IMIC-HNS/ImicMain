@@ -3,6 +3,7 @@ package com.diaspark.imic.service;
 import java.util.Base64;
 
 import org.bson.types.ObjectId;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
@@ -51,6 +52,11 @@ public class PolicyholderRegisterService {
 			
 		}
 		else{
+			PolicyHolder foundPolicyHolder =
+				userRepository.findPolicyHolderById(policyHolder.getObjectId(policyHolder.getId()));
+			policyHolder.setAgentId(foundPolicyHolder.getAgentId());
+			policyHolder.setPassword(foundPolicyHolder.getPassword());
+			policyHolder.setType(Type.POLICYHOLDER);
 			policyHolder.setStatus(Status.SUBMITTED);
 		}
 		userRepository.save(policyHolder);
