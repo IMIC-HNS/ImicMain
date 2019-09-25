@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder,Validators } from "@angular/forms";
 import { ContactUs } from 'src/app/Components/contactus/contactus';
 import { ContactusService } from './contactus.service';
-import { CommonService } from 'src/app/common.service';
+import { CommonService } from 'src/app/Core/common.service';
 
 @Component({
   selector: 'app-contactus',
@@ -10,7 +10,7 @@ import { CommonService } from 'src/app/common.service';
   styleUrls: ['./contactus.component.css']
 })
 export class ContactusComponent implements OnInit {
-    
+  
   private contact:ContactUs = new ContactUs("","","", "", "", "");
 
   policyId:Number;
@@ -26,6 +26,7 @@ export class ContactusComponent implements OnInit {
     this.policyName=this.commonService.myPolicy[0].description;
   }
   createPolicyHolder():void{
+    console.log(this.commonService.myPolicy);
     this.contactusService.createPolicyHolder(this.contact)
     .subscribe(data=>{
       alert("Details sent");
@@ -33,7 +34,7 @@ export class ContactusComponent implements OnInit {
   };
 
   // onSubmit() {
-    
+  
   //   console.log(this.contact);
   // }
 }

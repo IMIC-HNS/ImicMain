@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginServiceService } from '../../login-service.service';
-import { ApiService } from 'src/app/Core/api.service';
+import { LoginServiceService } from './login-service.service';
 
 @Component({
   selector: 'app-login',
@@ -13,11 +12,10 @@ export class LoginComponent implements OnInit {
   login: FormGroup;
   submitted: boolean;
   dashBoard:any;
-  // LoginServiceService: any;
-  // _authService: any;
+  userData:any;
 
   constructor(private formBuilder: FormBuilder, private routes: Router,
-    private LoginServiceService:LoginServiceService,private api:ApiService
+    private LoginServiceService:LoginServiceService
     
     ) { }
 
@@ -31,22 +29,10 @@ export class LoginComponent implements OnInit {
   get f() { return this.login.controls; }
 
   onSubmit() {
-    // this.submitted = true;
-    // // stop here if form is invalid
-    // if (this.login.invalid) {
-    //   return;
-    // }
 
-    // this.LoginServiceService.postData(this.login.value)
-    //   .subscribe(
-    //     response => console.log("data posted" + response),
-    //     error => console.log(error)
-    //   );
-
- this.dashBoard=this.LoginServiceService.login(this.login.value);
+console.log(this.login.value);
+this.dashBoard=this.LoginServiceService.login(this.login.value);
 console.log(this.dashBoard);
-
-
-  }
+ }
 
 }

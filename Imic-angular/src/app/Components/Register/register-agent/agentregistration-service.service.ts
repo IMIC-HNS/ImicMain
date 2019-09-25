@@ -9,9 +9,6 @@ import { FormGroup } from '@angular/forms';
 export class AgentregistrationServiceService {
  private url="http://localhost:8080/register/agent";
   constructor(private _http: HttpClient) { }
- // this.http.post<any>(this.url,this.registerForm.value);
- //console.log(this.http.post<any>(this.url,this.registerForm.value));
- 
 
  postData(register:FormGroup)
  {  console.log(register);

@@ -1,0 +1,60 @@
+package com.diaspark.imic.service;
+
+import java.util.Base64;
+
+import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
+
+import com.diaspark.imic.model.Agent;
+import com.diaspark.imic.model.PolicyHolder;
+import com.diaspark.imic.model.Status;
+import com.diaspark.imic.model.Type;
+import com.diaspark.imic.model.User;
+import com.diaspark.imic.repository.UserRepository;
+/**
+ * @author Nishi Agarwal
+ *
+ */
+@Service
+public class PolicyholderRegisterService {
+	
+	@Autowired
+	UserRepository userRepository;
+	@Autowired
+	private MailsenderService mailSender;
+	private String holderId;
+	private String SALT="IMIC";
+	private String link;
+
+	public PolicyHolder registerPolicyholder(PolicyHolder policyHolder, ObjectId userId) {
+		User user = userRepository.findById(userId).orElse(null);
+		if(user == null) {
+		  throw	new RestClientException("Not Authorized");
+		}
+		if(user.getType() == Type.AGENT) {
+			Agent agent = (Agent) user;
+			policyHolder.setAgentId(new ObjectId(user.getId()));
+			policyHolder.setPassword("IMIC" + policyHolder.getLastName());
+			policyHolder.updatePassword();
+			policyHolder.setStatus(Status.INITIALISED);
+			holderId = policyHolder.getId().toString();
+			
+			this.holderId =	Base64.getEncoder().encodeToString((holderId + "-" + SALT).getBytes());
+			link= "http://localhost:4200/registerpolicyholder/" + holderId;
+			mailSender.sendEmail(policyHolder,link);
+
+			//localhost:4200/p/policyholder.getId();
+			agent.addPolicyHolder(policyHolder);
+			userRepository.save(agent);
+			
+		}
+		else{
+			policyHolder.setStatus(Status.SUBMITTED);
+		}
+		userRepository.save(policyHolder);
+		return (PolicyHolder) userRepository.findById(policyHolder.getObjectId(policyHolder.getId())).get();
+		
+	}
+}

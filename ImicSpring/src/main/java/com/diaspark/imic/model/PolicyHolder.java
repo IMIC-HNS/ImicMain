@@ -3,6 +3,8 @@
  */
 package com.diaspark.imic.model;
 
+import org.bson.types.ObjectId;
+
 //import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,18 +13,43 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import com.diaspark.imic.model.User;
 
 /**
- * @author SHIVANGI RAI
+ * @author Nishi agarwal
  *
  */
 @Document(collection = "users")
 public class PolicyHolder extends User{
+
+	private ObjectId agentId;
 
 	private String mobileNumber;
 	private String city;
 	private String policyNumber;
 	private String aadhar;
 	private String address;
+	private String aadharDoc;
 	private Status status;
+	private String dob;
+	private Nominee nominee=new Nominee();
+	
+		public ObjectId getAgentId() {
+		return agentId;
+	}
+	public void setAgentId(ObjectId agentId) {
+		this.agentId = agentId;
+	}
+	public Nominee getNominee() {
+		return nominee;
+	}
+	public void setNominee(Nominee nominee) {
+		this.nominee = nominee;
+	}
+	
+	public String getDob() {
+		return dob;
+	}
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
 	
 	/**
 	 * @return the mobileNumber
@@ -84,9 +111,26 @@ public class PolicyHolder extends User{
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
+	
+	
+	/**
+	 * @return the aadharDoc
+	 */
+	public String getAadharDoc() {
+		return aadharDoc;
+	}
+	/**
+	 * @param aadharDoc the aadharDoc to set
+	 */
+	public void setAadharDoc(String aadharDoc) {
+		this.aadharDoc = aadharDoc;
+	}
 	/**
 	 * @return the status
 	 */
+	
+	
 	public Status getStatus() {
 		return status;
 	}

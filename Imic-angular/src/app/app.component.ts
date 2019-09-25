@@ -1,7 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Policy} from './policy';
-import { CommonService } from './common.service';
+import { CommonService } from './Core/common.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,11 +9,12 @@ import { CommonService } from './common.service';
 })
 export class AppComponent implements OnInit {
   
-  constructor(private cs:CommonService) {
+  constructor(private commonService:CommonService) {
     
   } 
   
   
   ngOnInit() {
+    this.commonService.getPolicies();
   }
 }

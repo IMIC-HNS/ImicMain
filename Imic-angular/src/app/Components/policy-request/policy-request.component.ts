@@ -15,10 +15,11 @@ export class PolicyRequestComponent implements OnInit {
   // decisionUrl="/decision/";
   policyHolder:any=[];
  updatedUser={};
+  
 
   
     showAlert (holder){
-      holder.myValue = true;  
+      holder.myValue = true;
     };
 
 
@@ -36,4 +37,3 @@ export class PolicyRequestComponent implements OnInit {
   }
 
 }
-  

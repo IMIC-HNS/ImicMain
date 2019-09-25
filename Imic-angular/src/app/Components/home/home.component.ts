@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CommonService } from 'src/app/common.service';
+import { CommonService } from 'src/app/Core/common.service';
 import { Router } from '@angular/router';
 
 @Component({

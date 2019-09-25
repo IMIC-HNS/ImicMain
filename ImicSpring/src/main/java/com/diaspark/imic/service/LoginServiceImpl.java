@@ -13,6 +13,7 @@ import com.diaspark.imic.model.Type;
 //import com.diaspark.imic.model.LoginUser;
 import com.diaspark.imic.model.User;
 import com.diaspark.imic.repository.UserRepository;
+import com.sun.xml.messaging.saaj.util.Base64;
 
 /**
  * @author SHIVANGI RAI
@@ -22,7 +23,7 @@ import com.diaspark.imic.repository.UserRepository;
 @Service
 public class LoginServiceImpl implements LoginService {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(LoginServiceImpl.class);
+	//private static final Logger LOGGER = LoggerFactory.getLogger(LoginServiceImpl.class);
 
 	@Autowired
 	UserRepository userRepository;
@@ -31,15 +32,15 @@ public class LoginServiceImpl implements LoginService {
 	public User login(User loginUser) {
 		
 		
+
 		User getUser=userRepository.findByEmail(loginUser.getEmail());
-		
-		if((getUser!=null) && (getUser.getPassword().equals(loginUser.getPassword())))
-		{	
+		String password = Base64.base64Decode(getUser.getPassword());
+		if((getUser!=null) && (password.split("-")[0].equals(loginUser.getPassword())))
+
+		//if((getUser!=null) && (getUser.getPassword().equals(loginUser.getPassword())))
+		{
 			return getUser;
 		}
-		else
-		{
-			return null;
-		}
-	}
-}
+		return null;
+	
+}}

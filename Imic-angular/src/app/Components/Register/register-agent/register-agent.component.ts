@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormArray, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators,  FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { AgentregistrationServiceService } from 'src/app/agentregistration-service.service';
+
+//import { HttpClient } from '@angular/common/http';
+import { AgentregistrationServiceService } from 'src/app/Components/Register/register-agent/agentregistration-service.service';
 
 @Component({
   selector: 'app-register-agent',
@@ -16,7 +17,7 @@ export class RegisterAgentComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private routes: Router,
-    private _agentService: AgentregistrationServiceService,private http:HttpClient) { }
+    private _agentService: AgentregistrationServiceService) { }
 
    // private url="http://localhost:8080/register/agent";
 
@@ -29,7 +30,7 @@ export class RegisterAgentComponent implements OnInit {
       mobileNumber: ['', [Validators.required, Validators.minLength(10)]],
       city: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      dateOfBirth: ['', Validators.required],
+      dob: ['', Validators.required],
     
   });
 
@@ -42,19 +43,7 @@ onSubmit() {
   // stop here if form is invalid
   if (this.registerForm.invalid) {
     return;
-  }// display form values on success
-  //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
-
-  //console.log('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
-
-
-  // this.http.post<any>(this.url,this.registerForm.value);
-  // return this.http.post(this.url,this.registerForm.value);
-  //console.log(this.http.post<any>(this.url,this.registerForm.value));
-
-
-  //this.http.post<any>(this.url,this.registerForm.value);
-  //console.log(this.http.post<any>(this.url,this.registerForm.value));
+  }
 
   this._agentService.postData(this.registerForm.value)
   .subscribe(
@@ -63,7 +52,6 @@ onSubmit() {
   );
   
 }
-
 
 onReset() {
   this.submitted = false;
