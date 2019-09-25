@@ -9,7 +9,7 @@
 <!-- Page content -->
 <div class="content">
   <div class="row">
-      <div class="col-md-5 ">  
+      <div class="col-md-5 agents text-center">  
         <div class="row">
           <h5>Agents</h5>
         </div>
@@ -17,23 +17,26 @@
           <thead>
          
             <tr>
-            <th scope="col">#</th>
+            <th scope="col">S.no</th>
             <th scope="col">Name</th>
-            <th scope="col">City</th>
-            <th scope="col">Contact Number</th>
+            <th scope="col">Action</th>
           </tr>
           </thead>
           <tbody>
-              <tr *ngFor="let agent of this.agents; index as i">
+              <tr *ngFor="let agent of agents; index as i">
                 <th scope="row">{{ i + 1 }}</th>
                 <td>{{ agent.firstName }} {{agent.lastName}}</td>
-                <td>{{ agent.city}}</td>
-                <td>{{ agent.mobileNumber }}</td>
+                <td><button class="btn btn-outline-info" (click)="showAlert(holder)">Show Details</button></td>
+                <div *ngIf="holder.myValue">
+                  <p>Contact.No:{{agent.mobileNumber}}</p>
+                  <p>Email:{{agent.email}}</p>
+                  <p>City:{{holder.city}}</p>
+               </div> 
               </tr>
               </tbody>
             </table>
       </div> 
-      <div class="col-md-5 ">  
+      <div class="col-md-6 policyHolder">  
           <div class="row">
             <h5>Policy Holders</h5>
           </div>
@@ -41,9 +44,8 @@
             <thead>
            
               <tr>
-              <th scope="col">#</th>
+              <th scope="col">S.no</th>
               <th scope="col">Name</th>
-              <th scope="col">City</th>
               <th scope="col">Action</th>
             </tr>
             </thead>
@@ -51,9 +53,15 @@
                 <tr *ngFor="let holder of policyHolders; index as i">
                   <th scope="row">{{ i + 1 }}</th>
                   <td>{{ holder.firstName }} {{holder.lastName}}</td>
-                  <td>{{ holder.city}}</td>
-                  <td><button (click)="this.approval(holder.id)">Approve</button>
-                    <button (click)="this.rejection(holder.id)">Reject</button></td>
+                  <td><button class="btn btn-success" (click)="this.approval(holder.id)">Approve</button>
+                  <button class="btn btn-danger" (click)="this.rejection(holder.id)">Reject</button>
+                  <button class="btn btn-outline-info" (click)="showAlert(holder)"> Show Details</button> </td>
+                   <div *ngIf="holder.myValue">
+                      <p>Contact.No:{{holder.mobileNumber}}</p>
+                      <p>Status:{{holder.status}}</p>
+                      <p>City:{{holder.city}}</p>
+                      <p>Email:{{holder.email}}</p>
+                   </div> 
                 </tr>
                 </tbody>
               </table>

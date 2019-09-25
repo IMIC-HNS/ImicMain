@@ -22,7 +22,7 @@
               <tr>
               <th scope="col">S.No</th>
               <th scope="col">Name</th>
-              <th scope="col">City</th>
+              <!-- <th scope="col">City</th> -->
               <th scope="col">Action</th>
             </tr>
             </thead>
@@ -30,8 +30,14 @@
                 <tr *ngFor="let holder of policyHolder; index as i">
                   <th scope="row">{{ i + 1 }}</th>
                   <td>{{ holder.firstName }} {{holder.lastName}}</td>
-                  <td>{{ holder.city}}</td>
-                  <!-- <td>{{}}</td> -->
+                  <!-- <td>{{ holder.city}}</td> -->
+                   <td><button class="btn btn-outline-info" (click)="showAlert(holder)">Show Details</button></td>
+                    <div *ngIf="holder.myValue">
+                      <p>City:{{holder.city}}</p>
+                      <p>Contact.No:{{holder.mobileNumber}}</p>
+                      <p>Email:{{holder.email}}</p>
+                      <p>Status:{{holder.status}}</p>
+                    </div>
                 </tr>
                 </tbody>
               </table>

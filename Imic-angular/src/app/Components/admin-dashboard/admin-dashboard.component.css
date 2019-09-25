@@ -79,3 +79,15 @@
    border-radius: 5px;
    margin: 5px;
  }
+ .agents,.policyHolder{
+   border:2px solid grey;
+   border-radius: 10px;
+   margin: 5px;
+   box-shadow: 2px 2px 2px 2px navy;
+ }
+ .agents h5,.policyHolder h5{
+   text-align: center;
+ }
+ .policyHolder button{
+   margin:1px;
+ }

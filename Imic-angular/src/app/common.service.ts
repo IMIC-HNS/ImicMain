@@ -13,7 +13,7 @@ export class CommonService {
   myPolicy:any=[];
    agents:any=[];
    policyHolders:any=[];
- 
+  policyId:Number;
    getPolicies()
   {
     return new Promise( (resolve, reject) => {

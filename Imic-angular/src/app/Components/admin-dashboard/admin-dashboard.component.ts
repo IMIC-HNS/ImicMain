@@ -68,4 +68,8 @@ rejection(id)
     error=>console.log(error)
   );
 }
+showAlert (holder){
+  holder.myValue = true;  
+};
+
 }

@@ -18,7 +18,7 @@ export class PolicyRequestComponent implements OnInit {
 
   
     showAlert (holder){
-      holder.myvalue = true;  
+      holder.myValue = true;  
     };
 
 

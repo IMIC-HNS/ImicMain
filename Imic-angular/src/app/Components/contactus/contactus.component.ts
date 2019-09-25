@@ -13,14 +13,17 @@ export class ContactusComponent implements OnInit {
     
   private contact:ContactUs = new ContactUs("","","", "", "", "");
 
-  @Input() policyId:Number;
+  policyId:Number;
+  policyName:String
   constructor(
     private contactusService: ContactusService,private commonService:CommonService
   ) { }
 
 
   ngOnInit() {
+    this.policyId=this.commonService.policyId;
     console.log(this.policyId);
+    this.policyName=this.commonService.myPolicy[0].description;
   }
   createPolicyHolder():void{
     this.contactusService.createPolicyHolder(this.contact)

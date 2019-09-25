@@ -46,9 +46,15 @@
     <div class="form-group">
       <label>Policy</label>
       <!-- <input  list="policyNumber" required [(ngModel)]="contact.policyNumber" name="policyNumber" #policyNumber='ngModel' type="string" class="form-control">  -->
-      <select [(ngModel)]="contact.policyNumber" name="policyNumber" #policyNumber='ngModel' id="policyNumber"  class="form-control">
-        <option *ngFor="let policy of this.commonService.myPolicy" value="{{policy.policyId}}">{{policy.description}}</option>
-      </select>  
+      <select [(ngModel)]="contact.policyNumber" name="policyNumber" *ngIf="this.policyId" else dropdown #policyNumber='ngModel' id="policyNumber"  class="form-control">
+          <option  value="policyId" selected>{{this.commonService.myPolicy["this.policyId"].policyId}}</option> 
+      </select>
+         <ng-template #dropdown>
+          <select [(ngModel)]="contact.policyNumber" name="policyNumber" #policyNumber='ngModel' id="policyNumber"  class="form-control">
+          <option *ngFor="let policy of this.commonService.myPolicy" value="{{policy.policyId}}">{{policy.description}}</option>
+        </select>
+        </ng-template>
+        
       <!-- <select id="policyNumber" *ngFor="let policy of this.commonService.myPolicy">
         <option value="{{policy.policyId}}">{{policy.description}}</option>
       </select> -->
@@ -61,13 +67,13 @@
     <div class="form-group">
       <label>City</label>
       <input required [(ngModel)]="contact.city" name='city' list="city" #city='ngModel' type="string" class="form-control"> 
-        <datalist id="city">
+        <select id="city">
         <option value="Indore">
         <option value="Gwalior">
         <option value="Ratlam">
         <option value="Bhopal">
         <option value="Jabalpur">   
-        </datalist>
+        </select>
         <div *ngIf="city.invalid && 
          city.touched">
       <small class="text-danger" *ngIf="city.errors?.required" >City is required</small>

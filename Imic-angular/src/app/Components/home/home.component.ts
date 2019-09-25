@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
    }
 contactUs(id)
 { console.log(id);
-  this.policyId=id;
+  this.commonService.policyId=id;
   this.router.navigate(['/contact-us']);
 }
   ngOnInit() {
