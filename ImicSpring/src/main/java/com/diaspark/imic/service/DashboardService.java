@@ -63,20 +63,20 @@ public class DashboardService {
         if (foundUser.getType().equals(Type.ADMIN)) {
             return userRepository.findAllByTypes(Type.POLICYHOLDER);
         } else if (foundUser.getType().equals(Type.AGENT)) {
-
-            return userRepository.findByCityAndPolicyHolder("Indore", Type.POLICYHOLDER);
+        		
+            return userRepository.findByCityAndPolicyHolder(userRepository.findCityById(userId), Type.POLICYHOLDER);
 
         } else
             return null;
 
     }
 
+	public List<PolicyHolder> getPolicyHolders(String city, Status required) {
+		// TODO Auto-generated method stub
+		
+		return userRepository.findByCityAndStatus(city,required);
+	}
+
 
 }
-
-
-//TODO: Get user by id.
-//Check user type.
-// if user type is admin then return all policy holder.
-//else user type is agent then return all policy holder by city of agent
 

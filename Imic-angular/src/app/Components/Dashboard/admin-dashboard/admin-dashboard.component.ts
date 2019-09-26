@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/Core/api.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import {CommonService} from '../../../Core/common.service';
+import { LoginServiceService } from '../../login/login-service.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -20,7 +21,7 @@ export class AdminDashboardComponent implements OnInit {
   updatedUser = {};
 
   constructor(private commonService: CommonService, private api: ApiService,
-              private router: Router, private route: ActivatedRoute) { }
+              private router: Router, private route: ActivatedRoute,private logout:LoginServiceService) { }
 
   ngOnInit() {
     this.api.get(this.url).subscribe(
@@ -30,7 +31,8 @@ export class AdminDashboardComponent implements OnInit {
       }  ,
       error => console.log(error)
     );
-
+      console.log(sessionStorage.activeUser);
+      console.log(sessionStorage.activePassword);
     this.api.get('/dashboard/getAgents').subscribe(
       response => {
         this.agents = response;
