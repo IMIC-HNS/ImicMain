@@ -29,6 +29,7 @@ export class PolicyholderDashboardComponent implements OnInit {
     this.http.get(this.url + this.id + '/' + this.isEncoded).subscribe(
       (res: RegisterPolicyholder) => {
         this.userPolicydetail = res;
+        console.log(res);
   },
   error => console.error()
     );

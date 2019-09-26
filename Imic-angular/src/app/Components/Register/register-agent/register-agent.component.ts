@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators,  FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 //import { HttpClient } from '@angular/common/http';
 import { AgentregistrationServiceService } from 'src/app/Components/Register/register-agent/agentregistration-service.service';
+import { HomeComponent } from '../../home/home.component';
 
 @Component({
   selector: 'app-register-agent',
@@ -17,7 +18,8 @@ export class RegisterAgentComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private routes: Router,
-    private _agentService: AgentregistrationServiceService) { }
+    private _agentService: AgentregistrationServiceService
+    , private router: Router) { }
 
    // private url="http://localhost:8080/register/agent";
 
@@ -30,7 +32,7 @@ export class RegisterAgentComponent implements OnInit {
       mobileNumber: ['', [Validators.required, Validators.minLength(10)]],
       city: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      dob: ['', Validators.required],
+      dob: [new Date(), Validators.required],
     
   });
 
@@ -50,11 +52,16 @@ onSubmit() {
     (data =>console.log("data posted"+data)),
     (error=>console.log(error))
   );
+
+  alert("AGENT DATA HAS BEEN SUBMITTED");
+  this.router.navigate(['/home']);
   
 }
 
 onReset() {
   this.submitted = false;
   this.registerForm.reset();
+  this.router.navigate(['/home']);
+
 }
 }

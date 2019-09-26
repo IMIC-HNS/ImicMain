@@ -19,7 +19,7 @@ export class LoginServiceService {
     "ADMIN":"admin-dashboard",
     "AGENT":"agent-dashboard",
     "POLICYHOLDER":"policyholder-dashboard"
-  }; 
+  };
   dashBoard="";
   constructor(private _http: HttpClient,private router:Router,private route:ActivatedRoute, private commonService: CommonService) { }
 
@@ -38,7 +38,7 @@ export class LoginServiceService {
      if(res===null)
       alert("Invalid Username or Password");
    
-      else { 
+      else {
      this.dashBoard=this.users[res.type];
      this.commonService.loggedInUser = res;
      console.log(this.dashBoard);

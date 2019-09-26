@@ -7,7 +7,7 @@
 <br>
 <div class="sidebar" position="fixed">
   <a class="active" [routerLink]="['/policyholder-dashboard']">MY Dashboard</a>
-  <a class="active" [routerLink]="['/profile']">MY PROFILE</a>
+  <!-- <a class="active" [routerLink]="['/profile']">MY PROFILE</a> -->
   <a href="">Logout</a>
 </div>
 
@@ -22,11 +22,11 @@
               <div class="row">
                     <div class="col">
                         <p>First Name</p>
-                      asdfgh
+                      {{this.userPolicydetail.firstName}}
                     </div>
                     <div class="col">
                             <p>Last Name</p>
-                            rai
+                            {{this.userPolicydetail.lastName}}
                         </div>
               </div>
           </div>
@@ -36,11 +36,11 @@
                 <div class="row">
                       <div class="col">
                           <p>Email</p>
-                           rai.shivangi29@gmail.com
+                          {{this.userPolicydetail.email}}
                       </div>
                       <div class="col">
                               <p>Mobile Number</p>
-                              9926450027
+                              {{this.userPolicydetail.mobileNumber}}
                           </div>
                 </div>
             </div>
@@ -50,39 +50,26 @@
                   <div class="row">
                         <div class="col">
                             <p>Date of birth</p>
-                             29-03-1997
+                            {{this.userPolicydetail.dob}}
                         </div>
                         <div class="col">
                                 <p>Policy Number</p>
-                                1
+                                {{this.userPolicydetail.policyNumber}}
                             </div>
                   </div>
               </div>
               <br>
             <br>
-            <div>
-                  <div class="row">
-                        <div class="col">
-                            <p>Date of birth</p>
-                             29-03-1997
-                        </div>
-                        <div class="col">
-                                <p>Policy Number</p>
-                                1
-                            </div>
-                  </div>
-              </div>
-              <br>
-              <br>
+            
               <div>
                     <div class="row">
                           <div class="col">
                               <p>City</p>
-                               indore
+                              {{this.userPolicydetail.city}}
                           </div>
                           <div class="col">
                                   <p>Aadhar Number</p>
-                                  12345678909876
+                                  {{this.userPolicydetail.aadhar}}
                               </div>
                               
                     </div>
@@ -93,11 +80,11 @@
                     <div class="row">
                           <div class="col">
                               <p>Nominee Name</p>
-                               dfghj
+                              {{this.userPolicydetail.nomine}}
                           </div>
                           <div class="col">
                                   <p>Nominee relation</p>
-                                  12345678909876
+                                  {{this.userPolicydetail.relation}}
                               </div>
                     </div>
                 </div>

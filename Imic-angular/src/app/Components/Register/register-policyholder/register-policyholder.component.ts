@@ -25,7 +25,8 @@ export class RegisterPolicyholderComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private routes: Router, private route: ActivatedRoute,
               private policyholderregistrationService: PolicyholderregistrationService, private api: ApiService
-    ,         private commonService: CommonService) {
+              ,private commonService: CommonService
+              ,private router: Router) {
       this.loggedInUser = commonService.loggedInUser;
       console.log('user loggedIn' + JSON.stringify(this.loggedInUser));
       this.isAgent = (this.loggedInUser && this.loggedInUser.type === 'AGENT');
@@ -84,9 +85,9 @@ export class RegisterPolicyholderComponent implements OnInit {
       dob: [''],
       aadharDoc: [''],
       nominee: this.fb.group({
-      nomine: ['', Validators.required],
-      relationship: ['', Validators.required],
-      aadharNumber: ['', Validators.required]
+      nomine: [''],
+      relationship: [''],
+      aadharNumber: ['']
       })
   });
   }
@@ -106,6 +107,8 @@ export class RegisterPolicyholderComponent implements OnInit {
     (data => console.log('data posted' + data)),
     (error => console.log(error))
   );
+  alert("POLICYHOLDER FORM HAS BEEN INITIALIZED");
+  this.router.navigate(['/home']);
 
   }
   }
