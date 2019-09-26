@@ -63,8 +63,8 @@ public class DashboardService {
         if (foundUser.getType().equals(Type.ADMIN)) {
             return userRepository.findAllByTypes(Type.POLICYHOLDER);
         } else if (foundUser.getType().equals(Type.AGENT)) {
-        		
-            return userRepository.findByCityAndPolicyHolder(userRepository.findCityById(userId), Type.POLICYHOLDER);
+        		Agent foundAgent=(Agent)(foundUser);
+            return userRepository.findByCityAndPolicyHolder(foundAgent.getCity(), Type.POLICYHOLDER);
 
         } else
             return null;

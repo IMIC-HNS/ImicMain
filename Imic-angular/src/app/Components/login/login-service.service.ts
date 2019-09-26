@@ -35,7 +35,7 @@ export class LoginServiceService {
   .subscribe(
    res =>{
      console.log(res);
-     if(res===null)
+     if(res==null)
       alert("Invalid Username or Password");
    
       else {
