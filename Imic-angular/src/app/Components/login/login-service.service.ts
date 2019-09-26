@@ -35,6 +35,7 @@ export class LoginServiceService {
   .subscribe(
    res =>{
      console.log(res);
+     console.log(this.users[res.type]);
      this.dashBoard=this.users[res.type];
      this.commonService.loggedInUser = res;
      console.log(this.dashBoard);
