@@ -17,6 +17,7 @@ import com.diaspark.imic.model.Type;
 import com.diaspark.imic.model.User;
 import com.diaspark.imic.model.Agent;
 import com.diaspark.imic.repository.UserRepository;
+import com.sun.xml.messaging.saaj.util.Base64;
 
 /**
  * @author SHIVANGI RAI
@@ -26,6 +27,9 @@ public class DashboardService {
 
     @Autowired
     private UserRepository userRepository;
+    
+    @Autowired
+    private MailsenderService mailSender;
 
     public List<User> providePolicyHolders(Type type) {
         return userRepository.findAllByType(type);
@@ -44,7 +48,9 @@ public class DashboardService {
 
         PolicyHolder user = (userRepository.findPolicyHolderById(userId));
         user.setStatus(decided);
+        
         userRepository.save(user);
+        mailSender.sendEmailToPolicyholder(user, Base64.base64Decode(user.getPassword()));
         return userRepository.findPolicyHolderById(userId);
     }
 
@@ -57,20 +63,20 @@ public class DashboardService {
         if (foundUser.getType().equals(Type.ADMIN)) {
             return userRepository.findAllByTypes(Type.POLICYHOLDER);
         } else if (foundUser.getType().equals(Type.AGENT)) {
-
-            return userRepository.findByCityAndPolicyHolder("Indore", Type.POLICYHOLDER);
+        		Agent foundAgent=(Agent)(foundUser);
+            return userRepository.findByCityAndPolicyHolder(foundAgent.getCity(), Type.POLICYHOLDER);
 
         } else
             return null;
 
     }
 
+	public List<PolicyHolder> getPolicyHolders(String city, Status required) {
+		// TODO Auto-generated method stub
+		
+		return userRepository.findByCityAndStatus(city,required);
+	}
+
 
 }
-
-
-//TODO: Get user by id.
-//Check user type.
-// if user type is admin then return all policy holder.
-//else user type is agent then return all policy holder by city of agent
 

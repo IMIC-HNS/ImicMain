@@ -3,15 +3,15 @@
   <a class="active" [routerLink]="['/admin-dashboard']">Dashboard</a>
   <a [routerLink]="['/register-agent']" routerLinkActive="active">Add Agent</a>
   <a [routerLink]="['/policy-request']" routerLinkActive="active">Policy Requested</a>
-  <a href="">Logout</a>
+  <a [routerLink]="['/home']" (click)="this.logout.logout()">Logout</a>
 </div>
 
 <!-- Page content -->
 <div class="content">
   <div class="row">
       <div class="col-md-5 agents text-center">
-        <div class="row">
-          <h5>Agents</h5>
+        <div  class="row1">
+          <h3>AGENTS</h3>
         </div>
         <table class="table table-striped">
           <thead>
@@ -26,19 +26,19 @@
               <tr *ngFor="let agent of agents; index as i">
                 <th scope="row">{{ i + 1 }}</th>
                 <td>{{ agent.firstName }} {{agent.lastName}}</td>
-                <td><button class="btn btn-outline-info" (click)="showAlert(holder)">Show Details</button></td>
-                <div *ngIf="holder.myValue">
+                <td><button class="btn btn-outline-info" (click)="showAlert(agent)">Show Details</button></td>
+                <div *ngIf="agent.myValue">
                   <p>Contact.No:{{agent.mobileNumber}}</p>
                   <p>Email:{{agent.email}}</p>
-                  <p>City:{{holder.city}}</p>
+                  <p>City:{{agent.city}}</p>
                </div>
               </tr>
               </tbody>
             </table>
       </div>
       <div class="col-md-6 policyHolder">
-          <div class="row">
-            <h5>Policy Holders</h5>
+          <div class="row1">
+            <h3>POLICY HOLDERS</h3>
           </div>
           <table class="table table-striped">
             <thead>

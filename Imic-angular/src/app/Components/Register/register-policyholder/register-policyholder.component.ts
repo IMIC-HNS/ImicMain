@@ -28,7 +28,8 @@ export class RegisterPolicyholderComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private routes: Router, private route: ActivatedRoute,
               private policyholderregistrationService: PolicyholderregistrationService, private api: ApiService
-    ,         private commonService: CommonService) {
+              ,private commonService: CommonService
+              ,private router: Router) {
       this.loggedInUser = commonService.loggedInUser;
       console.log('user loggedIn' + JSON.stringify(this.loggedInUser));
       this.isAgent = (this.loggedInUser && this.loggedInUser.type === 'AGENT');
@@ -70,14 +71,14 @@ export class RegisterPolicyholderComponent implements OnInit {
       if (!this.isAgent) {
         this.requestedUserId = this.policyHolder.id;
       }
-      this.initializeForm(res); 
+      this.initializeForm(res);
       console.log(this.initializeForm)
     },
     error =>{
       this.policyHolder=new RegisterPolicyholder();
       this.initializeForm(this.policyHolder);
-      console.log(error)    
-    } 
+      console.log(error)
+    }
   );
   }
 
@@ -100,7 +101,6 @@ export class RegisterPolicyholderComponent implements OnInit {
         aadharNumber: [""]
       }),
   });
- // this.getPolicyHolderData();
   }
 
   get f() { return this.registerForm1.controls; }
@@ -118,6 +118,8 @@ export class RegisterPolicyholderComponent implements OnInit {
     (data => console.log('data posted' + data)),
     (error => console.log(error))
   );
+  alert("POLICYHOLDER FORM HAS BEEN INITIALIZED");
+  this.router.navigate(['/home']);
 
   }
   }

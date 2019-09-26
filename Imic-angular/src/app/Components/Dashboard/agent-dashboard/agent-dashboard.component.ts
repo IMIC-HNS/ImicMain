@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from 'src/app/Core/common.service';
 import { ApiService } from 'src/app/Core/api.service';
+import { LoginServiceService } from '../../login/login-service.service';
 
 @Component({
   selector: 'app-agent-dashboard',
@@ -8,7 +9,7 @@ import { ApiService } from 'src/app/Core/api.service';
   styleUrls: ['./agent-dashboard.component.css']
 })
 export class AgentDashboardComponent implements OnInit {
-  constructor(private commonService:CommonService, private api: ApiService) { }
+  constructor(private commonService:CommonService, private api: ApiService,private logout:LoginServiceService) { }
    policyHolders: any= [];
   ngOnInit() {
     this.api.get("/dashboard/" + this.commonService.loggedInUser.id + "/policyHolders").
@@ -21,6 +22,5 @@ export class AgentDashboardComponent implements OnInit {
     }
   }
   // this.api.get("/dashboard/" + this.commonService.loggedInUser.id + "/policyHolders").
-
-
+  
 

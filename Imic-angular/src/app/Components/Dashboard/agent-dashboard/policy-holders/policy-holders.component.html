@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <div class="row text-center">
+    Policy Holders
+  </div>
+ <div class="row">  
+   <div class="col-md-5"> 
+     <table class="table table-striped">
+      <thead>
+
+        <tr>
+        <th scope="col">S.no</th>
+        <th scope="col">Name</th>
+        <th scope="col">Status</th>
+      </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let holder of policyInitialised; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ holder.firstName }} {{holder.lastName}}</td>
+            <td><strong>{{holder.status }}</strong></td>   
+          </tr>
+          </tbody>
+        </table>
+    </div>    
+    
+    <div class="col-md-5">
+        <table class="table table-striped">
+            <thead>
+      
+              <tr>
+              <th scope="col">S.no</th>
+              <th scope="col">Name</th>
+              <th scope="col">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let holder of policySubmitted; index as i">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ holder.firstName }} {{holder.lastName}}</td>
+                  <td><strong>{{holder.status }}</strong></td>   
+                </tr>
+                </tbody>
+              </table>      
+        
+    </div>
+    </div>
+    </div>
+    

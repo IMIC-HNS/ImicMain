@@ -48,7 +48,11 @@ public class DashboardController {
 		return dashboardService.provideAgents(Type.AGENT);
 	}
 
-
+	@GetMapping(value="{city}")
+	public List<PolicyHolder> getPolicyHolder(@PathVariable("city") String city,@RequestParam("status") Status required)
+	{
+		return dashboardService.getPolicyHolders(city,required);
+	}
 	@GetMapping(value="getPolicyHolder")
 	public List<User> getPolicyHolder()
 	{

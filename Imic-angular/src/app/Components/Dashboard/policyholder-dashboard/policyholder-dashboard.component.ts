@@ -4,6 +4,7 @@ import { Policyholderdetails } from './policyholderdetails';
 import { CommonService } from 'src/app/Core/common.service';
 import { HttpClient } from '@angular/common/http';
 import {RegisterPolicyholder} from '../../Register/register-policyholder/register-policyholder';
+import { LoginServiceService } from '../../login/login-service.service';
 
 @Component({
   selector: 'app-policyholder-dashboard',
@@ -19,16 +20,17 @@ export class PolicyholderDashboardComponent implements OnInit {
 
    userPolicydetail: RegisterPolicyholder = new RegisterPolicyholder();
 
-  constructor(private fb: FormBuilder, private commonService: CommonService, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private commonService: CommonService, private http: HttpClient,private logout:LoginServiceService) {
   this.loggedInUser = commonService.loggedInUser;
   console.log('user loggedIn' + JSON.stringify(this.loggedInUser));
 }
 
   ngOnInit() {
 
-    this.http.get(this.url + this.id + '/' + this.isEncoded).subscribe(
+    this.http.get(this.url + this.loggedInUser.id + '/' + this.isEncoded).subscribe(
       (res: RegisterPolicyholder) => {
         this.userPolicydetail = res;
+        console.log(res);
   },
   error => console.error()
     );
