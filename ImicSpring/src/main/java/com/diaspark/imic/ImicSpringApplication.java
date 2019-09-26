@@ -11,12 +11,16 @@ import com.diaspark.imic.model.Admin;
 import com.diaspark.imic.model.Type;
 import com.diaspark.imic.model.User;
 import com.diaspark.imic.repository.UserRepository;
+import com.diaspark.imic.service.UploadService;
 
 @SpringBootApplication
 public class ImicSpringApplication {
 	
 	@Autowired
-	UserRepository userRepository;
+	private UserRepository userRepository;
+	
+	@Autowired
+	private UploadService uploadService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ImicSpringApplication.class, args);
@@ -25,6 +29,7 @@ public class ImicSpringApplication {
 	
 	@EventListener(ApplicationReadyEvent.class)
 		private void createAdmin() {
+		uploadService.init();
 		User user = userRepository.findByEmail("admin@diaspark.com");
 		if(user != null) {
 			System.out.println("already existed");

@@ -79,17 +79,20 @@
 
               <div class="form-group">
                   <label>Add aadhar document</label>
-                  <input [required]="!this.isAgent" type="file" formControlName="aadharDoc"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.aadharDoc.errors }" />
+                  <input [required]="!this.isAgent" type="file" formControlName="aadharDoc" (change)="selectFile($event)" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.aadharDoc.errors }" />
                   <div *ngIf="!submitted || registerForm1.controls['aadharDoc'].invalid" class="invalid-feedback">
                       <div *ngIf="registerForm1.controls['aadharDoc'].hasError('required')">Aadhar document is required</div>
                   </div>
+                  <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload document</button>
               </div>
 
                 <label>Nominee:</label>
                 <div formGroupName="nominee">
                 <div class="form-group">
                       <label>Nominee name</label>
-                      <input [required]="!this.isAgent" type="text" formControlName="nomine" [(ngModel)]="policyHolder.nominee.nomine" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm1.controls['nominee']['controls']['nomine'].invalid }" />
+                      <input [required]="!this.isAgent"
+                       type="text" formControlName="nomine" class="form-control"  [ngClass]="{ 'is-invalid': submitted && registerForm1.controls['nominee']['controls']['nomine'].invalid }"
+                          [ngClass]="{ 'is-invalid': submitted }" />
                       <div *ngIf="!submitted || registerForm1.controls['nominee']['controls']['nomine'].invalid"
                            class="invalid-feedback">
                           <div
@@ -98,14 +101,16 @@
                   </div>
                   <div class="form-group">
                           <label>Nominee Relation</label>
-                          <input [required]="!this.isAgent" type="text" formControlName="relationship" [(ngModel)]="policyHolder.nominee.relationship" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm1.controls['nominee']['controls']['relationship'].invalid }" />
+                          <input [required]="!this.isAgent" type="text" formControlName="relationship"
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm1.controls['nominee']['controls']['relationship'].invalid }"/>
                           <div *ngIf="!submitted || registerForm1.controls['nominee']['controls']['relationship'].invalid" class="invalid-feedback">
                               <div *ngIf="registerForm1.controls['nominee']['controls']['relationship'].hasError('required')">relation is required</div>
                           </div>
                   </div>
                       <div class="form-group">
                               <label>Nominee aadharNumber</label>
-                              <input [required]="!this.isAgent" type="text" formControlName="aadharNumber" [(ngModel)]="policyHolder.nominee.aadharNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm1.controls['nominee']['controls']['aadharNumber'].invalid }" />
+                              <input [required]="!this.isAgent" type="text" formControlName="aadharNumber" 
+                              [(ngModel)]="policyHolder.nominee.aadharNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm1.controls['nominee']['controls']['aadharNumber'].invalid }" />
                               <div *ngIf="!submitted || registerForm1.controls['nominee']['controls']['aadharNumber'].invalid" class="invalid-feedback">
                                   <div *ngIf="registerForm1.controls['nominee']['controls']['aadharNumber'].hasError('required')">aadharNumber is required</div>
                               </div>

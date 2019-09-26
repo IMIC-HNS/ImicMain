@@ -5,6 +5,7 @@ import {RegisterPolicyholder} from './register-policyholder';
 import {CommonService} from 'src/app/Core/common.service';
 import {ApiService} from '../../../Core/api.service';
 import {PolicyholderregistrationService} from './policyholderregistration.service';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-register-policyholder',
@@ -21,6 +22,8 @@ export class RegisterPolicyholderComponent implements OnInit {
   id = '';
   requestedUserId = '';
   policyHolder: RegisterPolicyholder = new RegisterPolicyholder();
+  selectedFiles: FileList;
+  currentFileUpload: File;
 
 
   constructor(private fb: FormBuilder, private routes: Router, private route: ActivatedRoute,
@@ -39,56 +42,65 @@ export class RegisterPolicyholderComponent implements OnInit {
      }
 
   ngOnInit() {
-    this.initializeForm();
+  this.getPolicyHolderData();
+  }
 
+  selectFile(event) {
+    this.selectedFiles = event.target.files;
+  }
+ 
+  upload() {
+    this.currentFileUpload = this.selectedFiles.item(0);
+    this.policyholderregistrationService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
+     if (event instanceof HttpResponse) {
+        console.log('File is completely uploaded!' + JSON.stringify(event));
+      }
+    });
+ 
+    this.selectedFiles = undefined;
+  }
+
+
+  getPolicyHolderData() {
     this.api.get('/user/' + this.id + '/' + this.isEncoded).subscribe(
       (res: RegisterPolicyholder) => {
       this.policyHolder = res,
       console.log(this.policyHolder);
-      this.policyHolder.aadharDoc = 'http://docurl';
+      // this.policyHolder.aadharDoc = 'http://docurl';
       if (!this.isAgent) {
         this.requestedUserId = this.policyHolder.id;
       }
-      this.registerForm1 = this.fb.group({
-        id: [this.policyHolder.id],
-        firstName: [this.policyHolder.firstName, Validators.required],
-        lastName: [this.policyHolder.lastName, Validators.required],
-        email: [this.policyHolder.email, [Validators.required, Validators.email]],
-        mobileNumber: [this.policyHolder.mobileNumber, [Validators.required, Validators.minLength(10)]],
-        policyNumber: [this.policyHolder.policyNumber, Validators.required],
-        city: [this.policyHolder.city, Validators.required],
-        aadhar: [this.policyHolder.aadhar],
-        dob: [this.policyHolder.dob],
-        aadharDoc: [this.policyHolder.aadharDoc],
-        nominee: this.fb.group({
-        nomine: [this.policyHolder.nominee.nomine],
-        relationship: [this.policyHolder.nominee.relationship],
-        aadharNumber: [this.policyHolder.nominee.aadharNumber]
-        })
-    });
+      this.initializeForm(res); 
+      console.log(this.initializeForm)
     },
-    error => console.log(error)
+    error =>{
+      this.policyHolder=new RegisterPolicyholder();
+      this.initializeForm(this.policyHolder);
+      console.log(error)    
+    } 
   );
   }
 
-  initializeForm() {
+
+  initializeForm(policyHolder: RegisterPolicyholder) {
     this.registerForm1 = this.fb.group({
-      id: [''],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      mobileNumber: ['', [Validators.required, Validators.minLength(10)]],
-      policyNumber: ['', Validators.required],
-      city: ['', Validators.required],
-      aadhar: [''],
-      dob: [''],
-      aadharDoc: [''],
+      id: [policyHolder.id],
+      firstName: [policyHolder.firstName, Validators.required],
+      lastName: [policyHolder.lastName, Validators.required],
+      email: [policyHolder.email, [Validators.required, Validators.email]],
+      mobileNumber: [policyHolder.mobileNumber, [Validators.required, Validators.minLength(10)]],
+      policyNumber: [policyHolder.policyNumber, Validators.required],
+      city: [policyHolder.city, Validators.required],
+      aadhar: [policyHolder.aadhar],
+      dob: [policyHolder.dob],
+      aadharDoc: [policyHolder.aadharDoc],
       nominee: this.fb.group({
-      nomine: ['', Validators.required],
-      relationship: ['', Validators.required],
-      aadharNumber: ['', Validators.required]
-      })
+        nomine:  [""],
+        relationship: [""],
+        aadharNumber: [""]
+      }),
   });
+ // this.getPolicyHolderData();
   }
 
   get f() { return this.registerForm1.controls; }

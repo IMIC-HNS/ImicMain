@@ -1,0 +1,4 @@
+1. method upload() in component.ts refer the link.
+2. call service from this component.
+3. Call rest api from the service.
+4. write the business logic on server side.
