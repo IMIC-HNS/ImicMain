@@ -21,6 +21,8 @@ import { PolicyRequestComponent } from './Components/policy-request/policy-reque
 import { AgentDashboardComponent } from './Components/Dashboard/agent-dashboard/agent-dashboard.component';
 import { PolicyholderDashboardComponent } from './Components/Dashboard/policyholder-dashboard/policyholder-dashboard.component';
 import { ProfileComponent } from './Components/Dashboard/profile/profile.component';
+import { NavbarComponent } from './Core/navbar/navbar.component';
+import { PolicyHoldersComponent } from './Components/Dashboard/agent-dashboard/policy-holders/policy-holders.component';
 
 
 @NgModule({
@@ -40,7 +42,11 @@ import { ProfileComponent } from './Components/Dashboard/profile/profile.compone
 
     PolicyholderDashboardComponent,
 
-    ProfileComponent
+    ProfileComponent,
+
+    NavbarComponent,
+
+    PolicyHoldersComponent
 
   ],
   imports: [

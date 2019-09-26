@@ -35,14 +35,23 @@ export class LoginServiceService {
   .subscribe(
    res =>{
      console.log(res);
+     if(res===null)
+      alert("Invalid Username or Password");
+   
+      else { 
      this.dashBoard=this.users[res.type];
      this.commonService.loggedInUser = res;
      console.log(this.dashBoard);
+     sessionStorage.activeUser=user.email;
+     sessionStorage.activePassword=user.password;
     this.router.navigate([this.dashBoard],{relativeTo:this.route});
     }
-
+  }
   )
   
    }
-
+   logout(){
+     console.log("loggedOut");
+     sessionStorage.clear();
+   }
 }
