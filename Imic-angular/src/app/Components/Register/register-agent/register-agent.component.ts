@@ -28,7 +28,6 @@ export class RegisterAgentComponent implements OnInit {
       
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      password:['',Validators.required],
       mobileNumber: ['', [Validators.required, Validators.minLength(10)]],
       city: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],

@@ -52,7 +52,7 @@
       </select>-->
 
           <select [(ngModel)]="contact.policyNumber" name="policyNumber" #policyNumber='ngModel' id="policyNumber"  class="form-control">
-          <option *ngFor="let policy of this.commonService.myPolicy" value="{{policy.policyId}}">{{policy.description}}</option>
+          <option *ngFor="let policy of this.commonService.myPolicy" value="{{policy.policyId}}">{{policy.policyname}}</option>
         </select>
 
 

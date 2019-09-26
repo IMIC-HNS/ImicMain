@@ -47,9 +47,9 @@ public interface UserRepository extends MongoRepository<User, ObjectId>{
 	User findUserById(ObjectId userId);
 
 	PolicyHolder findById(String userId);
-
+	
 	String findCityById(ObjectId userId);
 
 	@Query
-	List<PolicyHolder> findByCityAndStatus(String city, Status required);
+	List<PolicyHolder> findByCityAndType(String city, Type type);
 }

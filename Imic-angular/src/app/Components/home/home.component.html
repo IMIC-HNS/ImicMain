@@ -25,7 +25,7 @@
   </div>
   <div class="row policies">
    <div class="col-md-8">
-     <p>{{this.myPolicy[0].description}}
+     <p>{{this.myPolicy[0].policyname}}<br>{{this.myPolicy[0].description}}
        <button class="float-right" (click)="contactUs(this.myPolicy[0].policyId)">Request For This Policy</button>
      </p>
 
@@ -41,7 +41,7 @@
           <img src="https://static.radio.net/images/broadcasts/10/90/2245/1/c300.png"  height="50%" class="rounded-circle">
         </div>
     <div class="col-md-8">
-        <p>{{this.myPolicy[1].description}}
+        <p>{{this.myPolicy[1].policyname}}<br>{{this.myPolicy[1].description}}
             <button class="float-right" (click)="contactUs(this.myPolicy[1].policyId)">Request For This Policy</button>
         </p>
       </div>
@@ -50,7 +50,7 @@
      </div>
      <div class="row policies">
         <div class="col-md-8">
-          <p>{{this.myPolicy[2].description}}
+          <p>{{this.myPolicy[2].policyname}}<br>{{this.myPolicy[2].description}}
               <button class="float-right" (click)="contactUs(this.myPolicy[2].policyId)">Request For This
                 Policy</button>
           </p>

@@ -55,6 +55,7 @@ export class RegisterPolicyholderComponent implements OnInit {
     this.policyholderregistrationService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
      if (event instanceof HttpResponse) {
         console.log('File is completely uploaded!' + JSON.stringify(event));
+        this.policyHolder.aadharDoc = event.body;
       }
     });
  
@@ -113,6 +114,7 @@ export class RegisterPolicyholderComponent implements OnInit {
     console.log(this.registerForm1.value);
     return;
     }
+    this.registerForm1.value.aadharDoc = this.policyHolder.aadharDoc;
     this.policyholderregistrationService.postData(this.registerForm1.value, this.requestedUserId)
   .subscribe(
     (data => console.log('data posted' + data)),

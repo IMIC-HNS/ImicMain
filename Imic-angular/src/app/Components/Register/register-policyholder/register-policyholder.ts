@@ -14,7 +14,7 @@ export class RegisterPolicyholder {
   public city: string;
   public aadhar: string;
   public dob: string;
-  public aadharDoc: string;
+  public aadharDoc: any;
   public nominee: Nominee = new Nominee();
   public claim: Claim = new Claim()
     constructor(

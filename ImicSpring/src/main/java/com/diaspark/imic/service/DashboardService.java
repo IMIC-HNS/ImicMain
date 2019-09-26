@@ -50,7 +50,7 @@ public class DashboardService {
         user.setStatus(decided);
         
         userRepository.save(user);
-        mailSender.sendEmailToPolicyholder(user, Base64.base64Decode(user.getPassword()));
+        mailSender.sendEmailToPolicyholder(user, Base64.base64Decode(user.getPassword()).split("-")[0]);
         return userRepository.findPolicyHolderById(userId);
     }
 
@@ -71,10 +71,10 @@ public class DashboardService {
 
     }
 
-	public List<PolicyHolder> getPolicyHolders(String city, Status required) {
+	public List<PolicyHolder> getPolicyHolders(String city,Type type) {
 		// TODO Auto-generated method stub
 		
-		return userRepository.findByCityAndStatus(city,required);
+		return userRepository.findByCityAndType(city,type);
 	}
 
 

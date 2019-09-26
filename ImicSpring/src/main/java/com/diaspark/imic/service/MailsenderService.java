@@ -39,9 +39,10 @@ public class MailsenderService {
 		
 		mails.setTo(user.getEmail());
 		mails.setSubject("MAIL FOR CREDENTIALS");
-		mails.setText("Hii user, here are your credentials");
-		mails.setText(password);
-		
+		String text = "Hii Agent,\n" +user.getFirstName()+" your username will be your Email-Id and password is mentioned below";
+		text = text + " \n" + "Email: --- " + user.getEmail();
+		text = text + " \n" + "Password: --- " + password.split("-")[0];
+		mails.setText(text);		
 		javaMailSender.send(mails);
 	}
 	
@@ -52,9 +53,10 @@ public class MailsenderService {
 		
 		mailCredentails.setTo(user.getEmail());
 		mailCredentails.setSubject("MAIL FOR CREDENTIALS");
-		mailCredentails.setText("Hii" +user.getFirstName()+" your username will be your Email-Id and password is mentioned below");
-		mailCredentails.setText(password);
-		
+		String text = "Hii" +user.getFirstName()+" your username will be your Email-Id and password is mentioned below";
+		text = text + " \n" + "Email: --- " + user.getEmail();
+		text = text + " \n" + "Password: --- " + password;
+		mailCredentails.setText(text);
 		javaMailSender.send(mailCredentails);
 	}
 }

@@ -49,9 +49,9 @@ public class DashboardController {
 	}
 
 	@GetMapping(value="{city}")
-	public List<PolicyHolder> getPolicyHolder(@PathVariable("city") String city,@RequestParam("status") Status required)
+	public List<PolicyHolder> getPolicyHolder(@PathVariable("city") String city,@RequestParam("type") Type type)
 	{
-		return dashboardService.getPolicyHolders(city,required);
+		return dashboardService.getPolicyHolders(city,type);
 	}
 	@GetMapping(value="getPolicyHolder")
 	public List<User> getPolicyHolder()

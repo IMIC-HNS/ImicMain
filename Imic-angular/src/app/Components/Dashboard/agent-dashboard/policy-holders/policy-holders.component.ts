@@ -10,22 +10,13 @@ import { CommonService } from 'src/app/Core/common.service';
 export class PolicyHoldersComponent implements OnInit {
 
   constructor(private api:ApiService,private commonService:CommonService) { }
-policyInitialised:any=[]
-policySubmitted:any=[]
-  ngOnInit() {
-    this.api.get("/dashboard/"+this.commonService.loggedInUser.city+"?status=INITIALISED").subscribe(
-      response=>{
-        this.policyInitialised=response;
-        console.log(this.policyInitialised)
-      },
-      error=>console.log(error)
-    )
-  
+myPolicyHolders:any=[]
+  ngOnInit() {  
 
-  this.api.get("/dashboard/"+this.commonService.loggedInUser.city+"?status=SUBMITTED").subscribe(
+  this.api.get("/dashboard/"+this.commonService.loggedInUser.city+"?type=POLICYHOLDER").subscribe(
     response=>{
-      this.policySubmitted=response;
-      console.log(this.policySubmitted)
+      this.myPolicyHolders=response;
+      console.log(this.myPolicyHolders)
     },
     error=>console.log(error)
   )
