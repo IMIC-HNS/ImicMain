@@ -12,6 +12,7 @@ import { PolicyRequestComponent } from './Components/policy-request/policy-reque
 import { AgentDashboardComponent } from './Components/Dashboard/agent-dashboard/agent-dashboard.component';
 import { PolicyholderDashboardComponent } from './Components/Dashboard/policyholder-dashboard/policyholder-dashboard.component';
 import { ProfileComponent } from './Components/Dashboard/profile/profile.component';
+import { PolicyHoldersComponent } from './Components/Dashboard/agent-dashboard/policy-holders/policy-holders.component';
 
 
 const routes: Routes = [
@@ -64,6 +65,10 @@ const routes: Routes = [
     path:'registerpolicyholder/:id',
     component:RegisterPolicyholderComponent
 
+  },
+  {
+    path:'policy-holders',
+    component:PolicyHoldersComponent
   }
 ];
 

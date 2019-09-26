@@ -50,5 +50,6 @@ public interface UserRepository extends MongoRepository<User, ObjectId>{
 
 	String findCityById(ObjectId userId);
 
+	@Query
 	List<PolicyHolder> findByCityAndStatus(String city, Status required);
 }
