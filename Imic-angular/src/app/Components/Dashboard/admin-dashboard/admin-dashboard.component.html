@@ -3,7 +3,7 @@
   <a class="active" [routerLink]="['/admin-dashboard']">Dashboard</a>
   <a [routerLink]="['/register-agent']" routerLinkActive="active">Add Agent</a>
   <a [routerLink]="['/policy-request']" routerLinkActive="active">Policy Requested</a>
-  <a [routerLink]="['/home']" (click)="this.logout.logout()">Logout</a>
+  <a [routerLink]="['/home']" (click)="this.logout()">Logout</a>
 </div>
 
 <!-- Page content -->

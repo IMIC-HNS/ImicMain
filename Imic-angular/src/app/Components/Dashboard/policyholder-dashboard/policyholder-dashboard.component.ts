@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { Policyholderdetails } from './policyholderdetails';
-import { CommonService } from 'src/app/Core/common.service';
-import { HttpClient } from '@angular/common/http';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup, FormBuilder} from '@angular/forms';
+import {Policyholderdetails} from './policyholderdetails';
+import {CommonService} from 'src/app/Core/common.service';
+import {HttpClient} from '@angular/common/http';
 import {RegisterPolicyholder} from '../../Register/register-policyholder/register-policyholder';
-import { LoginServiceService } from '../../login/login-service.service';
+import {LoginServiceService} from '../../login/login-service.service';
 
 @Component({
   selector: 'app-policyholder-dashboard',
@@ -18,12 +18,12 @@ export class PolicyholderDashboardComponent implements OnInit {
   isEncoded = false;
   id: string;
 
-   userPolicydetail: RegisterPolicyholder = new RegisterPolicyholder();
+  userPolicydetail: RegisterPolicyholder = new RegisterPolicyholder();
 
-  constructor(private fb: FormBuilder, private commonService: CommonService, private http: HttpClient,private logout:LoginServiceService) {
-  this.loggedInUser = commonService.loggedInUser;
-  console.log('user loggedIn' + JSON.stringify(this.loggedInUser));
-}
+  constructor(private fb: FormBuilder, private commonService: CommonService, private http: HttpClient, public logout: LoginServiceService) {
+    this.loggedInUser = commonService.loggedInUser;
+    console.log('user loggedIn' + JSON.stringify(this.loggedInUser));
+  }
 
   ngOnInit() {
 
@@ -31,10 +31,10 @@ export class PolicyholderDashboardComponent implements OnInit {
       (res: RegisterPolicyholder) => {
         this.userPolicydetail = res;
         console.log(res);
-  },
-  error => console.error()
+      },
+      error => console.error()
     );
-}
+  }
 
   claim() {
     console.log('claimed');

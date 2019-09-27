@@ -5,7 +5,7 @@ import {RegisterPolicyholder} from './register-policyholder';
 import {CommonService} from 'src/app/Core/common.service';
 import {ApiService} from '../../../Core/api.service';
 import {PolicyholderregistrationService} from './policyholderregistration.service';
-import { HttpResponse } from '@angular/common/http';
+import {HttpResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-register-policyholder',
@@ -25,64 +25,61 @@ export class RegisterPolicyholderComponent implements OnInit {
   selectedFiles: FileList;
   currentFileUpload: File;
 
-
   constructor(private fb: FormBuilder, private routes: Router, private route: ActivatedRoute,
               private policyholderregistrationService: PolicyholderregistrationService, private api: ApiService
-              ,private commonService: CommonService
-              ,private router: Router) {
-      this.loggedInUser = commonService.loggedInUser;
-      console.log('user loggedIn' + JSON.stringify(this.loggedInUser));
-      this.isAgent = (this.loggedInUser && this.loggedInUser.type === 'AGENT');
-      this.isEncoded = !this.isAgent;
-      console.log('user type' + this.isAgent);
-      this.id = this.route.snapshot.params.id;
-      if (this.isAgent) {
-        this.requestedUserId = this.loggedInUser.id;
-      }
+    ,         public commonService: CommonService
+    ,         private router: Router) {
+    this.loggedInUser = commonService.loggedInUser;
+    console.log('user loggedIn' + JSON.stringify(this.loggedInUser));
+    this.isAgent = (this.loggedInUser && this.loggedInUser.type === 'AGENT');
+    this.isEncoded = !this.isAgent;
+    console.log('user type' + this.isAgent);
+    this.id = this.route.snapshot.params.id;
+    if (this.isAgent) {
+      this.requestedUserId = this.loggedInUser.id;
+    }
 
-     }
+  }
 
   ngOnInit() {
-  this.getPolicyHolderData();
+    this.getPolicyHolderData();
   }
 
   selectFile(event) {
     this.selectedFiles = event.target.files;
   }
- 
+
   upload() {
     this.currentFileUpload = this.selectedFiles.item(0);
     this.policyholderregistrationService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
-     if (event instanceof HttpResponse) {
+      if (event instanceof HttpResponse) {
         console.log('File is completely uploaded!' + JSON.stringify(event));
         this.policyHolder.aadharDoc = event.body;
       }
     });
- 
+
     this.selectedFiles = undefined;
   }
-
 
   getPolicyHolderData() {
     this.api.get('/user/' + this.id + '/' + this.isEncoded).subscribe(
       (res: RegisterPolicyholder) => {
-      this.policyHolder = res,
-      console.log(this.policyHolder);
-      // this.policyHolder.aadharDoc = 'http://docurl';
-      if (!this.isAgent) {
-        this.requestedUserId = this.policyHolder.id;
+        this.policyHolder = res,
+          console.log(this.policyHolder);
+        // this.policyHolder.aadharDoc = 'http://docurl';
+        if (!this.isAgent) {
+          this.requestedUserId = this.policyHolder.id;
+        }
+        this.initializeForm(res);
+        console.log(this.initializeForm);
+      },
+      error => {
+        this.policyHolder = new RegisterPolicyholder();
+        this.initializeForm(this.policyHolder);
+        console.log(error);
       }
-      this.initializeForm(res);
-      console.log(this.initializeForm)
-    },
-    error =>{
-      this.policyHolder=new RegisterPolicyholder();
-      this.initializeForm(this.policyHolder);
-      console.log(error)
-    }
-  );
+    );
   }
-
 
   initializeForm(policyHolder: RegisterPolicyholder) {
     this.registerForm1 = this.fb.group({
@@ -97,34 +94,36 @@ export class RegisterPolicyholderComponent implements OnInit {
       dob: [policyHolder.dob],
       aadharDoc: [policyHolder.aadharDoc],
       nominee: this.fb.group({
-        nomine:  [""],
-        relationship: [""],
-        aadharNumber: [""]
+        nomine: [''],
+        relationship: [''],
+        aadharNumber: ['']
       }),
-  });
+    });
   }
 
-  get f() { return this.registerForm1.controls; }
+  get f() {
+    return this.registerForm1.controls;
+  }
 
   onSubmit() {
     console.log('this', this.registerForm1);
     this.submitted = true;
     if (this.registerForm1.invalid) {
-    alert('policyholder submit');
-    console.log(this.registerForm1.value);
-    return;
+      alert('policyholder submit');
+      console.log(this.registerForm1.value);
+      return;
     }
     this.registerForm1.value.aadharDoc = this.policyHolder.aadharDoc;
     this.policyholderregistrationService.postData(this.registerForm1.value, this.requestedUserId)
-  .subscribe(
-    (data => console.log('data posted' + data)),
-    (error => console.log(error))
-  );
-  alert("POLICYHOLDER FORM HAS BEEN INITIALIZED");
-  this.router.navigate(['/home']);
+      .subscribe(
+        (data => console.log('data posted' + data)),
+        (error => console.log(error))
+      );
+    alert('POLICYHOLDER FORM HAS BEEN INITIALIZED');
+    this.router.navigate(['/home']);
 
   }
-  }
+}
 
 
 

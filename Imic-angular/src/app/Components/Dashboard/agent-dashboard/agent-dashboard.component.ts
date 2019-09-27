@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonService } from 'src/app/Core/common.service';
-import { ApiService } from 'src/app/Core/api.service';
-import { LoginServiceService } from '../../login/login-service.service';
+import {Component, OnInit} from '@angular/core';
+import {CommonService} from 'src/app/Core/common.service';
+import {ApiService} from 'src/app/Core/api.service';
+import {LoginServiceService} from '../../login/login-service.service';
 
 @Component({
   selector: 'app-agent-dashboard',
@@ -9,18 +9,21 @@ import { LoginServiceService } from '../../login/login-service.service';
   styleUrls: ['./agent-dashboard.component.css']
 })
 export class AgentDashboardComponent implements OnInit {
-  constructor(private commonService:CommonService, private api: ApiService,private logout:LoginServiceService) { }
-   policyHolders: any= [];
-  ngOnInit() {
-    this.api.get("/dashboard/" + this.commonService.loggedInUser.id + "/policyHolders").
-    subscribe(response=> { 
-      this.policyHolders = response;
-      console.log(response);
-    }, error=>console.log(error)
-  );
-    console.log(this.policyHolders);
-    }
+  constructor(private commonService: CommonService, private api: ApiService, public logout: LoginServiceService) {
   }
-  // this.api.get("/dashboard/" + this.commonService.loggedInUser.id + "/policyHolders").
-  
+
+  policyHolders: any = [];
+
+  ngOnInit() {
+    this.api.get('/dashboard/' + this.commonService.loggedInUser.id + '/policyHolders').subscribe(response => {
+        this.policyHolders = response;
+        console.log(response);
+      }, error => console.log(error)
+    );
+    console.log(this.policyHolders);
+  }
+}
+
+// this.api.get("/dashboard/" + this.commonService.loggedInUser.id + "/policyHolders").
+
 

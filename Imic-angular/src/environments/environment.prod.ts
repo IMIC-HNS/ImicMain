@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
 
-  baseURL:"http://localhost:8080"
+  baseURL: 'http://imic-hns.ap-south-1.elasticbeanstalk.com/v/api/'
 
 };

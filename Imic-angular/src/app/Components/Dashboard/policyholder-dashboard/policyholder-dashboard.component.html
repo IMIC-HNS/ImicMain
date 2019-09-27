@@ -1,5 +1,5 @@
 <div class="container-fluid" style="padding-block-start: 15px;">
-  <div class="row" 
+  <div class="row"
        style="height: 50px;padding-top: 15px; background: #36304a; align-content: center; color: white; font-weight: bold; border-radius: 10px">
       <h3>WELCOME TO YOUR IMIC ACCOUNT !</h3>
   </div>
@@ -13,11 +13,11 @@
 
 
 
-  
+
 <div class="container-fluid shivangi content" id="form">
   <div class="card m-3">
       <h5 class="card-header">YOUR POLICY DETAILS</h5>
-    
+
           <div>
               <div class="row">
                     <div class="col">
@@ -60,7 +60,7 @@
               </div>
               <br>
             <br>
-            
+
               <div>
                     <div class="row">
                           <div class="col">
@@ -71,17 +71,17 @@
                                   <p>Aadhar Number</p>
                                   {{this.userPolicydetail.aadhar}}
                               </div>
-                              
+
                     </div>
                 </div>
-                 
+
               <div>
                 <div class="row">
                       <div class="col">
                           <p>City</p>
-                          {{this.userPolicydetail.aadhardoc}}
+                          {{this.userPolicydetail.aadharDoc}}
                       </div>
-                          
+
                 </div>
             </div>
                 <br>
@@ -90,24 +90,24 @@
                     <div class="row">
                           <div class="col">
                               <p>Nominee Name</p>
-                              {{this.userPolicydetail.nomine}}
+                              {{this.userPolicydetail.nominee.nomine}}
                           </div>
                           <div class="col">
                                   <p>Nominee relation</p>
-                                  {{this.userPolicydetail.relation}}
+                                  {{this.userPolicydetail.nominee.relationship}}
                               </div>
                     </div>
                 </div>
                 <br>
                 <br>
-          
+
               <div class="text-center">
                   <button class="btn btn-primary mr-1" (click)="claim()">CLAIM</button>
               </div>
-          
+
       </div>
   </div>
-  
+
 
 
 
