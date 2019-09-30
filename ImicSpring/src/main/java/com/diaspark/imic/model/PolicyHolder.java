@@ -28,6 +28,7 @@ public class PolicyHolder extends User{
 	private String address;
 	private String aadharDoc;
 	private Status status;
+	private ClaimStatus claim;
 	private String dob;
 	private Nominee nominee=new Nominee();
 	
@@ -44,6 +45,12 @@ public class PolicyHolder extends User{
 		this.nominee = nominee;
 	}
 	
+	public ClaimStatus getClaim() {
+		return claim;
+	}
+	public void setClaim(ClaimStatus claim) {
+		this.claim = claim;
+	}
 	public String getDob() {
 		return dob;
 	}

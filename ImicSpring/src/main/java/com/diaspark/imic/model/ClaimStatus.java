@@ -9,9 +9,9 @@ package com.diaspark.imic.model;
  */
 public enum ClaimStatus {
 	
-	APPLY,
+	
 	CLAIMED,
-	ACCEPTED,
+	APPROVED,
 	REJECTED
 	
 }

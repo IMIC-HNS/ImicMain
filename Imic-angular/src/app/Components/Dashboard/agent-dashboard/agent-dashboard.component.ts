@@ -24,6 +24,4 @@ export class AgentDashboardComponent implements OnInit {
   }
 }
 
-// this.api.get("/dashboard/" + this.commonService.loggedInUser.id + "/policyHolders").
-
 

@@ -1,0 +1,25 @@
+.contact{
+    background-image: linear-gradient(to right,whitesmoke, peru);
+
+}
+label{
+    background-color: wheat;
+    border:2px solid whitesmoke;
+    border-radius: 5px;
+    padding: 5px;
+}
+.contact h2{
+    background-color:chocolate;
+    padding: 10px;
+    box-shadow: 2px 2px 2px 2px wheat;
+    border-radius: 10px;
+}
+input,select{
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px black;
+}
+button{
+    background-color: goldenrod;
+    padding: 10px;
+    border-radius: 20px;
+}

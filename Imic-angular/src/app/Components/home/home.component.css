@@ -5,12 +5,14 @@
     width:auto;
     background:url('https://thumbs.gfycat.com/BelovedBabyishAustraliancattledog-size_restricted.gif') no-repeat;
     background-size: cover;
-    margin: 0;
+    background-attachment: local;
+   padding: 0;
+   margin: 0;
     
 }
 .policy p{
     padding: 20px;
-    margin-top: 30px;
+    margin-top: 40px;
     border: 2px solid grey;
     border-radius: 5px;
     background-color:whitesmoke;
@@ -50,8 +52,8 @@
     overflow: hidden;
 }
 .policies
-{   margin: 10px;
-    height: 200px;
+{   margin: 20px;
+    
 }
 .policy h1{
     text-align: center;
@@ -60,5 +62,32 @@
     border: 2px solid whitesmoke;
     border-radius: 10px;
     background-color:rgb(37, 176, 231);
-   box-shadow: 2px 2px 2px 2px;
+    box-shadow: 2px 2px 2px 2px black;
+}
+/* p{
+    margin: 10px;
+} */
+img{
+    margin-top: 60px;
+}
+.policies div p{
+    background-color: cornsilk;
+    height: auto;
+    overflow-wrap: scroll;
+} 
+p strong{
+    font-size: 2rem;
+    border: 1px solid steelblue;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 1px 1px 1px 1px black;
+    background-color: dodgerblue;   
+    margin-bottom: 20px;
+}
+p button{
+    margin-top: 15px;
+}
+.policy .policies{
+    height:250px;
+
 }

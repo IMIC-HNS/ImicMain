@@ -13,25 +13,25 @@ import { CommonService } from '../../Core/common.service';
 export class LoginServiceService {
 
 
-  private url="http://localhost:8080/login/";
-  private login_url="http://localhost:8080/login/";
+  private url="/login/";
+  private login_url="/login/";
    users={
     "ADMIN":"admin-dashboard",
     "AGENT":"agent-dashboard",
     "POLICYHOLDER":"policyholder-dashboard"
   };
   dashBoard="";
-  constructor(private _http: HttpClient,private router:Router,private route:ActivatedRoute, private commonService: CommonService) { }
+  constructor(private api:ApiService,private router:Router,private route:ActivatedRoute, private commonService: CommonService) { }
 
   postData(register:FormGroup)
   {  console.log(register);
-     return this._http.post<any>(this.url,register);
+     return this.api.post(this.url,register);
   }
 
 
   
  login(user){
-   return this._http.post<any>(this.login_url,user)
+   return this.api.post(this.login_url,user)
   .subscribe(
    res =>{
      console.log(res);
@@ -39,7 +39,7 @@ export class LoginServiceService {
       alert("Invalid Username or Password");
    
       else {
-     this.dashBoard=this.users[res.type];
+     this.dashBoard=this.users[res["type"]];
      this.commonService.loggedInUser = res;
      console.log(this.dashBoard);
      sessionStorage.activeUser=user.email;

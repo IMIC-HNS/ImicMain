@@ -23,6 +23,7 @@ import { PolicyholderDashboardComponent } from './Components/Dashboard/policyhol
 import { ProfileComponent } from './Components/Dashboard/profile/profile.component';
 import { NavbarComponent } from './Core/navbar/navbar.component';
 import { PolicyHoldersComponent } from './Components/Dashboard/agent-dashboard/policy-holders/policy-holders.component';
+import { AdminSidebarComponent } from './Components/admin-sidebar/admin-sidebar.component';
 
 
 @NgModule({
@@ -46,7 +47,9 @@ import { PolicyHoldersComponent } from './Components/Dashboard/agent-dashboard/p
 
     NavbarComponent,
 
-    PolicyHoldersComponent
+    PolicyHoldersComponent,
+
+    AdminSidebarComponent
 
   ],
   imports: [

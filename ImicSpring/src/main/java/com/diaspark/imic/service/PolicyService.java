@@ -13,7 +13,7 @@ public class PolicyService {
 	public static List<Policy> policies = new ArrayList<>();
 	static
 	{
-		policies.add(new Policy(1l,"Individual Mediclaim","An inidividual mediclaim policy offers health coverage to only the policyholder. Only one person can avail the medical insurance benefits against the premium paid. There are a number of health insurance companies that provide individual medicalim plans in India.\r\n" + 
+		policies.add(new Policy(1l,"Individual Mediclaim","An inidividual mediclaim policy offers health coverage to only the policyholder. Only one person can avail the medical insurance benefits against the premium paid.\r\n" + 
 				"The policy cover is 1500 per month.\r\n" + 
 				"The policy premium is 1000 per month.\r\n" + 
 				"The policy duration will be for lifetime and can be claimed whenever required due to any health issues. And policyholder can either contact us for that or directly to the hospital in which he/she will be admitted by showing the policydetails."));

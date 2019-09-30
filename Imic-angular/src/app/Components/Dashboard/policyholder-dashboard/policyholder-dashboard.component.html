@@ -1,12 +1,7 @@
 <div class="container-fluid" style="padding-block-start: 15px;">
-  <div class="row"
-       style="height: 50px;padding-top: 15px; background: #36304a; align-content: center; color: white; font-weight: bold; border-radius: 10px">
-      <h3>WELCOME TO YOUR IMIC ACCOUNT !</h3>
-  </div>
-</div>
-<br>
+
 <div class="sidebar" position="fixed">
-  <a class="active" [routerLink]="['/policyholder-dashboard']">MY Dashboard</a>
+  <a class="active" [routerLink]="['/policyholder-dashboard']">Dashboard</a>
   <!-- <a class="active" [routerLink]="['/profile']">MY PROFILE</a> -->
   <a [routerLink]='["/home"]' (click)="this.logout.logout()">Logout</a>
 </div>
@@ -14,7 +9,7 @@
 
 
 
-<div class="container-fluid shivangi content" id="form">
+<div class="container-fluid content" id="form">
   <div class="card m-3">
       <h5 class="card-header">YOUR POLICY DETAILS</h5>
 
@@ -78,8 +73,8 @@
               <div>
                 <div class="row">
                       <div class="col">
-                          <p>City</p>
-                          {{this.userPolicydetail.aadharDoc}}
+                          <p>Aadhar Document</p>
+                          <a [href]="this.userPolicydetail.aadharDoc">View Doc </a>
                       </div>
 
                 </div>

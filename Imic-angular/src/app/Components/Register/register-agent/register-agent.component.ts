@@ -48,12 +48,20 @@ onSubmit() {
 
   this._agentService.postData(this.registerForm.value)
   .subscribe(
-    (data =>console.log("data posted"+data)),
+    (data =>{
+      console.log("data posted"+data);
+      if(data==null)
+        alert("Email already exists \n Please use a unique Email to continue")
+      else{
+        alert("AGENT DATA HAS BEEN SUBMITTED");     
+        this.router.navigate(['/admin-dashboard']);
+      } 
+      }),
     (error=>console.log(error))
   );
 
-  alert("AGENT DATA HAS BEEN SUBMITTED");
-  this.router.navigate(['/home']);
+  
+  
   
 }
 

@@ -18,7 +18,14 @@
             <th scope="row">{{ i + 1 }}</th>
             <td>{{ holder.firstName }} {{holder.lastName}}</td>
             <td><strong>{{ holder.status }}</strong></td>
-            <td><button>Show Details</button></td>   
+            <td><button (click)="display(holder)">Show Details</button></td>
+            <div *ngIf="holder.myValue">
+                <p>Contact.No:{{holder.mobileNumber}}</p>
+                <p>Status:{{holder.status}}</p>
+                <p>City:{{holder.city}}</p>
+                <p>Email:{{holder.email}}</p>
+                <p>Date OF Birth:{{holder.dob}}</p>          
+            </div>   
           </tr>
           </tbody>
         </table>

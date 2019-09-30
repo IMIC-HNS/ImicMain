@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/Core/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CommonService } from 'src/app/Core/common.service';
 
 @Component({
   selector: 'app-policy-request',
@@ -9,8 +10,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class PolicyRequestComponent implements OnInit {
   id: string;
+  userPolicydetail: {};
+  showPolicyUser = false;
 
-  constructor(private api:ApiService,private route:ActivatedRoute,private router:Router) { }
+  constructor(private api:ApiService,private route:ActivatedRoute,private router:Router,private commonService:CommonService) { }
   url="/dashboard/getByStatus?status=REQUESTED";
   // decisionUrl="/decision/";
   policyHolder:any=[];
@@ -19,7 +22,8 @@ export class PolicyRequestComponent implements OnInit {
 
   
     showAlert (holder){
-      holder.myValue = true;
+      this.userPolicydetail = holder;
+      this.showPolicyUser = true;
     };
 
 

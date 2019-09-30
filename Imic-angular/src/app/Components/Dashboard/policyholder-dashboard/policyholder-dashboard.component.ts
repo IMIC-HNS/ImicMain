@@ -5,6 +5,7 @@ import {CommonService} from 'src/app/Core/common.service';
 import {HttpClient} from '@angular/common/http';
 import {RegisterPolicyholder} from '../../Register/register-policyholder/register-policyholder';
 import {LoginServiceService} from '../../login/login-service.service';
+import { ApiService } from 'src/app/Core/api.service';
 
 @Component({
   selector: 'app-policyholder-dashboard',
@@ -12,7 +13,7 @@ import {LoginServiceService} from '../../login/login-service.service';
   styleUrls: ['./policyholder-dashboard.component.css']
 })
 export class PolicyholderDashboardComponent implements OnInit {
-  url = 'http://localhost:8080/user/';
+  url = '/user/';
   registerForm2: FormGroup;
   loggedInUser: any = {};
   isEncoded = false;
@@ -20,14 +21,14 @@ export class PolicyholderDashboardComponent implements OnInit {
 
   userPolicydetail: RegisterPolicyholder = new RegisterPolicyholder();
 
-  constructor(private fb: FormBuilder, private commonService: CommonService, private http: HttpClient, public logout: LoginServiceService) {
+  constructor(private api:ApiService,private fb: FormBuilder, private commonService: CommonService, public logout: LoginServiceService) {
     this.loggedInUser = commonService.loggedInUser;
     console.log('user loggedIn' + JSON.stringify(this.loggedInUser));
   }
 
   ngOnInit() {
 
-    this.http.get(this.url + this.loggedInUser.id + '/' + this.isEncoded).subscribe(
+    this.api.get(this.url + this.loggedInUser.id + '/' + this.isEncoded).subscribe(
       (res: RegisterPolicyholder) => {
         this.userPolicydetail = res;
         console.log(res);

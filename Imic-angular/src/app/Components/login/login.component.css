@@ -1,0 +1,24 @@
+.page-desc{
+    background-color: gainsboro;
+}
+h1{
+    text-align: center;
+    border: 2px solid whitesmoke;
+    box-shadow: 1px 1px 1px 1px black;
+    border-radius: 5px;
+    margin: 50px;
+    padding: 10px;
+}
+.labels{
+    border: 2px black solid;
+    padding: 10px;
+    box-shadow: 1px 1px 1px 1px black;
+    border-radius: 5px;
+    font-size: 1.5rem; 
+}
+
+.inputs{
+    margin: 5px;
+    background-color: floralwhite;
+    border-radius: 10px;
+}

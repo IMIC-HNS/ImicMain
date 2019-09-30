@@ -8,20 +8,20 @@
           <h1>Login</h1>
     
          <form  [formGroup]= "login" (ngSubmit)="onSubmit()">
-          <div class="form-group col-sm-12">
+          <div class="form-group col-md-12">
             
             <div class="form-group">
-              <label>Username/Email</label>
-              <input required type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+              <label class="labels">Username/Email</label>
+              <input required type="text" formControlName="email" class="form-control inputs" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
               <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                   <div *ngIf="f.email.errors.required">Email is required</div>
-                  <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                  <div *ngIf="f.email.errors.email">Email must be a valid </div>
               </div>
           </div>
 
-          <div class="form-group col-5">
-            <label>Password</label>
-            <input required type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <div class="form-group col-md-12">
+            <label class="labels">Password</label>
+            <input required type="password" formControlName="password" class="form-control inputs" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
             <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                 <div *ngIf="f.password.errors.required">Password is required</div>
             </div>

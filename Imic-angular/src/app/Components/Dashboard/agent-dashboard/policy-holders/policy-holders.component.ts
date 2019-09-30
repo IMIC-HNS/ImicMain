@@ -21,5 +21,7 @@ myPolicyHolders:any=[]
     error=>console.log(error)
   )
 }
-    
+display(holder){
+  holder.myValue=true;
+}    
 }

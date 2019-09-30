@@ -69,7 +69,8 @@ const routes: Routes = [
   {
     path:'policy-holders',
     component:PolicyHoldersComponent
-  }
+  },
+  
 ];
 
 @NgModule({

@@ -2,24 +2,23 @@
     margin: 0;
     padding: 0;
     width: 200px;
-    background-color:rgba(0, 255, 115, 0.068);
+    background-color: #f1f1f1;
     position: fixed;
     height: 100%;
     overflow: auto;
-    margin:107px 50px 0 0;
   }
   
   /* Sidebar links */
   .sidebar a {
     display: block;
     color: black;
-    padding: 25px;
+    padding: 16px;
     text-decoration: none;
   }
   
   /* Active/current link */
   .sidebar a.active {
-    background-color: blue;
+    background-color: #4CAF50;
     color: white;
   }
   
@@ -54,34 +53,4 @@
       float: none;
     }
   }
-.content h3
-{
-    text-align: center;
-    border: 2px solid whitesmoke;
-    border-radius: 5px;
-    box-shadow:2px 2px 2px cadetblue;
-    padding: 5px;
-    background: darkslateblue;
-    color: whitesmoke;
-}
-.blue
-{
-    color: black;
-}
-  .content h3,.content ul
-  {
-      margin:20px;
-  }
- 
-  .content
-  {
-    margin:150px 0 0 300px;
-    width: 60%; 
-  }
-
-p{
-  background-color: coral;
-  border-radius: 5px;
-  box-shadow:2px 2px 2px 2px black;
-  text-align: center;
-}
+  

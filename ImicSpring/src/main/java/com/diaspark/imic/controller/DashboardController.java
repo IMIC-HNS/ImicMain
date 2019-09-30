@@ -60,9 +60,9 @@ public class DashboardController {
 	}
 	
 	@GetMapping(value="getByStatus")
-	public List<PolicyHolder> getPolicyHolderByStatus()
+	public List<PolicyHolder> getPolicyHolderByStatus(@RequestParam("status") Status required )
 	{
-		return dashboardService.providePolicyHolder(Status.SUBMITTED);
+		return dashboardService.providePolicyHolder(required);
 	}
 
 	@PostMapping(value="decision/{userId}")
