@@ -5,6 +5,12 @@ import {ContactusService} from './contactus.service';
 import {CommonService} from 'src/app/Core/common.service';
 import {Router} from '@angular/router';
 
+/**
+ *Component for ContactusForm
+ * @export
+ * @class ContactusComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-contactus',
   templateUrl: './contactus.component.html',
@@ -14,7 +20,18 @@ export class ContactusComponent implements OnInit {
 
   contact: ContactUs = new ContactUs('', '', '', '', '', '');
 
+  /**
+   *
+   * @type {string} policyId  id for each policy
+   * @memberof ContactusComponent
+   */
   policyId: string;
+
+  /**
+   *
+   * @type {string} policyName name for each policy
+   * @memberof ContactusComponent
+   */
   policyName: string;
 
   constructor(private contactusService: ContactusService, public commonService: CommonService, private router: Router) {
@@ -26,6 +43,10 @@ export class ContactusComponent implements OnInit {
     this.commonService.policyId = undefined;
   }
 
+  /**
+   *Method for creating new policyholder via contactus form
+   * @memberof ContactusComponent
+   */
   createPolicyHolder(): void {
     console.log(this.commonService.myPolicy);
     this.contactusService.createPolicyHolder(this.contact)

@@ -14,7 +14,7 @@ import com.diaspark.imic.model.User;
 
 /**
  * @author Nishi agarwal
- *
+ *Policyholder model(extends User model) with getters and setters of the fields
  */
 @Document(collection = "users")
 public class PolicyHolder extends User{
@@ -31,22 +31,41 @@ public class PolicyHolder extends User{
 	private String dob;
 	private Nominee nominee=new Nominee();
 	
-		public ObjectId getAgentId() {
+    
+	/**
+	 * @return agentId
+	 */
+	public ObjectId getAgentId() {
 		return agentId;
 	}
+	/**
+	 * @param agentId
+	 */
 	public void setAgentId(ObjectId agentId) {
 		this.agentId = agentId;
 	}
+	/**
+	 * @return nominee
+	 */
 	public Nominee getNominee() {
 		return nominee;
 	}
+	/**
+	 * @param nominee
+	 */
 	public void setNominee(Nominee nominee) {
 		this.nominee = nominee;
 	}
 	
+	/**
+	 * @return dob
+	 */
 	public String getDob() {
 		return dob;
 	}
+	/**
+	 * @param dob
+	 */
 	public void setDob(String dob) {
 		this.dob = dob;
 	}
@@ -112,8 +131,6 @@ public class PolicyHolder extends User{
 		this.address = address;
 	}
 	
-	
-	
 	/**
 	 * @return the aadharDoc
 	 */
@@ -129,7 +146,6 @@ public class PolicyHolder extends User{
 	/**
 	 * @return the status
 	 */
-	
 	
 	public Status getStatus() {
 		return status;

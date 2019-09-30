@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.diaspark.imic.controller;
 
 import javax.validation.Valid;
@@ -19,15 +16,20 @@ import com.diaspark.imic.service.ContactusService;
 
 /**
  * @author Nishi Agarwal
- *
+ * Controller for contactus with required mapping
  */
 @RestController
 @CrossOrigin(origins="*")
 @RequestMapping("/contactus")
+
 public class ContactusController {
 	@Autowired
 	ContactusService contactusService;
 	
+	/** Save the new policyholder via contactus form
+	 * @param policyholder
+	 * @return policyHolder response
+	 */
 	@PostMapping("/")
 	public ResponseEntity<PolicyHolder> registerPolicyHolder(@RequestBody @Valid PolicyHolder policyholder ) {
 		PolicyHolder responsePolicyHolder = contactusService.registerPolicyHolder(policyholder);

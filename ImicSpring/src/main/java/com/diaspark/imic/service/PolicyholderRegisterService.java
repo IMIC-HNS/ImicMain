@@ -3,7 +3,6 @@ package com.diaspark.imic.service;
 import java.util.Base64;
 
 import org.bson.types.ObjectId;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
@@ -16,8 +15,9 @@ import com.diaspark.imic.model.User;
 import com.diaspark.imic.repository.UserRepository;
 /**
  * @author Nishi Agarwal
- *
+ * Implementing the service for registering the Policyholder
  */
+
 @Service
 public class PolicyholderRegisterService {
 	
@@ -29,6 +29,12 @@ public class PolicyholderRegisterService {
 	private String SALT="IMIC";
 	private String link;
 
+	/**
+	 * method for register policyholder with updating the status of his/her policy and also send mail
+	 * @param policyHolder
+	 * @param userId
+	 * @return register policyholder  
+	 */
 	public PolicyHolder registerPolicyholder(PolicyHolder policyHolder, ObjectId userId) {
 		User user = userRepository.findById(userId).orElse(null);
 		if(user == null) {
@@ -52,8 +58,7 @@ public class PolicyholderRegisterService {
 			
 		}
 		else{
-			PolicyHolder foundPolicyHolder =
-				userRepository.findPolicyHolderById(policyHolder.getObjectId(policyHolder.getId()));
+			PolicyHolder foundPolicyHolder =userRepository.findPolicyHolderById(policyHolder.getObjectId(policyHolder.getId()));
 			policyHolder.setAgentId(foundPolicyHolder.getAgentId());
 			policyHolder.setPassword(foundPolicyHolder.getPassword());
 			policyHolder.setType(Type.POLICYHOLDER);

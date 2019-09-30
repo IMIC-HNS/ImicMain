@@ -7,7 +7,11 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import com.diaspark.imic.model.User;
-import com.sun.xml.messaging.saaj.util.Base64;
+
+/**
+ * @author Nishi Agarwal
+ * Service class for sending mail
+ */
 
 @Service
 public class MailsenderService {
@@ -18,7 +22,12 @@ public class MailsenderService {
 	public MailsenderService(JavaMailSender javaMailSender) {
 		this.javaMailSender= javaMailSender;
 	}
-	//sending email to policyholder with form link
+	
+	/**sending email to policyholder with form link
+	 * @param user
+	 * @param link
+	 * @throws MailException
+	 */
 	public void sendEmail(User user,String link) throws MailException{
 		
 		SimpleMailMessage mail= new SimpleMailMessage();
@@ -26,13 +35,20 @@ public class MailsenderService {
 		mail.setTo(user.getEmail());
 		mail.setSubject("MAIL FOR CREDENTIALS");
 		mail.setSubject("MAIL FOR FORM FILLING");
-		mail.setText("Hii user, here is the link for your form filling");
-		mail.setText(link);
+		String text="Hii,"+user.getFirstName()+"\n"+"Here is the link for your form"+"\n"+link;
+		text=text+"\n\n"+"Thanks and Regards"+"\n"+"IMIC";
+		mail.setText(text);
+		
 	
 		javaMailSender.send(mail);
 	}
 	
-	//sending email with credentials to agent
+	
+	/**sending email with credentials to agent
+	 * @param user
+	 * @param password
+	 * @throws MailException
+	 */
 	public void sendEmailToAgent(User user,String password) throws MailException{
 		
 		SimpleMailMessage mails= new SimpleMailMessage();
@@ -46,7 +62,12 @@ public class MailsenderService {
 		javaMailSender.send(mails);
 	}
 	
-	//sending email with credentails to policyholder
+	
+	/**sending email with credentails to policyholder
+	 * @param user
+	 * @param password
+	 * @throws MailException
+	 */
 	public void sendEmailToPolicyholder(User user,String password) throws MailException{
 		
 		SimpleMailMessage mailCredentails= new SimpleMailMessage();

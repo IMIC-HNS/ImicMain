@@ -13,6 +13,10 @@ import com.diaspark.imic.model.User;
 import com.diaspark.imic.repository.UserRepository;
 import com.diaspark.imic.service.UploadService;
 
+/**
+ * @author Shivangi Rai
+ *Main Method of the springboot application
+ */
 @SpringBootApplication
 public class ImicSpringApplication {
 	
@@ -27,6 +31,9 @@ public class ImicSpringApplication {
 		
 	}
 	
+	/**
+	 * Using eventListener for creating admin for the application
+	 */
 	@EventListener(ApplicationReadyEvent.class)
 		private void createAdmin() {
 		uploadService.init();

@@ -2,19 +2,16 @@ package com.diaspark.imic.model;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.DBRef;
-
-//import javax.validation.constraints.NotEmpty;
-
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ * @author Shivangi Rai
+ * Agent model(extends User model) with getters and setters of the fields
+ */
 @Document(collection = "users")
 public class Agent extends User{
 	
-	//@NotEmpty(message="firstName should not be empty")
-
 	private String mobileNumber;
 	private String city;
 	private String dob;
@@ -34,6 +31,8 @@ public class Agent extends User{
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
+	
+	
 	/**
 	 * @return the city
 	 */
@@ -47,6 +46,7 @@ public class Agent extends User{
 		this.city = city;
 	}
 	
+	
 	/**
 	 * @return the dob
 	 */
@@ -59,13 +59,16 @@ public class Agent extends User{
 	public void setDob(String dob) {
 		this.dob = dob;
 	}
+	
 	/**
 	 * @return the policyHolders
 	 */
 	public List<PolicyHolder> getPolicyHolders() {
 		return policyHolders;
 	}
-	
+	/**
+	 * @param policyHolder
+	 */
 	public void addPolicyHolder(PolicyHolder policyHolder) {
 		this.policyHolders.add(policyHolder);
 	}

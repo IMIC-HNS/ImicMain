@@ -2,7 +2,6 @@ package com.diaspark.imic.controller;
 
 import javax.annotation.security.PermitAll;
 import javax.validation.Valid;
-
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,19 +14,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.diaspark.imic.model.PolicyHolder;
 import com.diaspark.imic.service.PolicyholderRegisterService;
 import com.diaspark.imic.service.UploadService;
 
+/**
+ * @author Nishi Agarwal
+ *Controller for Policyholder complete registration with required mapping
+ */
 @RestController
 @CrossOrigin(origins="*")
 @RequestMapping("/policyholder")
 @PermitAll
+
 public class PolicyholderController {
 	
 
@@ -38,8 +40,13 @@ public class PolicyholderController {
 	  private UploadService uploadService;
 	  List<String> files = new ArrayList<String>();
 	  
-	  
-	  @PostMapping("/uploadingfile")
+
+	 /**  
+	 * Uploading aadhar document of policyHolder
+	 * @param file
+	 * @return the path of the aadhar document uploaded
+	 */
+	 @PostMapping("/uploadingfile")
 	     public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file) {
 	    	    String message = "";
 	    	    try {
@@ -48,14 +55,20 @@ public class PolicyholderController {
 	    	 
 	    	      message = "You successfully uploaded " + file.getOriginalFilename() + "!";
 	    	      return ResponseEntity.status(HttpStatus.OK).body(path.toFile().getAbsolutePath());
-	    	    } catch (Exception e) {
+	    	      }catch (Exception e) {
 	    	      message = "FAIL to upload " + file.getOriginalFilename() + "!";
 	    	      return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(message);
 	    	    }
 	    	  }
   
-	@PostMapping("/{userId}")
-	public ResponseEntity<PolicyHolder> registerPolicyholder(@PathVariable("userId") ObjectId userId, @RequestBody @Valid PolicyHolder policyholder) {
+	  /**
+	   * Registering the policyholder with complete form
+	   * @param userId
+	   * @param policyholder
+	   * @return PolicyHolder with created httpStatus
+	  */
+	  @PostMapping("/{userId}")
+	  public ResponseEntity<PolicyHolder> registerPolicyholder(@PathVariable("userId") ObjectId userId, @RequestBody @Valid PolicyHolder policyholder) {
 		PolicyHolder responsePolicyHolder = policyholderregisterService .registerPolicyholder(policyholder, userId);
 		return new ResponseEntity<>(responsePolicyHolder, HttpStatus.CREATED);
 		

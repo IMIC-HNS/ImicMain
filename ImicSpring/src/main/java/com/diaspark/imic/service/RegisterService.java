@@ -12,7 +12,6 @@ import com.diaspark.imic.repository.UserRepository;
  *
  */
 @Service
-//@Component
 public class RegisterService {
 
 	@Autowired
@@ -21,6 +20,10 @@ public class RegisterService {
 	private MailsenderService mailSender;
 	
 
+	/**method for registering the agent
+	 * @param agent
+	 * @return save agent in database
+	 */
 	public Agent registerAgent(Agent agent) {
 		User user = userRepository.findByEmail(agent.getEmail());
 		if(user == null)

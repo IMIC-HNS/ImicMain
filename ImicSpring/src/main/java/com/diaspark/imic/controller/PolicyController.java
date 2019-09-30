@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.diaspark.imic.model.Policy;
 import com.diaspark.imic.service.PolicyService;
 
+/**
+ * @author Himanshu Khatri
+ *Controller for getting the policies throughout the application with required mapping
+ */
 @RestController 
 @CrossOrigin(origins = "*")
 @RequestMapping("/")
@@ -19,9 +23,12 @@ public class PolicyController {
 	@Autowired
 	private PolicyService policyService;
 	
-	@GetMapping(value="policies")
-	public List<Policy> retreivePolicy()
-	{	System.out.println(policyService.retrievePolicies());
+	/** method for retreiving the details of policies
+	 * @return policyService for retrieving the policies
+	 */
+	 @GetMapping(value="policies")
+	 public List<Policy> retreivePolicy()
+	 {	System.out.println(policyService.retrievePolicies());
 		return policyService.retrievePolicies();
-	}
+	 }
 }

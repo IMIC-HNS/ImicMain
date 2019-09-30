@@ -21,7 +21,7 @@ export class ApiService {
   }
 
   login(user: Login) {
-    return this.http.post(environment.baseURL + '/login', user);
+    return this.http.post(environment.baseURL + '/login/', user);
   }
 
 }

@@ -2,14 +2,18 @@ package com.diaspark.imic.service;
 import com.diaspark.imic.model.*;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.stereotype.Component;
 
-
-
+/**
+ * @author Himanshu Khatri
+ * PolicyService class for initializing the policies , which can be used throughout the application
+ */
 @Component
 public class PolicyService {
 
+	/**initializing the policies in static format
+	 * @return policies
+	 */
 	public static List<Policy> policies = new ArrayList<>();
 	static
 	{
