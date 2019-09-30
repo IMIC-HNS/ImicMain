@@ -16,9 +16,17 @@ import { ApiService } from 'src/app/Core/api.service';
 })
 export class ContactusService {
 
+<<<<<<< HEAD
+  //private url="http://localhost:8080/contactus/";
+  private contactus_url="/contactus/";
+
+  constructor(private httpClient: HttpClient,private api:ApiService) { }
+=======
+  private url="/contactus/";
   private contactus_url="/contactus/";
 
   constructor(private httpClient: HttpClient, private api: ApiService) { }
+>>>>>>> 7a13b4f003b1837e4aed974117dbca25002dc965
 
   /**
    *Method for creating policyholder
@@ -29,7 +37,11 @@ export class ContactusService {
   public createPolicyHolder(contactus)
   {
     console.log("Policy. Holder. details.");
+<<<<<<< HEAD
     return this.api.post(this.contactus_url,contactus);
+=======
+    return this.api.post("/contactus/",contactus);
+>>>>>>> 7a13b4f003b1837e4aed974117dbca25002dc965
   }
 
    }

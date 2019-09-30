@@ -22,7 +22,7 @@ import com.diaspark.imic.service.RegisterService;
 
 @RestController
 @CrossOrigin(origins="*")
-@RequestMapping("/register")
+@RequestMapping("/api/register")
 @PermitAll
 public class RegisterController {
 

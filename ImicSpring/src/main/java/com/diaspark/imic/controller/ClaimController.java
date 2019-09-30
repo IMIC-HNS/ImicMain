@@ -19,7 +19,7 @@ import com.diaspark.imic.service.UploadService;
 
 @RestController
 @CrossOrigin(origins="*")
-@RequestMapping("/policyholder/claim")
+@RequestMapping("/api/policyholder/claim")
 @PermitAll
 public class ClaimController {
 

@@ -20,7 +20,7 @@ import com.diaspark.imic.service.ContactusService;
  */
 @RestController
 @CrossOrigin(origins="*")
-@RequestMapping("/contactus")
+@RequestMapping("/api/contactus")
 
 public class ContactusController {
 	@Autowired

@@ -16,7 +16,7 @@ import com.diaspark.imic.service.UserDetailService;
  */
 @RestController
 @CrossOrigin(origins="*")
-@RequestMapping("/user")
+@RequestMapping("/api/user")
 public class UserDetail {
 
 	@Autowired

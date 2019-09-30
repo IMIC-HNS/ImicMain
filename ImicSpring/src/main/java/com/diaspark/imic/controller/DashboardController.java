@@ -28,7 +28,7 @@ import com.diaspark.imic.service.DashboardService;
  */
 @RestController
 @CrossOrigin(origins="*")
-@RequestMapping("/dashboard/")
+@RequestMapping("/api/dashboard/")
 public class DashboardController {
 
 	@Autowired

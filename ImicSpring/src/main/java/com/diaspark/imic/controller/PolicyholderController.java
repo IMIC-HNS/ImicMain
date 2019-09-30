@@ -27,7 +27,7 @@ import com.diaspark.imic.service.UploadService;
  */
 @RestController
 @CrossOrigin(origins="*")
-@RequestMapping("/policyholder")
+@RequestMapping("/api/policyholder")
 @PermitAll
 
 public class PolicyholderController {

@@ -9,8 +9,11 @@ import { ApiService } from 'src/app/Core/api.service';
 export class PolicyholderdetailsService {
   private url="/policyholder/";
 
-
+<<<<<<< HEAD
+  constructor(private _http: HttpClient,private api:ApiService) {
+=======
   constructor(private api:ApiService) {
+>>>>>>> 7a13b4f003b1837e4aed974117dbca25002dc965
    }
 
    postData(claim:FormGroup, id: string)

@@ -17,7 +17,7 @@ import com.diaspark.imic.service.PolicyService;
  */
 @RestController 
 @CrossOrigin(origins = "*")
-@RequestMapping("/")
+@RequestMapping("/api/")
 public class PolicyController {
 
 	@Autowired

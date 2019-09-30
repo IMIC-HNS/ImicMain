@@ -1,0 +1,39 @@
+import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { FormGroup } from '@angular/forms';
+import { ApiService } from 'src/app/Core/api.service';
+
+/**
+ *
+ *Service for AgentRegistration
+ * @export
+ * @class AgentregistrationServiceService
+ */
+@Injectable({
+  providedIn: 'root'
+})
+export class AgentregistrationServiceService {
+ private url="/register/agent";
+<<<<<<< HEAD
+  constructor(private _http: HttpClient,private api:ApiService) { }
+=======
+  constructor(private api:ApiService) { }
+>>>>>>> 7a13b4f003b1837e4aed974117dbca25002dc965
+
+ /**
+  *
+  *method for register agent
+  * @param {FormGroup} register
+  * @returns post the agent data
+  * @memberof AgentregistrationServiceService
+  */
+ postData(register:FormGroup)
+ {  console.log(register);
+    return this.api.post(this.url,register);
+ }
+
+
+ 
+  }
+
