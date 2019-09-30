@@ -20,8 +20,16 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class UploadService {
 
+	/**
+	 * specifying the root directory for saving the files
+	 */
 	private final Path rootLocation = Paths.get("uploadFile");
 	
+	
+	/**method for storing the uploaded file
+	 * @param file
+	 * @return save file to root location
+	 */
 	public Path store(MultipartFile file) {
 		try {
 			Files.copy(file.getInputStream(), this.rootLocation.resolve(file.getOriginalFilename()), StandardCopyOption.REPLACE_EXISTING);
@@ -31,7 +39,10 @@ public class UploadService {
 		    }
 		}
 	
-	  public void init() {
+	 /**
+	 * init method for creating file directory to the root location
+	 */
+	public void init() {
 		    try {
 		    	File dir = new File(rootLocation.toFile().getAbsolutePath());
 		    	if(!dir.exists()) {

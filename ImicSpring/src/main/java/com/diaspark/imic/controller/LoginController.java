@@ -15,12 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 //import com.diaspark.imic.model.LoginUser;
 import com.diaspark.imic.model.User;
 import com.diaspark.imic.service.LoginService;
-import com.diaspark.imic.service.LoginServiceImpl;
-
 /**
  * @author SHIVANGI RAI
- *
+ *Controller for login user with required mapping
  */
+
 @RestController
 @CrossOrigin(origins="*")
 @RequestMapping("/login")
@@ -29,12 +28,14 @@ public class LoginController {
 	@Autowired
 	LoginService loginService;
 	
-	//@Autowired
-	//LoginServiceImpl loginServiceImpl;
 	
-	@PostMapping("/")
-	public User login(@RequestBody @Valid User loginUser) {
+	/** login method forthe user to login
+	 * @param loginUser
+	 * @return loginuser
+	 */
+	 @PostMapping("/")
+	 public User login(@RequestBody @Valid User loginUser) {
 		return loginService.login(loginUser);
-	}
+	 }
 
 }

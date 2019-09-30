@@ -24,7 +24,7 @@ import com.diaspark.imic.service.DashboardService;
 
 /**
  * @author SHIVANGI RAI
- *
+ * Controller for Dashboard with required mapping
  */
 @RestController
 @CrossOrigin(origins="*")
@@ -34,6 +34,11 @@ public class DashboardController {
 	@Autowired
 	private DashboardService dashboardService;
 
+	/** 
+	 * ListofPH method to provide list of policyholders
+	 * @param userId
+	 * @return list of policyholders by id
+	 */
 	@GetMapping("{userId}/policyHolders")
 	public List<PolicyHolder> listofPH(@PathVariable("userId") ObjectId userId)
 	{
@@ -42,29 +47,50 @@ public class DashboardController {
 
 	}
 	
+	/**
+	 * getAgents provides list of user type agent
+	 * @return list of agents
+	 */
 	@GetMapping(value="getAgents")
 	public List<User> getAgent()
 	{
 		return dashboardService.provideAgents(Type.AGENT);
 	}
 
+	/**
+	 * getPolicyholders provides policyholders by city and type
+	 * @param city
+	 * @param type
+	 * @return policyholders by city and type
+	 */
 	@GetMapping(value="{city}")
-	public List<PolicyHolder> getPolicyHolder(@PathVariable("city") String city,@RequestParam("type") Type type)
+	public List<PolicyHolder> getPolicyHolders(@PathVariable("city") String city,@RequestParam("type") Type type)
 	{
-		return dashboardService.getPolicyHolders(city,type);
+		return dashboardService.getPolicyHolders(city, type);
 	}
+	/**getting list of users
+	 * @return policyholders with type policyHolder on dashboard
+	 */
 	@GetMapping(value="getPolicyHolder")
 	public List<User> getPolicyHolder()
 	{
 		return dashboardService.providePolicyHolders(Type.POLICYHOLDER);
 	}
 	
+	/**getting list of policyholders
+	 * @return policyholders with status submitted on dashboard
+	 */
 	@GetMapping(value="getByStatus")
 	public List<PolicyHolder> getPolicyHolderByStatus(@RequestParam("status") Status required )
 	{
 		return dashboardService.providePolicyHolder(required);
 	}
 
+	/**method for change status
+	 * @param userId
+	 * @param decided
+	 * @return user
+	 */
 	@PostMapping(value="decision/{userId}")
 	public PolicyHolder changeStatus(@PathVariable("userId") ObjectId userId,@RequestParam("status") Status decided)
 	{

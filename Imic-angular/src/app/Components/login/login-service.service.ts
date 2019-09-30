@@ -14,7 +14,6 @@ export class LoginServiceService {
 
 
   private url="/login/";
-  private login_url="/login/";
    users={
     "ADMIN":"admin-dashboard",
     "AGENT":"agent-dashboard",
@@ -31,7 +30,9 @@ export class LoginServiceService {
 
   
  login(user){
+<<<<<<< HEAD
    return this.api.post(this.login_url,user)
+   return this.api.login(user)
   .subscribe(
    res =>{
      console.log(res);

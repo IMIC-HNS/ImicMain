@@ -6,6 +6,13 @@ import { Router, RouterLink } from '@angular/router';
 import { AgentregistrationServiceService } from 'src/app/Components/Register/register-agent/agentregistration-service.service';
 import { HomeComponent } from '../../home/home.component';
 
+/**
+ *
+ *Component for agent registration
+ * @export
+ * @class RegisterAgentComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-register-agent',
   templateUrl: './register-agent.component.html',
@@ -21,7 +28,7 @@ export class RegisterAgentComponent implements OnInit {
     private _agentService: AgentregistrationServiceService
     , private router: Router) { }
 
-   // private url="http://localhost:8080/register/agent";
+   
 
   ngOnInit() {
     this.registerForm = this.fb.group({

@@ -6,7 +6,7 @@ import com.diaspark.imic.model.PolicyHolder;
 
 /**
  * @author Nishi Agarwal
- *
+ * Service interface for contactus form
  */
 @Component
 public interface ContactusService {

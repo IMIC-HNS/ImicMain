@@ -2,18 +2,16 @@ package com.diaspark.imic.model;
 
 
 import java.util.Base64;
-
-import javax.validation.constraints.Pattern;
-
-
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.stereotype.Component;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
+/**
+ * @author Nishi Aagrwal
+ *User model with getters and setters of the fields
+ */
 @Document(collection="users")
 @JsonIgnoreProperties
 public class User {

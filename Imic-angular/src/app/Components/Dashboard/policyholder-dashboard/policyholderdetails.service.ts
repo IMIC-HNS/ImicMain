@@ -9,11 +9,12 @@ import { ApiService } from 'src/app/Core/api.service';
 export class PolicyholderdetailsService {
   private url="/policyholder/";
 
-  constructor(private _http: HttpClient,private api:ApiService) {
+<<<<<<< HEAD
+  constructor(private api:ApiService) {
    }
 
    postData(claim:FormGroup, id: string)
  {  console.log(claim);
-    return this._http.post<any>(this.url + id,claim);
+    return this.api.post(this.url + id,claim);
  }
 }

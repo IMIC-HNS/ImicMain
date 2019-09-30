@@ -1,0 +1,5 @@
+com.diaspark.imic
+com.diaspark.imic.controller
+com.diaspark.imic.model
+com.diaspark.imic.repository
+com.diaspark.imic.service
