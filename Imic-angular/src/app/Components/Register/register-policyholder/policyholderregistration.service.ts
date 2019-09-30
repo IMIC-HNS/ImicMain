@@ -3,7 +3,7 @@ import { HttpClient, HttpEvent, HttpRequest } from "@angular/common/http";
 import { FormGroup  } from "@angular/forms";
 import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/Core/api.service';
-
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +17,7 @@ export class PolicyholderregistrationService {
  
     formdata.append('file', file);
  
-    const req = new HttpRequest('POST', 'http://localhost:8080/policyholder/uploadingfile', formdata, {
+    const req = new HttpRequest('POST', environment.baseURL +'/policyholder/uploadingfile', formdata, {
       reportProgress: true,
       responseType: 'text'
     });

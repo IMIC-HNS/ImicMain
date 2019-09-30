@@ -95,8 +95,5 @@ public interface UserRepository extends MongoRepository<User, ObjectId>{
 	 */
 	@Query
 	List<PolicyHolder> findByCityAndStatus(String city, Status initialised);
-	
-	@Query
-	List<PolicyHolder> getPolicyHolders(String city,Type type);
 }
 	
