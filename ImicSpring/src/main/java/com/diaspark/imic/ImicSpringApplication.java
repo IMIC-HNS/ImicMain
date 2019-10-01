@@ -4,8 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.context.event.EventListener;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.diaspark.imic.model.Admin;
 import com.diaspark.imic.model.Type;
@@ -18,7 +21,10 @@ import com.diaspark.imic.service.UploadService;
  *Main Method of the springboot application
  */
 @SpringBootApplication
-public class ImicSpringApplication {
+@Controller
+public class ImicSpringApplication implements ErrorController {
+
+	private static final String PATH = "/error";
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -51,4 +57,13 @@ public class ImicSpringApplication {
 		}
 	}
 
+	@RequestMapping(value = PATH)
+	public String error() {
+		return "forward:/index.html";
+	}
+
+	@Override
+	public String getErrorPath() {
+		return PATH;
+	}
 }
