@@ -33,10 +33,11 @@ public class MailsenderService {
 		SimpleMailMessage mail= new SimpleMailMessage();
 		
 		mail.setTo(user.getEmail());
-		mail.setSubject("MAIL FOR CREDENTIALS");
-		mail.setSubject("MAIL FOR FORM FILLING");
-		String text="Hii,"+user.getFirstName()+"\n"+"Here is the link for your form"+"\n"+link;
-		text=text+"\n\n"+"Thanks and Regards"+"\n"+"IMIC";
+		mail.setSubject("IMIC: MAIL FOR FORM FILLING");
+		String text="Hii,"+user.getFirstName()+"\n" ;
+		text = text + "Thank you for choosing IMIC Health Insurance.\n"
+		+ "Kindly fill required details to proceed with the policy . Here is the link for your form"+"\n"+ link;
+		text = text+"\n\n"+"Thanks and Regards"+"\n"+"IMIC Team";
 		mail.setText(text);
 		
 	
@@ -54,18 +55,20 @@ public class MailsenderService {
 		SimpleMailMessage mails= new SimpleMailMessage();
 		
 		mails.setTo(user.getEmail());
-		mails.setSubject("MAIL FOR CREDENTIALS");
-		String text = "Hii Agent,\n" +user.getFirstName()+" your username will be your Email-Id and password is mentioned below";
+		mails.setSubject("IMIC: MAIL FOR CREDENTIALS");
+		String text = "Hii" + user.getFirstName()
+		    + "\n Welcome to IMIC Health Insurance service. Kindly find details -";
 		text = text + " \n" + "Email: --- " + user.getEmail();
 		text = text + " \n" + "Password: --- " + password.split("-")[0];
+		text = text + "\n\n"+"Thanks and Regards"+"\n"+"IMIC Team";
 		mails.setText(text);		
 		javaMailSender.send(mails);
 	}
 	
 	
-	/**sending email with credentails to policyholder
-	 * @param user
-	 * @param password
+	/**sending email with credentials to policyholder.
+	 * @param user {{@link User}} User to send email.
+	 * @param password {@link String} Password of user.
 	 * @throws MailException
 	 */
 	public void sendEmailToPolicyholder(User user,String password) throws MailException{
@@ -73,10 +76,13 @@ public class MailsenderService {
 		SimpleMailMessage mailCredentails= new SimpleMailMessage();
 		
 		mailCredentails.setTo(user.getEmail());
-		mailCredentails.setSubject("MAIL FOR CREDENTIALS");
-		String text = "Hii" +user.getFirstName()+" your username will be your Email-Id and password is mentioned below";
+		mailCredentails.setSubject("IMIC: Welcome Mail");
+		String text = "Hii" +user.getFirstName() +",\n"
+		+ " Welcome to IMIC Health Insurance service." +
+		"\n Thank you for believing on us . Kindly find details below -";
 		text = text + " \n" + "Email: --- " + user.getEmail();
 		text = text + " \n" + "Password: --- " + password;
+		text = text+"\n\n"+"Thanks and Regards"+"\n"+"IMIC Team";
 		mailCredentails.setText(text);
 		javaMailSender.send(mailCredentails);
 	}
