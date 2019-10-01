@@ -1,9 +1,17 @@
 import { Nominee } from './Nominee';
 
+/**
+ * @class Claim for submitting the updated status of claim taken by the policyholder
+ */
 class Claim {
   status: string;
 }
 
+/**
+ *Class for RegisterPolicyholder that consists of all the fields required in the form
+ * @export
+ * @class RegisterPolicyholder
+ */
 export class RegisterPolicyholder {
   public id: string;
   public firstName: string;

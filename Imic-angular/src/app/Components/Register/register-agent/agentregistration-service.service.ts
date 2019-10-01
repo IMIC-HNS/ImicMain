@@ -6,15 +6,21 @@ import { ApiService } from 'src/app/Core/api.service';
 
 /**
  *
- *Service for AgentRegistration
+ *Service class for AgentRegistration
  * @export
- * @class AgentregistrationServiceService
+ * @class AgentregistrationServiceService used for connecting whenever a new agent gets registered
  */
 @Injectable({
   providedIn: 'root'
 })
 export class AgentregistrationServiceService {
  private url="/register/agent";
+
+  /**
+   *Creates an instance of AgentregistrationServiceService.
+   * @param {ApiService} api calling the cpommon api service for connection
+   * @memberof AgentregistrationServiceService 
+   */
   constructor(private api:ApiService) { }
 
  /**

@@ -21,19 +21,26 @@ export class ContactusComponent implements OnInit {
   contact: ContactUs = new ContactUs('', '', '', '', '', '');
 
   /**
-   *
+   * 
    * @type {string} policyId  id for each policy
    * @memberof ContactusComponent
    */
   policyId: string;
 
   /**
-   *
+   * 
    * @type {string} policyName name for each policy
    * @memberof ContactusComponent
    */
   policyName: string;
 
+  /**
+   *Creates an instance of ContactusComponent. (Constructor)
+   * @param {ContactusService} contactusService
+   * @param {CommonService} commonService
+   * @param {Router} router
+   * @memberof ContactusComponent
+   */
   constructor(private contactusService: ContactusService, public commonService: CommonService, private router: Router) {
   }
 
@@ -45,7 +52,7 @@ export class ContactusComponent implements OnInit {
 
   /**
    *Method for creating new policyholder via contactus form
-   * @memberof ContactusComponent
+   * @memberof ContactusComponent createPolicyHolder method
    */
   createPolicyHolder(): void {
     console.log(this.commonService.myPolicy);

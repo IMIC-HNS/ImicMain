@@ -8,7 +8,6 @@ import { RegisterAgentComponent } from './Components/Register/register-agent/reg
 import { RegisterPolicyholderComponent } from "./Components/Register/register-policyholder/register-policyholder.component";
 import { ContactusComponent } from './Components/contactus/contactus.component';
 import { PolicyRequestComponent } from './Components/policy-request/policy-request.component';
-
 import { AgentDashboardComponent } from './Components/Dashboard/agent-dashboard/agent-dashboard.component';
 import { PolicyholderDashboardComponent } from './Components/Dashboard/policyholder-dashboard/policyholder-dashboard.component';
 import { ProfileComponent } from './Components/Dashboard/profile/profile.component';

@@ -10,10 +10,13 @@ import { CommonService } from './Core/common.service';
 export class AppComponent implements OnInit {
   
   constructor(private commonService:CommonService) {
-    
   } 
   
-  
+  /**
+   *
+   *this ngOnInit method always execute whenever soemone hit the url and this method get the details of all the policies
+   * @memberof AppComponent
+   */
   ngOnInit() {
     this.commonService.getPolicies();
   }

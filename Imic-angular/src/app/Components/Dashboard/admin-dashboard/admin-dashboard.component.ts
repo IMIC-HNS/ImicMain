@@ -1,10 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-
 import {ApiService} from 'src/app/Core/api.service';
 import {Router, ActivatedRoute} from '@angular/router';
 import {CommonService} from '../../../Core/common.service';
 import {LoginServiceService} from '../../login/login-service.service';
 
+/**
+ *Component class for AdminDashboard
+ * @export
+ * @class AdminDashboardComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
@@ -13,15 +18,21 @@ import {LoginServiceService} from '../../login/login-service.service';
 export class AdminDashboardComponent implements OnInit {
   url = '/dashboard/getByStatus?status=SUBMITTED';
   decisionUrl = '/dashboard/decision/';
-  // tslint:disable-next-line:ban-types
   agents: Object = [];
-  // tslint:disable-next-line:ban-types
   policyHolders: Object = [];
   id: string;
   updatedUser = {};
 
-  constructor(private commonService: CommonService, private api: ApiService,
-              private router: Router, private route: ActivatedRoute, private loginService: LoginServiceService) {
+  /**
+   *Creates an instance of AdminDashboardComponent.(constructor)
+   * @param {CommonService} commonService for policy detailing
+   * @param {ApiService} api for get the application url and also for getting the agent details and for post teh status of policy as accepted or rejected
+   * @param {Router} router for routing purpose
+   * @param {ActivatedRoute} route
+   * @param {LoginServiceService} loginService for login to the admin dashboard
+   * @memberof AdminDashboardComponent
+   */
+  constructor(private commonService: CommonService, private api: ApiService, private router: Router, private route: ActivatedRoute, private loginService: LoginServiceService) {
   }
 
   ngOnInit() {
@@ -45,6 +56,11 @@ export class AdminDashboardComponent implements OnInit {
 
   }
 
+  /**
+   *method approval for approving the policy request
+   * @param {*} id policyid
+   * @memberof AdminDashboardComponent
+   */
   approval(id) {
     console.log(id);
     this.api.post(this.decisionUrl + id + '?status=ACCEPTED', {}).subscribe(
@@ -58,6 +74,11 @@ export class AdminDashboardComponent implements OnInit {
     );
   }
 
+  /**
+   *method rejection for rejecting the policy request
+   * @param {*} id consist of policy id
+   * @memberof AdminDashboardComponent
+   */
   rejection(id) {
     this.api.post(this.decisionUrl + id + '?status=REJECTED', {}).subscribe(
       response => {
