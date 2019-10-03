@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Login } from '../Components/login/Login';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 /**
  *Service Class for common api having get , post, login methods
@@ -44,6 +45,12 @@ export class ApiService {
    */
   login(user: Login) {
     return this.http.post(environment.baseURL + '/login/', user);
+  }
+
+  download(url:string)  {
+    
+    // headers = headers.append('Accept', 'undefined;charset=utf-8');
+    return this.http.get(environment.baseURL + url, { responseType: 'arraybuffer' });
   }
 
 }

@@ -34,7 +34,11 @@ export class PolicyholderregistrationService {
    pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
     const formdata: FormData = new FormData();
     formdata.append('file', file);
-    const req = new HttpRequest('POST', environment.baseURL +'/policyholder/uploadingfile', formdata, {
+
+ 
+ 
+    const req = new HttpRequest('POST', 'http://localhost:8080/api/policyholder/uploadingfile', formdata, {
+
       reportProgress: true,
       responseType: 'text'
       });

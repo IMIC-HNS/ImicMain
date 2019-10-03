@@ -60,6 +60,7 @@ export class RegisterPolicyholderComponent implements OnInit {
    */
   currentFileUpload: File;
 
+
   /**
    *Creates an instance of RegisterPolicyholderComponent.(Constructor)
    * @param {FormBuilder} fb instance for FormBuilder
@@ -71,6 +72,11 @@ export class RegisterPolicyholderComponent implements OnInit {
    * @param {Router} router
    * @memberof RegisterPolicyholderComponent
    */
+
+ text:string;
+ 
+  
+
   constructor(private fb: FormBuilder, private routes: Router, private route: ActivatedRoute,
               private policyholderregistrationService: PolicyholderregistrationService, private api: ApiService
     ,         public commonService: CommonService
@@ -82,6 +88,7 @@ export class RegisterPolicyholderComponent implements OnInit {
     console.log('user type' + this.isAgent);
     this.id = this.route.snapshot.params.id;
     if (this.isAgent) {
+      this.text="Initialise";
       this.requestedUserId = this.loggedInUser.id;
     }
 
@@ -127,6 +134,7 @@ export class RegisterPolicyholderComponent implements OnInit {
         // this.policyHolder.aadharDoc = 'http://docurl';
         if (!this.isAgent) {
           this.requestedUserId = this.policyHolder.id;
+          this.text="Submit";
         }
         this.initializeForm(res);
         console.log(this.initializeForm);
@@ -188,7 +196,7 @@ export class RegisterPolicyholderComponent implements OnInit {
         (error => console.log(error))
       );
     alert('POLICYHOLDER FORM HAS BEEN INITIALIZED');
-    this.router.navigate(['/home']);
+    this.router.navigate(['/agent-dashboard']);
 
   }
 }

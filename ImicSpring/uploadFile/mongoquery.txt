@@ -1,0 +1,2 @@
+
+db.users.insert({"firstName": "Nayan","lastName":"Patodi","password": "shiv","type": "POLICYHOLDER","mobileNumber": "9926450027","city": "Indore","emailId": "rai.shivangi29@gmail.com","dateOfBirth": "29/03/1997","aadhar": "41351513515","address": "324325235fsf456789098","status":"SUBMITTED"});

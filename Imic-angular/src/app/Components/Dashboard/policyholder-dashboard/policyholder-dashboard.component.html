@@ -74,7 +74,7 @@
                 <div class="row">
                       <div class="col">
                           <p>Aadhar Document</p>
-                          <a [href]="this.userPolicydetail.aadharDoc">View Doc </a>
+                          <a (click)="viewDoc()" >View Doc </a>
                       </div>
 
                 </div>
@@ -98,6 +98,20 @@
 
               <div class="text-center">
                   <button class="btn btn-primary mr-1" (click)="claim()">CLAIM</button>
+                  <div *ngIf="claimed">
+                      <div class="row">
+                            <input  type="file" [(ngModel)]="fileUrl" (change)="selectFile($event)" class="form-control" [ngClass]="{ 'is-invalid': submitted }" />
+                      </div>
+                      <div class="row">
+                            <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload document</button>
+                      </div>
+                      <div class="row">
+                     Enter amount to be claimed:<input type="text" [(ngModel)]="amount">
+                      </div>
+                      <div class="row">
+                          <button (click)="apply()">Submit</button>
+                      </div>
+                  </div>
               </div>
 
       </div>

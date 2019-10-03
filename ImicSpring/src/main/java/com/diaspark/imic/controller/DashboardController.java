@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.diaspark.imic.model.ClaimStatus;
 import com.diaspark.imic.model.PolicyHolder;
 
 import com.diaspark.imic.model.Status;
@@ -97,4 +98,5 @@ public class DashboardController {
 		return dashboardService.updateUser(decided, userId);
 		
 	}
+
 }

@@ -22,6 +22,8 @@ export class AdminDashboardComponent implements OnInit {
   policyHolders: Object = [];
   id: string;
   updatedUser = {};
+  userPolicydetail: any;
+  showPolicyUser: boolean;
 
   /**
    *Creates an instance of AdminDashboardComponent.(constructor)
@@ -91,9 +93,10 @@ export class AdminDashboardComponent implements OnInit {
     );
   }
 
-  showAlert(holder) {
-    holder.myValue = true;
-  }
+  showAlert (holder){
+    this.userPolicydetail = holder;
+    this.showPolicyUser = true;
+  };
 
   logout() {
     this.loginService.logout();

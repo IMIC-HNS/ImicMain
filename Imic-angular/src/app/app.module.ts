@@ -21,6 +21,7 @@ import { ProfileComponent } from './Components/Dashboard/profile/profile.compone
 import { NavbarComponent } from './Core/navbar/navbar.component';
 import { PolicyHoldersComponent } from './Components/Dashboard/agent-dashboard/policy-holders/policy-holders.component';
 import { AdminSidebarComponent } from './Components/admin-sidebar/admin-sidebar.component';
+import { ClaimRequestComponent } from './Components/Dashboard/policyholder-dashboard/claim-request/claim-request.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,12 @@ import { AdminSidebarComponent } from './Components/admin-sidebar/admin-sidebar.
     ProfileComponent,
     NavbarComponent,
     PolicyHoldersComponent,
-    AdminSidebarComponent
+
+    AdminSidebarComponent,
+
+    ClaimRequestComponent
+
+
   ],
   imports: [
     BrowserModule,

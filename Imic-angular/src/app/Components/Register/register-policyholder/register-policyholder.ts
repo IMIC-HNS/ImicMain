@@ -1,11 +1,12 @@
 import { Nominee } from './Nominee';
+import { Claim } from '../../Dashboard/policyholder-dashboard/claim';
+
+
 
 /**
  * @class Claim for submitting the updated status of claim taken by the policyholder
  */
-class Claim {
-  status: string;
-}
+
 
 /**
  *Class for RegisterPolicyholder that consists of all the fields required in the form
@@ -24,7 +25,7 @@ export class RegisterPolicyholder {
   public dob: string;
   public aadharDoc: any;
   public nominee: Nominee = new Nominee();
-  public claim: Claim = new Claim()
+  public claim: Claim = new Claim(undefined,undefined,undefined,undefined);
     constructor(
     ) {}
 }

@@ -95,5 +95,9 @@ public interface UserRepository extends MongoRepository<User, ObjectId>{
 	 */
 	@Query
 	List<PolicyHolder> findByCityAndStatus(String city, Status initialised);
+<<<<<<< Updated upstream
+=======
+	
+>>>>>>> Stashed changes
 }
 	

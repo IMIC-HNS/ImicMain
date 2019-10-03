@@ -1,10 +1,17 @@
 package com.diaspark.imic.service;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Base64;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.client.RestClientException;
 
 import com.diaspark.imic.model.Agent;
@@ -50,6 +57,7 @@ public class PolicyholderRegisterService {
 			
 			this.holderId =	Base64.getEncoder().encodeToString((holderId + "-" + SALT).getBytes());
 			link= "http://imic-hns.ap-south-1.elasticbeanstalk.com/registerpolicyholder/" + holderId;
+			//link= "http://localhost:4200/registerpolicyholder/" + holderId;
 			mailSender.sendEmail(policyHolder,link);
 
 			//localhost:4200/p/policyholder.getId();
@@ -66,6 +74,11 @@ public class PolicyholderRegisterService {
 		}
 		userRepository.save(policyHolder);
 		return (PolicyHolder) userRepository.findById(policyHolder.getObjectId(policyHolder.getId())).get();
+		
+	}
+
+	public PolicyHolder findUser(ObjectId userId) {
+		return userRepository.findPolicyHolderById(userId);
 		
 	}
 }

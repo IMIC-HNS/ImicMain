@@ -57,13 +57,95 @@
                   <td><button class="btn btn-success" (click)="this.approval(holder.id)">Approve</button>
                   <button class="btn btn-danger" (click)="this.rejection(holder.id)">Reject</button>
                   <button class="btn btn-outline-info" (click)="showAlert(holder)"> Show Details</button> </td>
-                   <div *ngIf="holder.myValue">
-                      <p>Contact.No:{{holder.mobileNumber}}</p>
-                      <p>Status:{{holder.status}}</p>
-                      <p>City:{{holder.city}}</p>
-                      <p>Email:{{holder.email}}</p>
-                      <p>Date OF Birth:{{holder.dob}}</p>
-                   </div>
+                  <div class="container-fluid content" id="form" *ngIf="showPolicyUser">
+                    <div class="card m-3">
+                        <h5 class="card-header">POLICY DETAILS</h5>
+                  
+                            <div>
+                                <div class="row">
+                                      <div class="col">
+                                          <p>First Name</p>
+                                        {{this.userPolicydetail.firstName}}
+                                      </div>
+                                      <div class="col">
+                                              <p>Last Name</p>
+                                              {{this.userPolicydetail.lastName}}
+                                          </div>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div>
+                                  <div class="row">
+                                        <div class="col">
+                                            <p>Email</p>
+                                            {{this.userPolicydetail.email}}
+                                        </div>
+                                        <div class="col">
+                                                <p>Mobile Number</p>
+                                                {{this.userPolicydetail.mobileNumber}}
+                                            </div>
+                                  </div>
+                              </div>
+                              <br>
+                              <br>
+                              <div>
+                                    <div class="row">
+                                          <div class="col">
+                                              <p>Date of birth</p>
+                                              {{this.userPolicydetail.dob}}
+                                          </div>
+                                          <div class="col">
+                                                  <p>Policy Number</p>
+                                                  {{this.userPolicydetail.policyNumber}}
+                                              </div>
+                                    </div>
+                                </div>
+                                <br>
+                              <br>
+                  
+                                <div>
+                                      <div class="row">
+                                            <div class="col">
+                                                <p>City</p>
+                                                {{this.userPolicydetail.city}}
+                                            </div>
+                                            <div class="col">
+                                                    <p>Aadhar Number</p>
+                                                    {{this.userPolicydetail.aadhar}}
+                                                </div>
+                  
+                                      </div>
+                                  </div>
+                  
+                                <div>
+                                  <div class="row">
+                                        <div class="col">
+                                            <p>Aadhar Document</p>
+                                            <a [href]="this.userPolicydetail.aadharDoc">View Doc </a>
+                                        </div>
+                  
+                                  </div>
+                              </div>
+                                  <br>
+                                <br>
+                                <div>
+                                      <div class="row">
+                                            <div class="col">
+                                                <p>Nominee Name</p>
+                                                {{this.userPolicydetail.nominee.nomine}}
+                                            </div>
+                                            <div class="col">
+                                                    <p>Nominee relation</p>
+                                                    {{this.userPolicydetail.nominee.relationship}}
+                                                </div>
+                                      </div>
+                                  </div>
+                                  <br>
+                                  <br>
+                  
+                        </div>
+                    </div>
                 </tr>
                 </tbody>
               </table>
