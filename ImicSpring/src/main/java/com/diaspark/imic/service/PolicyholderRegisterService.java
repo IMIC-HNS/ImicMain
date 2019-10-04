@@ -56,8 +56,7 @@ public class PolicyholderRegisterService {
 			holderId = policyHolder.getId().toString();
 			
 			this.holderId =	Base64.getEncoder().encodeToString((holderId + "-" + SALT).getBytes());
-			//link= "http://imic-hns.ap-south-1.elasticbeanstalk.com/registerpolicyholder/" + holderId;
-			link= "http://localhost:4200/registerpolicyholder/" + holderId;
+			link= "http://imic-hns.ap-south-1.elasticbeanstalk.com/registerpolicyholder/" + holderId;
 			mailSender.sendEmail(policyHolder,link);
 
 			//localhost:4200/p/policyholder.getId();
