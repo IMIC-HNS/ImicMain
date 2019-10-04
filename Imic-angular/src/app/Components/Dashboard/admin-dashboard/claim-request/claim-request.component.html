@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <h1>Policy Holders Requesting Claim</h1>
+  </div>
+  <div class="claim">
+      <div class="table-responsive col">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Claim Status</th>
+                <th scope="col">Claimed Amount</th>  
+                <th scope="col">Document Submitted</th>
+                <th scope="col">Decision</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let holder of policyHolders; index as i">
+                <th scope="row">{{i+1}}</th>
+                <td>{{holder.firstName}} {{holder.lastName}}</td>
+                <td><strong>{{holder.claim.status}}</strong></td>
+                <td><input [(ngModel)]="holder.claim.amount"/></td>
+                <td (click)=viewDoc(holder)>View Doc</td>
+                <td><button (click)="approval(holder)">Approve</button>
+                  <button (click)="reject(holder)">Reject</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  </div>
+</div>

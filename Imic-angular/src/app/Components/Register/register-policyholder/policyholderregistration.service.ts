@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/Core/api.service';
 import { environment } from 'src/environments/environment';
 
+
 /**
  * Service class PolicyholderregistrationService for connecting api service
  * @export
@@ -37,7 +38,7 @@ export class PolicyholderregistrationService {
 
  
  
-    const req = new HttpRequest('POST', 'http://localhost:8080/api/policyholder/uploadingfile', formdata, {
+    const req = new HttpRequest('POST', environment.baseURL+'/policyholder/uploadingfile', formdata, {
 
       reportProgress: true,
       responseType: 'text'

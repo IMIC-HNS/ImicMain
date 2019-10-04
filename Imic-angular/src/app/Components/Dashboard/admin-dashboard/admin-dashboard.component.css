@@ -95,3 +95,6 @@
  {
    align-content: center;
  }
+.policyHolder .approved{
+   background: green;
+ }

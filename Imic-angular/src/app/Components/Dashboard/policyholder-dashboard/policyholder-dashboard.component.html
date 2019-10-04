@@ -92,6 +92,25 @@
                                   {{this.userPolicydetail.nominee.relationship}}
                               </div>
                     </div>
+                    <div *ngIf="showClaim">
+                        <div class="row">
+                            <div class="col">
+                                <p>Claim Status:</p><br>
+                                {{this.userPolicydetail.claim.status}}
+                            </div>
+                            <div class="col">
+                                <p>Amount Claimed:</p><br>
+                                {{this.userPolicydetail.claim.amount}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p>Document Submitted For Claim:</p><br>
+                                <a (click)="viewClaimDoc()">
+                                   <strong>View Doc</strong></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <br>
                 <br>

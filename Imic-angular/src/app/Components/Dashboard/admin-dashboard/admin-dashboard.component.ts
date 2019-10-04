@@ -17,14 +17,17 @@ import {LoginServiceService} from '../../login/login-service.service';
 })
 export class AdminDashboardComponent implements OnInit {
   url = '/dashboard/getByStatus?status=SUBMITTED';
+  urlAccept='/dashboard/getByStatus?status=ACCEPTED';
   decisionUrl = '/dashboard/decision/';
   agents: Object = [];
   policyHolders: Object = [];
   id: string;
   updatedUser = {};
   userPolicydetail: any;
-  showPolicyUser: boolean;
-
+  showAgent:boolean=false;
+  showPolicyUser: boolean=false;
+  userAgentDetail:any;
+  allPolicyHolders:Object=[];
   /**
    *Creates an instance of AdminDashboardComponent.(constructor)
    * @param {CommonService} commonService for policy detailing
@@ -42,6 +45,14 @@ export class AdminDashboardComponent implements OnInit {
       response => {
         this.policyHolders = response;
         console.log(this.policyHolders);
+      },
+      error => console.log(error)
+    );
+
+    this.api.get(this.urlAccept).subscribe(
+      response => {
+        this.allPolicyHolders = response;
+        console.log(this.allPolicyHolders);
       },
       error => console.log(error)
     );
@@ -96,8 +107,12 @@ export class AdminDashboardComponent implements OnInit {
   showAlert (holder){
     this.userPolicydetail = holder;
     this.showPolicyUser = true;
+    console.log("hello");
   };
-
+  showAgents(agent){
+    this.userAgentDetail=agent;
+    this.showAgent=true;
+  }
   logout() {
     this.loginService.logout();
   }

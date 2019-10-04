@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import com.diaspark.imic.model.ClaimStatus;
 import com.diaspark.imic.model.PolicyHolder;
 import com.diaspark.imic.model.Status;
 import com.diaspark.imic.model.Type;
@@ -95,9 +96,9 @@ public interface UserRepository extends MongoRepository<User, ObjectId>{
 	 */
 	@Query
 	List<PolicyHolder> findByCityAndStatus(String city, Status initialised);
-<<<<<<< Updated upstream
-=======
-	
->>>>>>> Stashed changes
+
+	@Query
+	List<PolicyHolder> findPolicyHoldersByClaimStatus(ClaimStatus claimed);
+
 }
 	

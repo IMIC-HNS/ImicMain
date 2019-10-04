@@ -6,6 +6,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import com.diaspark.imic.model.PolicyHolder;
 import com.diaspark.imic.model.User;
 
 /**
@@ -85,5 +86,19 @@ public class MailsenderService {
 		text = text+"\n\n"+"Thanks and Regards"+"\n"+"IMIC Team";
 		mailCredentails.setText(text);
 		javaMailSender.send(mailCredentails);
+	}
+	
+	public void sendClaimEmail(PolicyHolder user) throws MailException{
+		
+		SimpleMailMessage claimMail= new SimpleMailMessage();
+		
+		claimMail.setTo(user.getEmail());
+		claimMail.setSubject("IMIC: Claim Response Mail");
+		String text = "Hii," +user.getFirstName() +",\n"
+		 +"\n Thank you for believing on us . Kindly find details for your claim request -";
+		text = text+"\n"+user.getClaim().getStatus()+"\nCheque Of Rs."+user.getClaim().getAmount()+" will be send to your address\n";
+		text = text+"\n\n"+"Thanks and Regards"+"\n"+"IMIC Team";
+		claimMail.setText(text);
+		javaMailSender.send(claimMail);
 	}
 }

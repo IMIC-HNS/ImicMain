@@ -37,7 +37,7 @@ export class PolicyholderDashboardComponent implements OnInit {
   loggedInUser: any = {};
   isEncoded = false;
   id: string;
-
+  decideClaim='/policyholder/claim/';
   /**
    *
    * @type {RegisterPolicyholder} userPolicydetail show the details that was submitted by registerpolicyholder form
@@ -45,11 +45,12 @@ export class PolicyholderDashboardComponent implements OnInit {
    */
 
   docUrl="/policyholder/";
+  
   amount:string
 
   userPolicydetail: RegisterPolicyholder = new RegisterPolicyholder();
   file: any;
-  
+  showClaim:boolean=false;
   currentFileUpload: File;
   selectedFiles: FileList;
   claimed: boolean=false;
@@ -76,6 +77,9 @@ export class PolicyholderDashboardComponent implements OnInit {
     this.api.get(this.url + this.loggedInUser.id + '/' + this.isEncoded).subscribe(
         (res: RegisterPolicyholder) => {
         this.userPolicydetail = res;
+        if(this.userPolicydetail.claim){
+          this.showClaim=true;
+        }
         console.log(res);
       },
       error => console.error()
@@ -92,6 +96,16 @@ viewDoc(){
   window.open(url,'_blank');
     }, error=>console.log(error) );
 }
+viewClaimDoc(){
+  this.api.download(this.decideClaim+this.userPolicydetail.id).subscribe(
+    (response) => {
+  
+  var blob = new Blob([response], {type:'application/pdf'});
+  var url = URL.createObjectURL(blob);
+  window.open(url,'_blank');
+    }, error=>console.log(error) );
+}
+
   claim() {
     this.claimed=true;
     console.log('claimed');
@@ -116,11 +130,11 @@ viewDoc(){
 
 apply(){
   console.log(this.amount);
-    // this.userPolicydetail.claim.status="Can apply";
+    this.userPolicydetail.claim.status="CLAIMED";
     this.userPolicydetail.claim.amount=this.amount;
     console.log(this.userPolicydetail.claim.amount); 
     this.api.post(this.docUrl+"claim/"+this.userPolicydetail.id,this.userPolicydetail.claim).subscribe(
-      res=>console.log("claimed"),
+      res=>alert("Successfully Claimed"),
       error=>console.log(error)
     );
 }

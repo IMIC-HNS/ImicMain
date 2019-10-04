@@ -98,7 +98,23 @@ public class PolicyholderController {
 		  FileCopyUtils.copy(new FileInputStream(new File(policyHolder.getAadharDoc())), response.getOutputStream());
 		  response.flushBuffer();
 
-		  }
+	  }
+	  @GetMapping("/claim/{userId}")
+	  public void showClaimDoc(HttpServletResponse response,@PathVariable ObjectId userId) throws FileNotFoundException, IOException
+	  {
+		  PolicyHolder policyHolder = policyholderregisterService.findUser(userId);
+		  //response.setHeader("Content-Disposition", String.format("inline; filename=\"" + "\""));
+		  FileCopyUtils.copy(new FileInputStream(new File(policyHolder.getClaim().getFileUrl())), response.getOutputStream());
+		  response.flushBuffer();
+
+	  }
+	  
+	  @GetMapping("/claimed")
+	  public List<PolicyHolder> getClaimDetails()
+	  {
+		return claimService.providePolicyHolders();  
+	  }
+	  
 	@PostMapping("/claim/{userId}")
 	public PolicyHolder setClaim(@RequestBody ClaimDetails claimDetails,@PathVariable ObjectId userId)
 	{
@@ -106,6 +122,7 @@ public class PolicyholderController {
 		
 		
 	}
+	
 //	
 //	@PostMapping(value="/claim/{userId}")
 //	public PolicyHolder changeClaimStatus(@RequestBody ClaimDetails claimDetail,@PathVariable("userId") ObjectId userId)

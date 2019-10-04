@@ -3,6 +3,7 @@
   <a class="active" [routerLink]="['/admin-dashboard']">Dashboard</a>
   <a [routerLink]="['/register-agent']" routerLinkActive="active">Add Agent</a>
   <a [routerLink]="['/policy-request']" routerLinkActive="active">Policy Requested</a>
+  <a [routerLink]="['/claim-request']" routerLinkActive="active">Claim Requested</a>
   <a [routerLink]="['/home']" (click)="this.logout()">Logout</a>
 </div>
 
@@ -26,8 +27,8 @@
               <tr *ngFor="let agent of agents; index as i">
                 <th scope="row">{{ i + 1 }}</th>
                 <td>{{ agent.firstName }} {{agent.lastName}}</td>
-                <td><button class="btn btn-outline-info" (click)="showAlert(agent)">Show Details</button></td>
-                <div *ngIf="agent.myValue">
+                <td><button class="btn btn-outline-info" (click)="showAgents(agent)">Show Details</button></td>
+                <div *ngIf="showAgent">
                   <p>Contact.No:{{agent.mobileNumber}}</p>
                   <p>Email:{{agent.email}}</p>
                   <p>City:{{agent.city}}</p>
@@ -57,25 +58,7 @@
                   <td><button class="btn btn-success" (click)="this.approval(holder.id)">Approve</button>
                   <button class="btn btn-danger" (click)="this.rejection(holder.id)">Reject</button>
                   <button class="btn btn-outline-info" (click)="showAlert(holder)"> Show Details</button> </td>
-                  <div class="container-fluid content" id="form" *ngIf="showPolicyUser">
-                    <div class="card m-3">
-                        <h5 class="card-header">POLICY DETAILS</h5>
-                  
-                            <div>
-                                <div class="row">
-                                      <div class="col">
-                                          <p>First Name</p>
-                                        {{this.userPolicydetail.firstName}}
-                                      </div>
-                                      <div class="col">
-                                              <p>Last Name</p>
-                                              {{this.userPolicydetail.lastName}}
-                                          </div>
-                                </div>
-                            </div>
-                            <br>
-                            <br>
-                            <div>
+                  <div class="container-fluid content" id="form" *ngIf="showPolicyUser">                  
                                   <div class="row">
                                         <div class="col">
                                             <p>Email</p>
@@ -86,10 +69,9 @@
                                                 {{this.userPolicydetail.mobileNumber}}
                                             </div>
                                   </div>
-                              </div>
+                            
                               <br>
                               <br>
-                              <div>
                                     <div class="row">
                                           <div class="col">
                                               <p>Date of birth</p>
@@ -100,11 +82,9 @@
                                                   {{this.userPolicydetail.policyNumber}}
                                               </div>
                                     </div>
-                                </div>
+                                
                                 <br>
                               <br>
-                  
-                                <div>
                                       <div class="row">
                                             <div class="col">
                                                 <p>City</p>
@@ -116,9 +96,8 @@
                                                 </div>
                   
                                       </div>
-                                  </div>
-                  
-                                <div>
+                                                  
+                                
                                   <div class="row">
                                         <div class="col">
                                             <p>Aadhar Document</p>
@@ -126,10 +105,9 @@
                                         </div>
                   
                                   </div>
-                              </div>
-                                  <br>
+                                 <br>
                                 <br>
-                                <div>
+                              
                                       <div class="row">
                                             <div class="col">
                                                 <p>Nominee Name</p>
@@ -140,31 +118,47 @@
                                                     {{this.userPolicydetail.nominee.relationship}}
                                                 </div>
                                       </div>
-                                  </div>
                                   <br>
                                   <br>
-                  
-                        </div>
-                    </div>
+                                      
+                        
+                      </div>      
                 </tr>
                 </tbody>
               </table>
-        </div>
+            </div>
 
 
-    <!-- <div class="col-md-5 ">
-    <h3>Agents</h3>
-    <ol class="list-group blue" *ngFor="let agent of this.commonService.agents">
-        <li class="list-group-item  list-group-item-success disabled">{{agent.firstName}} {{agent.lastName}}</li>
-      </ol>
-  </div>
-  <div class="col-md-5 ">
-      <h3>Policy Holders</h3>
-      <ol class="list-group  mx-auto justify-content-center" *ngFor="let policyHolder of this.commonService.policyHolders">
-          <li class="list-group-item list-group-item-success">{{policyHolder.firstName}} {{policyHolder.lastName}}</li>
-      </ol>
-    </div> -->
+
 </div>
+<div class= "offset-1 col policyHolder">
+    <div class="row1 ">
+      <h3 class="approved">POLICY HOLDERS</h3>
+    </div>
+    <table class="table table-striped">
+      <thead>
 
+        <tr>
+        <th scope="col">S.no</th>
+        <th scope="col">Name</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let holder of allPolicyHolders; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ holder.firstName }} {{holder.lastName}}</td>
+            <td><button class="btn btn-outline-info" (click)="showAlert (holder)">Show Details</button></td>
+                <div *ngIf="showPolicyUser">
+                  <p>Contact.No:{{holder.mobileNumber}}</p>
+                  <p>Email:{{holder.email}}</p>
+                  <p>City:{{holder.city}}</p>
+                  <p>Date OF Birth:{{holder.dob}}</p>
+                  <p>Policy Status:{{holder.status}}</p>
+               </div>
+               </tr>
+             </tbody>
+            </table>
+           </div>    
 </div>
 </div>

@@ -12,6 +12,7 @@ import { AgentDashboardComponent } from './Components/Dashboard/agent-dashboard/
 import { PolicyholderDashboardComponent } from './Components/Dashboard/policyholder-dashboard/policyholder-dashboard.component';
 import { ProfileComponent } from './Components/Dashboard/profile/profile.component';
 import { PolicyHoldersComponent } from './Components/Dashboard/agent-dashboard/policy-holders/policy-holders.component';
+import { ClaimRequestComponent } from './Components/Dashboard/admin-dashboard/claim-request/claim-request.component';
 
 
 const routes: Routes = [
@@ -69,7 +70,10 @@ const routes: Routes = [
     path:'policy-holders',
     component:PolicyHoldersComponent
   },
-  
+  {
+    path:'claim-request',
+    component:ClaimRequestComponent
+  }
 ];
 
 @NgModule({

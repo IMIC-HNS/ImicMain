@@ -4,3 +4,8 @@
     background-size:initial;
 
 }
+.blue{
+    background: cornflowerblue;
+    color: blue;
+    border-radius: 10px;
+}
